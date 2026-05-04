@@ -12,7 +12,7 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("Horror_Game")
+define config.name = _("Bayangan yang Tertinggal")
 
 
 ## Determines if the title given above is shown on the main menu screen. Set
@@ -30,6 +30,9 @@ define config.version = "1.0"
 ## triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
+Bayangan yang Tertinggal
+
+A Malay horror visual novel prototype.
 """)
 
 
@@ -37,7 +40,7 @@ define gui.about = _p("""
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "Horror_Game"
+define build.name = "BayanganYangTertinggal"
 
 
 ## Sounds and music ############################################################
@@ -48,7 +51,7 @@ define build.name = "Horror_Game"
 
 define config.has_sound = True
 define config.has_music = True
-define config.has_voice = True
+define config.has_voice = False
 
 
 ## To allow the user to play a test sound on the sound or voice channel,
