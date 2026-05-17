@@ -17,11 +17,11 @@ label abandon_ending:
 
     pause 1.5
 
-    narrator "Kampung tu makin kecil dalam cermin pandang belakang."
+    narrator "Kampung tu mengecil dalam cermin pandang belakang."
 
     pause 1.5
 
-    narrator "Dia tak berhenti."
+    narrator "Dia tidak berhenti."
 
     pause 2.0
 
@@ -33,7 +33,7 @@ label abandon_ending:
 
     pause 1.0
 
-    narrator "Jalan terus memanjang."
+    narrator "Jalan berterusan."
 
     pause 2.0
 
@@ -90,7 +90,7 @@ label abandon_scene2:
 
     pause 2.0
 
-    narrator "Dia hampir percaya semua benda okay."
+    narrator "Dia hampir percaya semuanya okay."
 
     pause 1.5
 
@@ -98,11 +98,11 @@ label abandon_scene2:
 
     pause 2.0
 
-    narrator "Dia tak telefon sesiapa."
+    narrator "Dia tidak telefon sesiapa."
 
     pause 1.0
 
-    narrator "Dia tak tengok berita."
+    narrator "Dia tidak tengok berita."
 
     pause 1.0
 
@@ -118,15 +118,15 @@ label abandon_scene2:
 
     pause 2.0
 
-    narrator "Setiap hari yang berlalu buat semua tu rasa lebih mudah untuk dipercayai."
+    narrator "Setiap hari yang berlalu membuatkan ia terasa lebih mudah untuk percaya."
 
     pause 1.5
 
-    narrator "Bahawa semuanya okay."
+    narrator "Bahawa ia okay."
 
     pause 1.5
 
-    narrator "Bahawa semuanya akan okay."
+    narrator "Bahawa ia akan okay."
 
     pause 2.0
 
@@ -159,7 +159,7 @@ label abandon_scene3:
 
     pause 1.0
 
-    narrator "Tanpa sengaja."
+    narrator "Secara tak sengaja."
 
     pause 1.5
 
@@ -206,7 +206,7 @@ label abandon_scene3:
 
     pause 2.0
 
-    narrator "Dia keluar dari kedai."
+    narrator "Dia keluar dari kedai tu."
 
     pause 1.5
 
@@ -263,7 +263,7 @@ label abandon_scene4:
 
     pause 1.5
 
-    melur "Encik dah pergi, kan."
+    melur "Encik dah pergi kan."
 
     pause 5.0
 
@@ -292,7 +292,7 @@ label abandon_scene4:
 
     pause 2.0
 
-    narrator "Phone masih dalam tangan dia."
+    narrator "Telefon masih dalam tangan dia."
 
     pause 2.0
 
@@ -317,7 +317,7 @@ label abandon_scene5:
 
     pause 2.0
 
-    narrator "Tak ada penjelasan."
+    narrator "Tiada penjelasan."
 
     pause 3.0
 
@@ -329,7 +329,7 @@ label abandon_scene5:
 
     pause 2.0
 
-    narrator "Dan dia tak ada kat sana."
+    narrator "Dan dia tidak ada kat sana."
 
     pause 9.0
 

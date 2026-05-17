@@ -39,9 +39,9 @@ label beat1_scene2:
 
     pause 1.0
 
-    narrator "Tempat ni dah lama berdiri."
+    narrator "Dah lama tempat ni berdiri."
     narrator "Kerusi lama. Kipas lama. Menu lama."
-    narrator "Tuan dia pun dah pencen - tapi tak pernah betul-betul lepas tangan."
+    narrator "Tuan dia pun dah pencen - tapi dia tak pernah betul-betul pergi."
 
     pause 1.0
 
@@ -65,25 +65,25 @@ label beat1_scene2:
     # THE MENTION
     # Casual. Not a briefing. Not urgent.
 
-    hafiz "Eh. Kau ada dengar pasal kampung nelayan tu tak?"
+    hafiz "Eh. Kau dengar tak pasal kampung nelayan tu?"
     mc "Mana?"
 
-    hafiz "East coast. Jauh sikit. Aku pun tak ingat nama apa."
-    hafiz "Orang cerita ada beberapa kematian. Dalam dua bulan ni."
-    hafiz "Tiga atau empat kes. Tak sure yang latest tu kira sekali ke tak."
+    hafiz "East coast. Jauh sikit. Entah nama apa."
+    hafiz "Orang cerita ada beberapa kematian. Dua bulan ke belakang."
+    hafiz "Tiga ke empat kes. Tak sure yang terakhir kira ke tak."
 
     # The MC does not react visibly. He listens.
 
     mc "Macam mana mati?"
 
-    hafiz "Itu lah. Orang kampung tak nak cakap banyak."
-    hafiz "Yang keluar cuma - ada benda putih."
+    hafiz "Tu lah. Orang kampung tu tak mau cakap banyak."
+    hafiz "Yang keluar cuma - ada sesuatu yang putih."
     hafiz "Dekat kawasan kubur. Melompat. Bukan jalan macam biasa."
 
     # A beat. Neither of them makes it dramatic.
 
-    hafiz "Entahlah. Mungkin cerita orang kampung je."
-    hafiz "Kau tahu lah. Kampung kecik. Kalau musim tak elok..."
+    hafiz "Entahlah. Orang kampung cakap je kot."
+    hafiz "Kau tahu lah. Kampung kecik. Musim tak elok."
 
     # MC says nothing. He turns this over quietly.
 
@@ -92,13 +92,13 @@ label beat1_scene2:
     show spr_hafiz amused at left
     with dissolve
 
-    hafiz "Sounds like benda jenis kau lah."
+    hafiz "Bunyi macam kau punya jenis lah."
 
     # THE MC SITS WITH IT
     # Hafiz jokes, mostly. The village stays at the back of MC's mind.
 
     narrator "Putih. Melompat. Dekat kubur."
-    narrator "Dia simpan benda tu dalam kepala."
+    narrator "Dia simpan dalam kepala."
 
     pause 1.5
 
@@ -110,7 +110,7 @@ label beat1_scene2:
     # TODO audio: play sfx_phone_ring volume 0.7
     pause 0.7
 
-    narrator "Unknown number."
+    narrator "Nombor tak dikenali."
 
     pause 0.5
 

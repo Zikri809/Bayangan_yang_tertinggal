@@ -17,15 +17,15 @@ label beat3_scene1:
     show spr_mc neutral at center
     with dissolve
 
-    narrator "Pagi datang macam biasa."
+    narrator "Pagi datang macam ia selalu datang."
 
     pause 1.0
 
-    narrator "Tanpa minta izin sesiapa."
+    narrator "Tanpa meminta izin sesiapa."
 
     pause 1.5
 
-    narrator "MC dah pegang beg dia. Senjata semua dah dikeluarkan."
+    narrator "MC dah pegang beg dia. Senjata dah dikeluarkan."
     narrator "Prepared items, tools, notes - everything laid out the night before."
 
     pause 1.0
@@ -45,17 +45,17 @@ label beat3_node1:
     show spr_mc neutral at right
     with dissolve
 
-    narrator "Dia berdiri di luar rumah."
-    narrator "Mungkin takut nak masuk semula."
+    narrator "Dia berada di luar rumah."
+    narrator "Mungkin takut nak masuk dalam."
 
     pause 1.5
 
     mc "Mak Cik okay?"
 
     mak_ros "..."
-    mak_ros "Encik yang malam tadi tu, kan?"
+    mak_ros "Encik yang malam tadi tu kan."
 
-    mc "Ya. Maaf sebab saya tak berjaya hentikan dia."
+    mc "Ya. Maaf sebab tak berjaya hentikan dia."
 
     show spr_mak_ros serious at left
     with dissolve
@@ -69,7 +69,7 @@ label beat3_node1:
         "\"Mak Cik nampak apa malam tadi?\"":
             jump b3_n1_saw
 
-        "\"Mak Cik dengar apa sebelum benda tu datang?\"":
+        "\"Mak Cik dengar apa sebelum ia datang?\"":
             jump b3_n1_heard
 
         "\"Dah berapa kali benda ni berlaku sebelum ni?\"":
@@ -77,22 +77,22 @@ label beat3_node1:
 
 label b3_n1_saw:
 
-    mak_ros "Saya nampak dia dari jauh dulu."
+    mak_ros "Saya nampak ia dari jauh dulu."
     mak_ros "Putih. Besar. Melompat."
     mak_ros "Tapi yang paling - yang paling buat saya takut-"
 
     show spr_mak_ros sad at left
     with dissolve
 
-    mak_ros "Benda tu bukan tengok saya macam binatang tengok mangsa."
+    mak_ros "Benda itu bukan tengok saya macam binatang tengok mangsanya."
 
     pause 1.0
 
-    mak_ros "Dia tengok saya macam - macam dia kenal saya."
+    mak_ros "Ia tengok saya macam - macam ia kenal saya."
 
     pause 2.0
 
-    narrator "MC catat ayat tu."
+    narrator "MC catat pernyataan itu."
 
     $ learned_attack_detail = True
 
@@ -101,7 +101,7 @@ label b3_n1_saw:
 label b3_n1_heard:
 
     mak_ros "Bunyi tu."
-    mak_ros "Saya dengar bunyi tu dulu, sebelum saya nampak apa-apa."
+    mak_ros "Saya dengar bunyi tu dulu sebelum saya nampak apa-apa."
 
     mc "Bunyi macam mana?"
 
@@ -114,7 +114,7 @@ label b3_n1_heard:
 
     pause 1.0
 
-    mak_ros "Bila saya dengar tu - saya fikir ada orang dalam kesusahan."
+    mak_ros "Saya dengar tu - saya fikir ada orang dalam kesusahan."
     mak_ros "Saya keluar nak tengok siapa."
 
     pause 1.5
@@ -147,10 +147,10 @@ label b3_n1_pattern:
     show spr_mak_ros serious at left
     with dissolve
 
-    mak_ros "Dia tak serang semua orang."
-    mak_ros "Ada orang yang dia lalu je. Tak buat apa-apa."
+    mak_ros "Ia tak serang semua orang."
+    mak_ros "Ada orang yang ia lalu je. Tak buat apa-apa."
 
-    mc "Siapa yang dia lalu je tu?"
+    mc "Siapa yang ia lalu je tu?"
 
     mak_ros "Orang yang tak ada kena-mengena dengan keluarga tu."
 
@@ -168,8 +168,8 @@ label b3_n1_close:
 
     pause 1.0
 
-    mak_ros "Dia bukan macam yang orang selalu cerita dalam buku."
-    mak_ros "Dia lebih... sedih daripada tu."
+    mak_ros "Ia bukan macam yang orang selalu cerita dalam buku."
+    mak_ros "Ia lebih lagi - ia lebih sedih dari tu."
 
     pause 2.0
 
@@ -200,7 +200,7 @@ label beat3_node2:
     show spr_villager_a neutral at left
     with dissolve
 
-    villager_a "Encik orang luar, kan?"
+    villager_a "Encik dari luar kan?"
 
     mc "Ha."
 
@@ -211,7 +211,7 @@ label beat3_node2:
     pause 1.0
 
     villager_a "Ada seorang ni - kalau encik jumpa dia-"
-    villager_a "Jangan tanya banyak sangat pasal benda tu."
+    villager_a "Jangan terlalu banyak tanya pasal benda tu."
 
     mc "Siapa?"
 
@@ -233,9 +233,9 @@ label beat3_node2:
 
     pause 2.0
 
-    narrator "Orang-orang kampung tengok dia lalu."
-    narrator "Macam tengok seseorang pergi buat benda"
-    narrator "yang mereka sendiri tak berani nak buat."
+    narrator "Orang-orang tengok dia lalu."
+    narrator "Macam tengok seseorang pergi buat sesuatu"
+    narrator "yang mereka sendiri tak berani buat."
 
     pause 2.0
 
@@ -261,14 +261,14 @@ label beat3_node3_approach:
     pause 1.0
 
     narrator "Tempat ni lain."
-    narrator "Bukan sebab rupa. Rupa dia biasa je."
-    narrator "Tapi ada sesuatu dalam hawa tempat ni."
-    narrator "Berat. Macam apa yang berlaku di sini belum selesai."
+    narrator "Bukan pasal rupa. Rupa dia biasa je."
+    narrator "Tapi ada sesuatu dalam hawa dia."
+    narrator "Berat. Seperti sesuatu yang berlaku di sini belum selesai lagi."
 
     pause 2.0
 
     menu:
-        "Periksa kesan tenaga gelap kat sini.":
+        "Periksa kesan tenaga gelap yang ada kat sini.":
             jump b3_n3_examine_energy
 
         "Tengok kesan pertarungan - bekas tapak kaki, kesan tanah.":
@@ -280,13 +280,13 @@ label beat3_node3_approach:
 label b3_n3_examine_energy:
 
     narrator "Dia duduk berlutut."
-    narrator "Tangan dia dekat, tapi tak sentuh."
-    narrator "Ada sesuatu tertinggal kat sini."
-    narrator "Bukan benda semula jadi."
+    narrator "Tangan dia dekat tapi tak sentuh."
+    narrator "Ada sesuatu yang ditinggal kat sini."
+    narrator "Bukan sesuatu yang semulajadi."
 
     pause 1.5
 
-    narrator "MC pernah rasa benda macam ni sebelum ni."
+    narrator "MC pernah rasa benda macam ni sebelum."
     narrator "Bukan banyak kali."
     narrator "Tapi cukup untuk kenal."
 
@@ -314,14 +314,14 @@ label b3_n3_examine_fight:
 
     narrator "Tanah kat sini lain."
     narrator "Dua puluh tahun dah berlalu."
-    narrator "Tapi tempat yang pernah jadi saksi benda mengerikan -"
-    narrator "benda tu masih tersemat di situ."
+    narrator "Tapi tempat di mana sesuatu yang mengerikan berlaku -"
+    narrator "ia tersemat disitu."
 
     pause 1.5
 
-    narrator "Dua orang pernah bertempur di sini."
-    narrator "MC boleh baca semua tu daripada tanah."
-    narrator "Tak ada siapa keluar hidup-hidup."
+    narrator "Dua orang bertempur disini."
+    narrator "MC boleh baca semua itu daripada tanah."
+    narrator "Tiada yang berjaya keluar hidup-hidup."
 
     pause 1.5
 
@@ -330,7 +330,7 @@ label b3_n3_examine_fight:
     narrator "Dia melihat ke arah bekas tapak kaki yang lebih dalam."
     narrator "Orang yang lawan dengan sepenuh tenaga."
 
-    mc "Dia datang sini dengan sedar yang dia mungkin takkan keluar hidup-hidup."
+    mc "Dia datang sini dengan kesedaran penuh yang dia tak akan dapat keluar dengan selamat."
 
     pause 2.0
 
@@ -343,14 +343,14 @@ label b3_n3_examine_surroundings:
 
     narrator "Dia tengok sekeliling."
     narrator "Tempat ni sedikit jauh dari kawasan kampung."
-    narrator "Jeritlah sekuat mana pun - orang kampung takkan dengar dengan jelas."
+    narrator "Jeritla sekuat mana pun - orang kampung tak akan dengar dengan jelas."
 
     pause 1.5
 
-    narrator "Ada orang datang ke sini dengan sengaja."
-    narrator "Bukan accident."
+    narrator "Seseorang datang ke sini dengan sengaja."
+    narrator "Bukan tanpa sengaja."
     narrator "Bukan tersesat."
-    narrator "Dia datang dengan tujuan. Untuk sesuatu yang dia tak nak orang lain nampak."
+    narrator "Tetapi datang dengan sengaja. Untuk sesuatu yang dia tak nak orang lain nampak."
 
     pause 1.0
 
@@ -375,7 +375,7 @@ label b3_n3_choice2:
         "Simpan dalam kepala. Jangan cakap kuat-kuat.":
             jump b3_n3_devil_silent
 
-        "Sebut nama itu dalam hati. Pastikan ingatan tu betul.":
+        "Sebut nama dalam hati. Pastikan memori tu betul.":
             jump b3_n3_devil_noted
 
         "Ambil sample. Bawa bukti.":
@@ -384,7 +384,7 @@ label b3_n3_choice2:
 label b3_n3_devil_silent:
 
     narrator "Dia diam."
-    narrator "Ada benda yang lebih baik disimpan sorang diri."
+    narrator "Ada perkara yang lebih baik disimpan sorang diri."
     narrator "Buat masa ni."
 
     $ devil_noted = True
@@ -396,8 +396,8 @@ label b3_n3_devil_noted:
     mc "..."
 
     narrator "Dia dah cari benda ni lama."
-    narrator "Bukan ini yang dia cari - tapi kesannya sama."
-    narrator "Benda tu pernah ada dekat sini."
+    narrator "Bukan ini yang dia cari - tetapi ia mempunyai kesan yang sama."
+    narrator "Ia pernah ada dekat sini."
     narrator "Dua puluh tahun lepas."
 
     pause 1.5
@@ -412,8 +412,8 @@ label b3_n3_devil_noted:
 label b3_n3_devil_sample:
 
     narrator "Dia keluarkan kotak kecil dari beg."
-    narrator "Dia ambil sedikit sampel. Bungkus, kemudian simpan."
-    narrator "Mungkin berguna suatu hari nanti."
+    narrator "Ambil sedikit sampel. Bungkus dan simpan."
+    narrator "Ini mungkin berguna suatu hari nanti."
     narrator "Bukan hari ni. Mungkin juga bukan tahun ni."
     narrator "Tapi suatu hari nanti."
 
@@ -454,9 +454,9 @@ label beat3_node4:
 
     pause 1.5
 
-    narrator "Kubur tu ada di situ. Tapi macam orang letak dia di situ sebab terpaksa."
-    narrator "Tak ada nama yang jelas. Tak ada penghormatan penuh."
-    narrator "Dikebumikan tergesa-gesa. Itu yang MC fikir."
+    narrator "Ia ada disitu. Tapi macam orang letak dia kat situ sebab terpaksa."
+    narrator "Tiada nama yang jelas. Tiada penghormatan penuh."
+    narrator "Dikebumikan dengan tergesa-gesa. Ini yang MC fikir."
 
     pause 2.0
 
@@ -479,7 +479,7 @@ label beat3_node4:
     with dissolve
 
     son "Bunuh je lah."
-    son "Jangan banyak tanya. Tak payah cuba nak faham-faham."
+    son "Jangan banyak tanya. Takyah cuba nak faham-faham."
     son "Bunuh je. Habis cerita."
 
     pause 1.5
@@ -505,7 +505,7 @@ label b3_n4_ask_grave:
 
     pause 1.0
 
-    mc "Mungkin ada kaitan dengan kerja saya."
+    mc "Ia mungkin berkaitan dengan kerja saya."
 
     son "Kerja kau adalah untuk bunuh benda tu."
     son "Kubur ni tak ada kaitan."
@@ -513,10 +513,10 @@ label b3_n4_ask_grave:
     pause 1.5
 
     narrator "MC tengok kubur tu lagi."
-    narrator "Dia nampak sesuatu yang patutnya dia sedar dari awal."
-    narrator "Cara dia dikebumikan."
+    narrator "Dia nampak sesuatu yang dia patut kesan dari awal."
+    narrator "Cara ia dikebumikan."
     narrator "Tergesa-gesa. Dan lama."
-    narrator "Lebih daripada 10 tahun."
+    narrator "Lebih dari 10 tahun."
 
     $ found_burial_site = True
     $ learned_rushed_burial = True
@@ -540,7 +540,7 @@ label b3_n4_silent:
     son "Bunuh benda tu dan pergi dari sini."
 
     narrator "MC lihat keadaan kubur tu."
-    narrator "Cara kubur tu digali dan ditanam nampak tergesa-gesa. Macam tak ikhlas."
+    narrator "Cara orang yang gali dan tanam macam dibuat dengan tergesa-gesa, tak ikhlas."
 
     $ found_burial_site = True
 
@@ -554,7 +554,7 @@ label b3_n4_ask_know:
 
     pause 1.0
 
-    son "Benda tu dah lama ada kat kampung ni."
+    son "Benda tu dah ada kat kampung ni lama dah."
     son "Sejak - sejak bapak aku mati."
     son "Bapak aku yang bawak benda tu."
 
@@ -584,10 +584,10 @@ label b3_n4_close:
 
     pause 1.0
 
-    narrator "Lelaki tu masih di sana."
-    narrator "Tengok kubur yang dia kenal dan jaga dari kecil."
+    narrator "Lelaki tu masih kekal disana."
+    narrator "Tengok kubur yang dia kenal dan jaga dari kecil lagi."
     narrator "MC tak tahu siapa yang dikebumikan kat situ."
-    narrator "Tapi dia rasa kubur tu penting."
+    narrator "Tapi dia rasa ia penting."
 
     pause 2.0
 
@@ -606,13 +606,13 @@ label beat3_node5:
     show spr_mc neutral at center
     with dissolve
 
-    narrator "Rumah tu di hujung kampung."
+    narrator "Rumah tu ada kat hujung kampung."
 
     pause 1.0
 
-    narrator "Orang lain dah lama tak lalu kawasan sini."
+    narrator "Orang lain dah lama tak lalu di kawasan sini."
     narrator "Tapi rumah tu masih ada."
-    narrator "Ada tanda-tanda orang masih tinggal. Samar-samar."
+    narrator "Ada tanda-tanda orang tinggal. Samar-samar."
 
     pause 1.5
 
@@ -620,7 +620,7 @@ label beat3_node5:
 
     pause 1.0
 
-    narrator "MC tolak pintu dan masuk."
+    narrator "MC tolak masuk."
 
     scene bg_family_house_int
     with dissolve
@@ -629,7 +629,7 @@ label beat3_node5:
 
     pause 3.0
 
-    narrator "Dia memang dah ada kat situ."
+    narrator "Dia dah ada kat situ."
 
     pause 1.0
 
@@ -637,11 +637,11 @@ label beat3_node5:
 
     pause 1.0
 
-    narrator "Tak terkejut pun."
+    narrator "Tak terkejut."
 
     pause 1.0
 
-    narrator "Macam dia memang tahu akan ada orang datang."
+    narrator "Macam dia tahu ada orang akan datang."
 
     pause 2.0
 
@@ -658,7 +658,7 @@ label beat3_node5:
 
     pause 1.5
 
-    mother "Duduklah."
+    mother "Duduk lah."
 
     mother "Anak saya."
 
@@ -668,7 +668,7 @@ label beat3_node5:
 
     pause 0.8
 
-    mother "Orang kampung tak faham benda tu."
+    mother "Orang kampung tak faham tu."
 
     pause 0.8
 
@@ -678,15 +678,15 @@ label beat3_node5:
 
     mc "Apa yang berlaku?"
 
-    mother "Ada sesuatu datang ke kampung ni."
+    mother "Ada sesuatu yang datang ke kampung ni."
     mother "Dua puluh tahun lepas."
     mother "Sesuatu yang jahat. Betul-betul jahat."
 
     pause 1.0
 
     mother "Anak saya - dia tahu."
-    mother "Dia nampak benda yang orang lain tak nampak."
-    mother "Dari dulu dia memang macam tu."
+    mother "Dia nampak apa yang orang lain tak nampak."
+    mother "Dia sentiasa macam tu."
 
     pause 1.5
 
@@ -695,13 +695,13 @@ label beat3_node5:
     show spr_mother distant at left
     with dissolve
 
-    mother "Dia buat apa yang patut dibuat."
-    mother "Walaupun dia tahu apa yang akan jadi pada diri dia."
+    mother "Dia buat apa yang patut dia buat."
+    mother "Walaupun dia tahu apa yang akan jadi pada dia."
 
     pause 2.0
 
     menu:
-        "\"Macam mana dia tahu apa yang akan jadi?\"":
+        "\"Bagaimana dia tahu apa yang akan jadi?\"":
             jump b3_n5_c1_how
 
         "\"Apa yang jadi pada dia?\"":
@@ -709,8 +709,8 @@ label beat3_node5:
 
 label b3_n5_c1_how:
 
-    mother "Dia tahu sebab dia sendiri yang pilih."
-    mother "Bukan terpaksa. Itu pilihan dia."
+    mother "Dia tahu sebab dia yang pilih."
+    mother "Bukan terpaksa. Tapi atas pilihan."
 
     pause 1.5
 
@@ -725,12 +725,12 @@ label b3_n5_c1_what:
 
     pause 1.0
 
-    mother "Dia dengan benda jahat tu - dua-dua mati."
+    mother "Dia dan benda jahat tu - dua-dua mati."
 
     pause 1.0
 
     mother "Orang kampung nampak dua-dua mati."
-    mother "Mereka tak siasat lebih."
+    mother "Mereka tak selidik lebih."
     mother "Mereka ambil kesimpulan sendiri."
 
     pause 2.0
@@ -741,7 +741,7 @@ label b3_n5_c2_menu:
 
     pause 1.0
 
-    mother "Nak, orang kampung ni -"
+    mother "Anak tahu - orang kampung ni -"
     mother "Mereka bukan orang jahat."
     mother "Mereka cuma - takut."
 
@@ -751,10 +751,10 @@ label b3_n5_c2_menu:
         "\"Saya faham.\" Biar dia tentukan bila nak cakap.":
             jump b3_n5_c2_safe_a
 
-        "\"Kita masih ada masa?\" Bimbang pasal malam ni.":
+        "\"Kita ada masa lagi?\" Bimbang pasal malam ni.":
             jump b3_n5_c2_safe_b
 
-        "\"Beritahu saya semuanya. Sebelum malam ni.\"":
+        "\"Beritahu saya semua. Sebelum malam ni.\"":
             jump b3_n5_c2_truth
 
 label b3_n5_c2_safe_a:
@@ -773,10 +773,10 @@ label b3_n5_c2_safe_a:
 
 label b3_n5_c2_safe_b:
 
-    mc "Kita masih ada masa?"
+    mc "Kita ada masa lagi?"
 
     mother "Ia datang pada waktu malam."
-    mother "Selagi siang - kita masih selamat."
+    mother "Sementara siang - kita masih selamat."
 
     pause 1.0
 
@@ -795,7 +795,7 @@ label b3_n5_c2_safe_b:
 
 label b3_n5_c2_truth:
 
-    mc "Beritahu saya semuanya. Sebelum malam ni."
+    mc "Beritahu saya semua. Sebelum malam ni."
 
     pause 3.0
 
@@ -812,23 +812,23 @@ label b3_n5_c2_truth:
 
     mother "Ada bomoh."
     mother "Dia datang ke kampung ni dua puluh tahun lepas."
-    mother "Kami tak tahu dia datang dari mana. Kami tak tahu kenapa."
-    mother "Dia jahat. Betul-betul jahat. Bukan sebab miskin, sakit, atau marah."
-    mother "Dia cuma jahat. Tanpa alasan."
+    mother "Kami tak tahu dari mana. Kami tak tahu kenapa."
+    mother "Dia jahat. Betul-betul jahat. Bukan kerana miskin atau sakit atau marah."
+    mother "Hanya jahat tanpa alasan."
 
     pause 1.5
 
     mother "Anak saya - dia nampak apa yang bomoh tu buat."
-    mother "Dia nampak orang kampung dalam bahaya."
+    mother "Dia nampak orang-orang kampung dalam bahaya."
 
     pause 1.0
 
     mother "Tapi bomoh tu kuat sangat."
-    mother "Bukan kuat biasa. Kuat sebab dia dapat kuasa daripada sesuatu yang lebih besar."
+    mother "Bukan kuat biasa. Kuat sebab dia dapat kuasa dari sesuatu yang lebih besar."
 
     pause 1.5
 
-    mother "Anak saya - dia tahu dia tak boleh lawan kalau dia tak buat sesuatu."
+    mother "Anak saya - dia tahu dia tak boleh lawan tanpa melakukan sesuatu."
     mother "Sesuatu yang ada harganya."
 
     pause 2.0
@@ -861,7 +861,7 @@ label b3_n5_c2_truth:
     mother "Mereka nampak anak saya dan bomoh tu mati bersama."
     mother "Mereka tak tahu pasal perjanjian tu."
     mother "Mereka tak faham kenapa anak saya boleh lawan bomoh sekuat tu."
-    mother "Mereka fikir - mereka fikir anak saya yang bawa bomoh tu."
+    mother "Mereka fikir - mereka fikir anak saya yang bawak bomoh tu."
 
     pause 2.0
 
@@ -878,12 +878,12 @@ label b3_n5_c2_truth:
     pause 2.5
 
     mother "Cucu saya masih kat sini."
-    mother "Dia benci bapak dia."
+    mother "Dia benci bapaknya."
     mother "Dia tak tahu."
 
     pause 2.0
 
-    mother "Anak saya - dia mati untuk selamatkan orang-orang yang kemudiannya bunuh isteri dia."
+    mother "Anak saya - dia mati untuk selamatkan orang-orang yang kemudiannya bunuh isteri dia sendiri."
 
     pause 3.0
 
@@ -899,7 +899,7 @@ label b3_n5_c2_truth:
 
     mother "Itu sebab dia masih ada."
     mother "Bukan sebab dia jahat."
-    mother "Sebab tak ada siapa tolong dia pergi."
+    mother "Sebab tak ada sesiapa yang tolong dia pergi."
 
     pause 3.0
 
@@ -914,7 +914,7 @@ label b3_n5_c2_truth:
     pause 1.5
 
     narrator "Dia tengok perempuan tua yang duduk kat kerusi tu."
-    narrator "Yang simpan semua ni sorang diri."
+    narrator "Yang dah simpan semua ni sorang diri."
     narrator "Dua puluh tahun."
 
     pause 2.0
@@ -955,12 +955,12 @@ label b3_n5_close:
         narrator "Sebelum malam tiba."
     else:
         narrator "Dia keluar dengan lebih banyak soalan dari jawapan."
-        narrator "Wanita tua tu tahu lebih daripada apa yang dia cakap."
+        narrator "Wanita tua tu tahu lebih dari apa yang dia cakap."
         narrator "Tapi dia tak boleh paksa."
 
         pause 2.0
 
-        narrator "Malam ni dia kena guna apa yang dia ada."
+        narrator "Malam ni dia kena buat dengan apa yang ada."
 
     pause 2.0
 
@@ -976,9 +976,9 @@ label beat3_end:
     scene bg_village_path_day
     with dissolve
 
-    narrator "MC sediakan semua keperluan."
+    narrator "MC sediakan segala keperluan."
     narrator "Senjata yang betul. Perlindungan yang betul."
-    narrator "Semua yang patutnya dibawa malam tadi - sekarang dah ada."
+    narrator "Semua yang patutnya dibawa malam tadi - dah ada sekarang."
 
     pause 2.0
 
@@ -1008,10 +1008,10 @@ label beat3_end:
         narrator "Dia tahu siapa yang datang."
         narrator "Dia tahu ceritanya."
         narrator "Cerita yang dia tahu tu berat."
-        narrator "Lebih berat daripada senjata yang dia pegang."
+        narrator "Lebih berat dari senjata yang dia pegang."
     else:
         narrator "Dia tak tahu semua."
-        narrator "Tapi dia tahu cukup untuk buat kerja yang perlu dibuat."
+        narrator "Tapi dia tahu cukup untuk buat kerja yang patut dilakukan."
 
     pause 2.0
 
@@ -1042,7 +1042,7 @@ label beat3_abandon:
 
     pause 1.5
 
-    narrator "Tanpa pandang belakang, dia tinggalkan kampung itu."
+    narrator "Tanpa melihat ke belakang dia tinggalkan kawasan kampung itu."
 
     pause 2.0
 

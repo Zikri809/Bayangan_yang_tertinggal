@@ -40,8 +40,8 @@ label beat1_scene1:
 
     # TODO audio: play amb_village_night fadein 2.5
 
-    narrator "Malam tu, Kampung Batu Layar senyap macam biasa."
-    narrator "Angin laut bertiup pelan. Lampu rumah semua dah lama padam."
+    narrator "Malam tu, Kampung Batu Layar sunyi macam biasa."
+    narrator "Angin laut bertiup perlahan. Lampu-lampu rumah dah lama padam."
     narrator "Semua orang tidur."
 
     pause 1.0
@@ -54,12 +54,12 @@ label beat1_scene1:
     show spr_nayan neutral at left
     with dissolve
 
-    nayan "Aduh, lambat gila aku balik malam ni..."
-    nayan "Kalau Abah tahu, confirm kena bebel esok pagi."
+    nayan "Aduh, lambatnya aku balik malam ni..."
+    nayan "Abah kalau tau confirm kena bebel esok pagi."
     nayan "Nasib baik rumah dah dekat."
 
     narrator "Dia berjalan sorang-sorang."
-    narrator "Macam malam-malam sebelum ni."
+    narrator "Macam banyak malam-malam sebelum ni."
 
     # THE FIRST WRONG THING
     # TODO audio: gradually lower amb_village_night over 4 seconds, then stop.
@@ -73,18 +73,18 @@ label beat1_scene1:
     nayan "Eh..."
 
     narrator "Nayan berhenti."
-    narrator "Tiba-tiba... senyap."
-    narrator "Bunyi katak hilang. Cengkerik pun tak ada."
+    narrator "Tiba-tiba... sunyi."
+    narrator "Bunyi-bunyi katak dah hilang. Cengkerik pun takde."
 
-    nayan "Pelik lah pulak..."
-    nayan "Eh... kenapa tiba-tiba senyap sangat?"
+    nayan "Pelik la pulak..."
+    nayan "Eh... kenapa senyap je tiba-tiba?"
 
     # POCONG THEME ENTERS
     # TODO audio: play mus_pocong_theme fadein 3.0 volume 0.2
 
     narrator "Angin berhenti."
     narrator "Dia pandang kiri. Pandang kanan."
-    narrator "Jalan tu kosong je."
+    narrator "Jalan tu kosong."
     narrator "Dan dalam senyap tu..."
     narrator "...ada bunyi."
 
@@ -99,15 +99,15 @@ label beat1_scene1:
     nayan "Bunyi... bunyi apa tu?"
 
     narrator "Macam orang menangis."
-    narrator "Tapi lain macam. Macam suara tu datang dari balik sesuatu yang tebal."
-    narrator "Macam kena tahan."
+    narrator "Tapi lain. Macam suara tu datang dari balik sesuatu yang tebal."
+    narrator "Macam ditahan."
 
     show spr_nayan terrified at left
     with flash
 
     nayan "Siapa tu?!"
 
-    narrator "Tak ada jawapan."
+    narrator "Takde jawapan."
 
     pause 1.0
 
@@ -131,8 +131,8 @@ label beat1_scene1:
 
     pause 1.0
 
-    narrator "Ada sesuatu sedang melompat."
-    narrator "Pelan-pelan. Menuju ke arah dia."
+    narrator "Sesuatu sedang melompat."
+    narrator "Perlahan-perlahan. Ke arah dia."
 
     # NAYAN SEES IT
     # Do not show the Pocong directly yet. Suggest a white shape through narration only.
@@ -150,15 +150,15 @@ label beat1_scene1:
 
     pause 0.5
 
-    narrator "Berdiri jauh di hujung jalan tu."
+    narrator "Berdiri jauh hujung jalan tu."
 
     pause 1.5
 
-    narrator "Ia tak bergerak."
+    narrator "Ia tidak bergerak."
 
     pause 1.0
 
-    narrator "Tapi Nayan rasa... benda tu tengah tengok dia."
+    narrator "Tapi Nayan rasa... ia tengok dia."
 
     # TODO audio: raise mus_pocong_theme to 0.4 and play sfx_pocong_cry volume 0.5
 
@@ -168,10 +168,10 @@ label beat1_scene1:
     pause 1.2
     pause 1.2
 
-    nayan "Lari... lari... kenapa kaki ni tak nak gerak?"
+    nayan "Lari- lari- kenapa kaki ni tak nak gerak."
 
     narrator "Kakinya beku."
-    narrator "Mulut dia terbuka, tapi suara tak keluar."
+    narrator "Mulutnya terbuka tapi suara tak keluar."
 
     # TODO audio: play sfx_pocong_hop volume 1.0
     pause 1.0
@@ -221,12 +221,12 @@ label beat1_scene1:
 
     pause 2.0
 
-    narrator "Ada orang menjerit."
+    narrator "Seseorang menjerit."
 
     pause 1.0
 
-    narrator "Sekali sahaja."
-    narrator "Lepas tu, senyap balik."
+    narrator "Satu jeritan sahaja."
+    narrator "Lepas tu senyap balik."
 
     pause 2.5
 
@@ -236,7 +236,7 @@ label beat1_scene1:
 
     pause 1.0
 
-    narrator "Dia dah tak ada."
+    narrator "Dia dah takde."
 
     pause 1.5
 

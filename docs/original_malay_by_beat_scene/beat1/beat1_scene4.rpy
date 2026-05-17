@@ -44,9 +44,9 @@ label beat1_scene4:
 
     # THE TOPIC OPENS
 
-    hafiz "Tadi pasal pocong ke?"
+    hafiz "Pocong ke tadi?"
 
-    mc "Nampak gayanya."
+    mc "Nampaknya."
 
     hafiz "Mana?"
 
@@ -70,21 +70,21 @@ label beat1_scene4:
 
     hafiz "Orang nampak dia melompat?"
 
-    mc "Itu cerita yang sampai kat saya."
+    mc "Itulah cerita yang sampai kat saya."
 
     hafiz "Ha, memang macam tu lah."
     hafiz "Kaki dia terikat. Dalam kafan."
-    hafiz "Sebab tu dia tak boleh jalan. Melompat je lah."
+    hafiz "Sebab tu dia tak boleh jalan. Melompat je la."
 
-    owner "Ada yang kata dia boleh terbang."
+    owner "Ada yang kata ia boleh terbang."
 
     hafiz "Ada jugak yang kata macam tu."
 
-    owner "Bergantung pada siapa yang cerita."
+    owner "Bergantung siapa yang cerita."
 
     # LORE POINT [2] - KAFAN AND THE KNOT
 
-    hafiz "Yang pasti - dia pakai kafan putih."
+    hafiz "Yang pasti - ia pakai kafan putih."
     hafiz "Kain tu ikat kat kepala, kat kaki."
     hafiz "Standard untuk pengebumian Islam."
 
@@ -111,7 +111,7 @@ label beat1_scene4:
 
     hafiz "Tu lah sebab dia jadi pocong."
     hafiz "Bukan sebab jahat. Bukan sebab dia nak kacau orang."
-    hafiz "Dia terikat je. Tak boleh pergi mana-mana."
+    hafiz "Terikat je. Tak boleh pergi mana-mana."
 
     show spr_mc thinking at right
     with dissolve
@@ -124,13 +124,13 @@ label beat1_scene4:
 
     # LORE POINT [4] - BEHAVIOUR
 
-    mc "Dia berkeliaran sebab apa sebenarnya?"
+    mc "Dia berkeliaran sebab apa?"
 
     hafiz "Berkait dengan tempat dia dikebumikan."
     hafiz "Atau tempat dia mati. Bergantung kes."
 
-    owner "Ada yang cakap dia berkait dengan orang yang rapat dengan dia."
-    owner "Atau urusan yang dia rasa belum selesai."
+    owner "Ada yang cakap ia berkait dengan orang yang rapat dengan dia."
+    owner "Yang ia rasa ada urusan yang belum selesai."
 
     owner "Bukan semua pocong sama."
 
@@ -139,7 +139,7 @@ label beat1_scene4:
 
     mc "Ini yang berkeliaran dah berapa lama?"
 
-    hafiz "Kau lagi tahu dari kami."
+    hafiz "Kau tahu lagi baik dari kami."
 
     pause 1.5
 
@@ -148,7 +148,7 @@ label beat1_scene4:
     show spr_owner neutral at center
     with dissolve
 
-    owner "Cerita pasal pocong ni banyak."
+    owner "Ada banyak cerita pasal pocong."
     owner "Yang saya dengar masa muda dulu-"
     owner "Orang tua cakap, kalau nampak pocong-"
     owner "-jangan lari."
@@ -156,20 +156,20 @@ label beat1_scene4:
     hafiz "Sebab dia lagi laju?"
 
     owner "Sebab kalau lari, dia akan kejar."
-    owner "Tapi kalau berdiri diam, kadang-kadang dia berhenti jugak."
+    owner "Tapi kalau berdiri diam, kadang-kadang ia berhenti jugak."
     owner "Kadang-kadang."
 
     hafiz "Air mengalir."
 
     owner "Ha?"
 
-    hafiz "Orang kata pocong tak boleh lintas air mengalir."
+    hafiz "Orang kata pocong tak boleh lintasi air mengalir."
 
     owner "Ada yang percaya macam tu."
     owner "Saya tak pernah nak uji."
 
-    hafiz "Ada yang kata dia akan datang balik ke tempat yang sama."
-    hafiz "Tempat dia mati. Atau tempat dia dikebumikan."
+    hafiz "Ada yang kata ia akan datang balik ke tempat yang sama."
+    hafiz "Tempat ia mati. Atau tempat ia dikebumikan."
     hafiz "Macam ada tali yang tarik dia balik."
 
     owner "Bukan tali."
@@ -190,14 +190,14 @@ label beat1_scene4:
 
     # "Bagi dia pergi dengan betul" echoes Melur's words intentionally.
 
-    mc "Kalau dia dah jadi kuat?"
+    mc "Kalau ia dah dalam keadaan kuat?"
 
-    hafiz "Kena handle dulu."
+    hafiz "Kena kerjakan dulu."
     hafiz "Lemahkan dia. Halang dia. Baru boleh buat upacara tu."
 
-    owner "Ada pocong yang tak boleh dilepaskan dengan cara biasa."
+    owner "Ada pocong yang tak boleh dilepas dengan cara biasa."
     owner "Yang terlalu lama terikat."
-    owner "Atau yang matinya - tak tenang."
+    owner "Atau yang matinya - tidak tenang."
     owner "Itu kes yang lebih rumit."
 
     mc "Ha."
@@ -210,7 +210,7 @@ label beat1_scene4:
         "\"Kalau pengebumian tergesa-gesa - ada bezanya?\"":
             jump beat1_scene4_ask_burial
 
-        "\"Apa yang dia nak, sebenarnya?\"":
+        "\"Apa yang ia nak, sebenarnya?\"":
             jump beat1_scene4_ask_want
 
         "Diam. Simpan semua dalam kepala.":
@@ -221,8 +221,8 @@ label beat1_scene4_ask_burial:
     mc "Kalau pengebumian tergesa-gesa - ada bezanya?"
 
     hafiz "Beza besar."
-    hafiz "Pengebumian Islam ada tertib dia. Ada susunan."
-    hafiz "Kalau buat tergesa-gesa, banyak benda boleh tertinggal."
+    hafiz "Pengebumian Islam ada tertib dia. Ada urutan."
+    hafiz "Kalau tergesa-gesa, banyak benda yang terlepas."
 
     owner "Simpulan tu salah satu."
     owner "Tapi bukan satu-satunya."
@@ -237,7 +237,7 @@ label beat1_scene4_ask_burial:
     hafiz "-sebab mereka marah, atau takut, atau malu-"
     hafiz "-itu lagi teruk."
 
-    owner "Roh tu boleh rasa."
+    owner "Roh tu rasa."
 
     pause 1.5
 
@@ -247,11 +247,11 @@ label beat1_scene4_ask_burial:
 
 label beat1_scene4_ask_want:
 
-    mc "Apa yang dia nak, sebenarnya?"
+    mc "Apa yang ia nak, sebenarnya?"
 
     hafiz "Bergantung pada pocong."
     hafiz "Ada yang cuma nak dilepaskan. Nak pergi."
-    hafiz "Tak kisah pun pasal orang yang masih hidup."
+    hafiz "Tak kisah pun pasal orang hidup."
 
     owner "Ada yang lain."
 
@@ -264,11 +264,11 @@ label beat1_scene4_ask_want:
 
     pause 1.0
 
-    owner "Tapi dia tetap terikat. Walaupun dia ada kehendak."
+    owner "Tapi ia tetap terikat. Walaupun ia ada kehendak."
     owner "Itu yang menyedihkan."
 
     hafiz "Nak buat apa pun tak boleh."
-    hafiz "Sebab dia terikat."
+    hafiz "Sebab ia terikat."
 
     pause 1.5
 
@@ -281,9 +281,9 @@ label beat1_scene4_stay_quiet:
     narrator "Dia tak tanya apa-apa lagi."
     narrator "Cukup untuk sekarang."
 
-    hafiz "Kau boleh handle sorang ke?"
+    hafiz "Boleh handle sorang ke?"
 
-    mc "Tengok dulu macam mana nanti."
+    mc "Tengok dulu macam mana."
 
     pause 1.5
 
@@ -300,7 +300,7 @@ label beat1_scene4_converge:
 
     mc "Malam ni. Atau pagi esok."
 
-    hafiz "Jauh tu. Bawak barang cukup-cukup."
+    hafiz "Jauh. Bawak cukup-cukup."
 
     mc "Ha."
 
@@ -310,13 +310,13 @@ label beat1_scene4_converge:
     with dissolve
 
     owner "Pocong yang lama - yang dah bertahun-tahun terikat-"
-    owner "-dia bukan sekadar terikat secara fizikal."
+    owner "-ia bukan sekadar terikat secara fizikal."
     owner "Ada sesuatu yang berat dalam dirinya."
 
     pause 1.0
 
     owner "Kau kena faham benda tu dulu."
-    owner "Baru boleh bagi dia pergi."
+    owner "Baru boleh bagi ia pergi."
 
     # KEY LINE - NEVER CHANGE:
     # "Ada sesuatu yang berat dalam dirinya."
@@ -343,7 +343,7 @@ label beat1_scene4_go_alone:
     mc "Tak payah. Aku pergi sorang."
 
     hafiz "Okay."
-    hafiz "Kalau ada apa-apa, call aku."
+    hafiz "Kalau ada apa-apa, call."
 
     mc "Ha."
 
@@ -364,7 +364,7 @@ label beat1_scene4_hafiz_drives:
     hafiz "Ha. Jom."
 
     narrator "Mereka keluar bersama."
-    narrator "Hafiz tak tanya lebih-lebih. Itu pun dah cukup."
+    narrator "Hafiz tak tanya lebih. Itu pun cukup."
 
     $ hafiz_drives = True
 

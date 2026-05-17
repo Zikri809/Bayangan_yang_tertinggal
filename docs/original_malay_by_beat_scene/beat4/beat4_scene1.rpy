@@ -15,11 +15,11 @@ label beat4_open:
     show spr_mc focused at right
     with dissolve
 
-    narrator "Benda tu datang dari arah yang dia dah jangka."
+    narrator "Ia datang dari arah yang telah dijangkakan."
 
     pause 1.5
 
-    narrator "Kali ni dia ready."
+    narrator "Kali ni dia bersedia."
 
     pause 1.0
 
@@ -35,24 +35,24 @@ label beat4_open:
     pause 3.0
 
     if mother_told_truth:
-        narrator "MC pandang arwah tu."
+        narrator "MC menatap arwah."
         pause 1.0
-        narrator "Dia tahu siapa yang ada dalam kain putih tu."
+        narrator "Dia tahu siapa di dalam kain putih tu."
         pause 1.0
-        narrator "Pengetahuan yang berat."
+        narrator "Pengetahuan yang sangat berat."
         pause 1.5
-        narrator "Dia genggam kerisnya."
+        narrator "Dia menggenggam kerisnya."
         # TODO audio: play sfx_keris_draw
-        narrator "Tangan dia steady."
+        narrator "Tangan dia stabil."
         pause 1.0
-        narrator "Tapi hati dia tak."
+        narrator "Tetapi hatinya tidak."
     else:
-        narrator "MC terus pandang arwah tu."
+        narrator "MC terus menatap erat arwah."
         pause 1.0
-        narrator "Dia datang untuk ini."
+        narrator "Kehadiran dirinya adalah untuk ini."
         pause 1.0
         # TODO audio: play sfx_keris_draw
-        narrator "Dia genggam kerisnya lebih kuat."
+        narrator "Dia menggenggam kerisnya lebih erat."
 
     pause 2.0
 
@@ -67,12 +67,12 @@ label beat4_open:
 
     if arm_injured_severe:
         $ mc_damage = 2
-        narrator "Lengannya yang cedera teruk masih belum sembuh."
-        narrator "Dia tak ada pilihan selain teruskan."
+        narrator "Lengannya cedera teruk masih belum sembuh."
+        narrator "Dia tak ada pilihan lain selain teruskan."
         pause 1.0
     elif arm_injured:
         $ mc_damage = 1
-        narrator "Lengannya cedera, tapi masih boleh digunakan."
+        narrator "Lengannya cedera tapi masih boleh digunakan."
         pause 1.0
 
     if mc_shaken:
@@ -89,15 +89,15 @@ label beat4_r1:
 
     narrator "Ia bergerak."
     narrator "Lebih laju dari semalam."
-    narrator "Atau mungkin ingatan dia yang salah."
+    narrator "Atau mungkin ingatan tersebut salah."
 
     pause 1.5
 
     menu:
-        "Jangan berganjak. Baca ayat perlindungan dulu.":
+        "Tidak berganjak. Baca ayat perlindungan dulu.":
             jump b4_r1_protect
 
-        "Serang dulu - halang sebelum dia mendekat.":
+        "Serang terlebih dahulu - halang sebelum ia mendekat.":
             jump b4_r1_strike
 
         "Beranjak ke tepi. Tengok corak pergerakannya dulu.":
@@ -108,8 +108,8 @@ label b4_r1_protect:
     # TODO audio: play sfx_prayer_low volume 0.6
 
     narrator "Dia baca ayat perlindungan."
-    narrator "Cepat. Tepat. Dah lama hafal."
-    narrator "Benda tu perlahan."
+    narrator "Cepat. Tepat. Dah hafal lama dah."
+    narrator "Ia melambat."
     narrator "Sikit. Tapi cukup."
 
     pause 1.0
@@ -120,13 +120,13 @@ label b4_r1_protect:
 
 label b4_r1_strike:
 
-    narrator "MC meluru ke depan."
+    narrator "MC meluru ke hadapan."
 
     # TODO audio: play sfx_keris_strike
 
     narrator "Keris berjaya menembus."
     narrator "Bukan macam kena benda fizikal."
-    narrator "Lebih macam - ada sesuatu bergetar."
+    narrator "Lebih macam - ada yang bergetar."
     narrator "Ia berundur dua langkah."
 
     pause 1.0
@@ -139,7 +139,7 @@ label b4_r1_strike:
         if mc_damage >= 3:
             jump beat4_death
     else:
-        narrator "Tak ada apa-apa yang berlaku."
+        narrator "Tiada apa yang berlaku."
 
     jump beat4_r2
 
@@ -150,12 +150,12 @@ label b4_r1_observe:
 
     pause 1.0
 
-    narrator "MC perhatikan cara dia bergerak."
-    narrator "Cara dia mendarat. Cara dia berpusing."
+    narrator "MC perhatikan cara ia bergerak."
+    narrator "Cara ia mendarat. Cara ia berpusing."
 
     if b2_pak_zul_advice_used:
         narrator "Abang Zulkifli betul."
-        narrator "Kalau diam, dia lambat sikit sebelum menyerang balik."
+        narrator "Kalau diam, ia lambat sikit sebelum menyerang balik."
         narrator "Ada jeda. Kecil. Tapi ada."
         $ b4_pattern_read = True
 
@@ -214,7 +214,7 @@ label b4_r2_block:
         narrator "Dia angkat lengan yang cedera."
         narrator "Benda tu menghantam tepat kat tempat yang sama."
         pause 1.0
-        narrator "Bunyi yang tak patut keluar dari lengan dia."
+        narrator "Bunyi yang tidak diingini terhasil dari lengannya."
         narrator "Dia jatuh berlutut."
         $ mc_damage += 1
         $ arm_injured_severe = True
@@ -233,12 +233,12 @@ label b4_r2_block:
 label b4_r2_advance:
 
     narrator "Dia maju ke depan."
-    narrator "Tak laju sangat - terkawal."
+    narrator "Tidaklah laju - terkawal."
 
     # TODO audio: play sfx_prayer_low volume 0.4
 
-    narrator "Bacaan ayat tetap di bibir dia."
-    narrator "Pocong tu - dia berhenti melempar."
+    narrator "Bacaan ayat setia di bibir dia."
+    narrator "Pocong tu - ia berhenti melempar."
     narrator "Macam ada sesuatu yang menghalang."
 
     pause 1.5
@@ -277,7 +277,7 @@ label b4_r2b_use:
 
     # TODO audio: play sfx_keris_strike
 
-    narrator "Keris ditikam dengan tepat."
+    narrator "Keris ditikam tepat."
     narrator "Pocong tu terhuyung-hayang."
     narrator "Lebih dari tadi."
 
@@ -304,14 +304,14 @@ label beat4_r3:
 
     pause 0.5
 
-    narrator "Benda tu sedang bersedia."
+    narrator "Ia sedang bersiap sedia."
 
     pause 0.5
 
     if mc_condition == "deaf":
         narrator "MC tak dengar kesunyian tu."
-        narrator "Tapi dia nampak benda tu berubah."
-        narrator "Pergerakan badan tu. Cara dia tarik nafas."
+        narrator "Tapi dia nampak ia berubah."
+        narrator "Pergerakan badan tu. Cara ia menarik nafas."
         narrator "Dia tahu."
         pause 1.0
 
@@ -326,7 +326,7 @@ label beat4_r3:
             "Baca ayat perlindungan kuat-kuat - potong serangan.":
                 jump b4_r3_recite
 
-            "Melompat terus ke arahnya sebelum dia lepaskan serangan.":
+            "Melompat terus ke arahnya sebelum ia lepaskan serangan.":
                 jump b4_r3_lunge
     else:
         menu:
@@ -336,7 +336,7 @@ label beat4_r3:
             "Baca ayat perlindungan kuat-kuat - potong serangan.":
                 jump b4_r3_recite
 
-            "Melompat terus ke arahnya sebelum dia lepaskan serangan.":
+            "Melompat terus ke arahnya sebelum ia lepaskan serangan.":
                 jump b4_r3_lunge_failed
 
 label b4_r3_cover:
@@ -359,14 +359,14 @@ label b4_r3_cover:
 
     # TODO audio: play amb_village_night on ambient channel fadein 1.0
 
-    narrator "Dia tahan."
+    narrator "Dia bertahan."
     narrator "Telinga dia - okay. Lebih kurang."
 
     if mc_damage >= 2:
         $ mc_condition = "deaf"
         show spr_mc deaf at right
         with dissolve
-        narrator "Tapi ada sesuatu yang tak betul."
+        narrator "Tapi ada sesuatu yang tidak betul."
         narrator "Dia sedar - dunia jadi senyap."
         narrator "Bukan senyap biasa. Senyap yang kekal."
     else:
@@ -380,7 +380,7 @@ label b4_r3_recite:
     # TODO audio: play sfx_prayer_low volume 1.0
 
     narrator "Dia baca kuat-kuat."
-    narrator "Suara dia melawan suara yang akan datang."
+    narrator "Suara dia lawan suara yang akan datang."
 
     pause 0.8
 
@@ -403,7 +403,7 @@ label b4_r3_recite:
     # TODO audio: play amb_village_night on ambient channel fadein 1.0
 
     narrator "Ia kena. Tapi tak teruk."
-    narrator "Bacaan tu - ada kesan."
+    narrator "Bacaan itu - ia buat sesuatu."
 
     # TODO audio: play mus_pocong_theme fadein 2.0 volume 0.25
 
@@ -413,18 +413,18 @@ label b4_r3_recite:
 
 label b4_r3_lunge:
 
-    narrator "MC meluru ke depannya."
-    narrator "Sebelum dia sempat lepaskan serangan."
+    narrator "MC meluru ke hadapannya."
+    narrator "Sebelum ia sempat melepaskan."
 
     # TODO audio: play sfx_keris_strike
 
     narrator "Keris ditikam di tengah."
     narrator "Pocong tu terhuyung-hayang teruk."
-    narrator "Jeritan keramat tu terganggu."
+    narrator "Jeritan keramat terganggu."
 
     pause 1.5
 
-    narrator "MC hampir tak percaya benda tu berkesan."
+    narrator "MC hampir tak percaya ia berhasil."
 
     $ b4_close_range = True
     $ b4_r3_clean = True
@@ -450,15 +450,15 @@ label beat4_r4:
     pause 0.8
     # TODO audio: play sfx_pocong_hop volume 0.9
 
-    narrator "Benda tu masih ada di situ."
+    narrator "Ia masih ada disitu."
 
     pause 1.0
 
-    narrator "Tapi benda tu berbeza sekarang."
+    narrator "Tapi ia berbeza sekarang."
 
     if mother_told_truth:
         narrator "Atau mungkin MC yang berbeza."
-        narrator "Dia tengok benda tu dan nampak lebih daripada sekadar benda putih yang menakutkan."
+        narrator "Dia tengok ia dan nampak lebih dari sekadar benda putih yang menakutkan."
         pause 1.5
     else:
         narrator "Lebih tersepit. Lebih putus asa."
@@ -470,7 +470,7 @@ label beat4_r4:
         "Halang dengan lengan.":
             jump b4_r4_block
 
-        "Lompat ke tepi. Biar benda tu langgar dinding.":
+        "Lompat ke tepi. Biar ia langgar dinding.":
             jump b4_r4_dodge
 
         "Gunakan keris - potong trajektori benda tu.":
@@ -486,14 +486,14 @@ label b4_r4_block:
         narrator "Untuk kali terakhir."
         pause 1.0
         narrator "Bunyi tulang yang patah adalah bunyi yang dia kenal."
-        narrator "Dia pernah dengar bunyi tu pada orang lain."
+        narrator "Dia pernah dengar ia pada orang lain."
         narrator "Sekarang giliran dia."
         pause 1.5
         $ mc_condition = "arm_lost"
         $ mc_damage += 1
         if mc_damage >= 3:
             jump beat4_death
-        narrator "Lengan tu dah tak berguna."
+        narrator "Lengan itu tidak berguna lagi."
         narrator "Dia masih berdiri."
     elif arm_injured:
         narrator "Hentaman kena lengan yang cedera."
@@ -518,7 +518,7 @@ label b4_r4_dodge:
 
     # TODO audio: play sfx_object_heavy_crash volume 0.9
 
-    narrator "Benda tu melanggar dinding rumah lama tepi jalan."
+    narrator "Benda tu melanggar dinding rumah lama di tepi jalan."
     narrator "Dinding tu retak."
 
     pause 1.0
@@ -537,11 +537,11 @@ label b4_r4_cut:
     pause 1.0
 
     narrator "MC tak pernah cuba buat tu sebelum ni."
-    narrator "Dia pun tak tahu benda tu akan berkesan."
+    narrator "Dia pun tak tahu ia akan berhasil."
 
     pause 1.0
 
-    narrator "Tapi menjadi."
+    narrator "Tapi berhasil."
 
     $ b4_pocong_weakened = True
 
@@ -554,7 +554,7 @@ label beat4_r4_close:
         # TODO audio: play sfx_body_hit volume 1.0
 
         narrator "Pocong tu serang balik."
-        narrator "Dengan semua yang dia ada."
+        narrator "Dengan semua yang ia ada."
 
         pause 1.0
 
@@ -591,8 +591,8 @@ label b4_r4_struggle_up:
 
     if mc_damage >= 2:
         narrator "Ada benda yang tak kena dengan kakinya."
-        narrator "Dia boleh berdiri. Tapi tak boleh lari."
-        narrator "Tak boleh kejar."
+        narrator "Dia boleh berdiri. Tapi tidak boleh lari."
+        narrator "Tidak boleh kejar."
         $ mc_condition = "paralysed"
 
     jump beat4_r4b_check
@@ -626,13 +626,13 @@ label beat4_r4b:
     pause 2.0
 
     narrator "Pocong tu berhenti."
-    narrator "Bukan sebab dia kalah."
-    narrator "Tapi macam dia - penat."
+    narrator "Bukan sebab ia kalah."
+    narrator "Tapi seperti ia - penat."
 
     pause 2.0
 
     narrator "MC tengok ia."
-    narrator "Dia fikir tentang apa yang perempuan tua tu cerita."
+    narrator "Dia fikir tentang apa yang perempuan tua tu cakap."
     narrator "Tentang anak dia."
     narrator "Tentang dua puluh tahun lalu."
 
@@ -642,7 +642,7 @@ label beat4_r4b:
         "Teruskan serangan. Habiskan sekarang.":
             jump b4_r4b_fight
 
-        "Berhenti. Cakap dengan dia.":
+        "Berhenti. Bercakap dengannya.":
             jump b4_r4b_speak
 
 label b4_r4b_fight:
@@ -660,8 +660,8 @@ label b4_r4b_speak:
 
     pause 2.0
 
-    narrator "Pocong tu - dia masih ada. Masih dekat."
-    narrator "Tapi dia tak menyerang."
+    narrator "Pocong tu - ia masih ada. Masih dekat."
+    narrator "Tapi ia tidak menyerang."
 
     pause 2.0
 
@@ -677,7 +677,7 @@ label b4_r4b_speak:
 
     pause 2.0
 
-    mc "Ibu kau - dia cerita semuanya."
+    mc "Ibu kau - dia cerita."
 
     pause 3.0
 
@@ -703,17 +703,17 @@ label b4_r4b_speak:
     pause 3.0
 
     narrator "MC berjalan ke arahnya."
-    narrator "Pelan. Tanpa senjata."
+    narrator "Perlahan. Tanpa senjata."
 
     # TODO audio: play sfx_prayer_low volume 0.5
 
     narrator "Dia baca doa dengan perlahan."
-    narrator "Bukan untuk lawan dia."
-    narrator "Tapi untuk temankan dia."
+    narrator "Bukan untuk lawan ia."
+    narrator "Tetapi untuk teman ia."
 
     pause 2.0
 
-    narrator "Lepas tu, dia buka simpulan tu."
+    narrator "Dan kemudian dia buka simpulan tu."
 
     # TODO audio: play sfx_knot_untied
 
@@ -764,7 +764,7 @@ label beat4_r5:
         narrator "MC dengar sesuatu dalam jeritan tu yang dia tak boleh abaikan."
         narrator "Dia tetap teruskan."
     else:
-        narrator "Bunyi yang sakitkan telinga."
+        narrator "Bunyi yang menyakitkan telinga."
 
     pause 1.5
 
@@ -772,7 +772,7 @@ label beat4_r5:
         "Serangan penuh - habiskan.":
             jump b4_r5_full_attack
 
-        "Baca doa penutup - halang dia daripada lari lagi.":
+        "Baca doa penutup - halang ia dari lari lagi.":
             jump b4_r5_prayer
 
         "Gunakan semua yang ada - keris dan bacaan serentak.":
@@ -788,7 +788,7 @@ label b4_r5_full_attack:
         narrator "Dari lutut. Dari tanah."
         narrator "Ia kena."
     else:
-        narrator "Dia bagi habis."
+        narrator "Dia bagi semua."
 
     # TODO audio: play sfx_keris_strike
     # TODO audio: play sfx_pocong_cry volume 1.0
@@ -813,7 +813,7 @@ label b4_r5_full_attack:
 
     pause 1.0
 
-    narrator "Macam sesuatu yang tak faham kenapa dia jatuh."
+    narrator "Seperti sesuatu yang tak faham kenapa ia jatuh."
 
     pause 2.0
 
@@ -830,7 +830,7 @@ label b4_r5_prayer:
 
     pause 2.0
 
-    narrator "Pocong tu - dia terhuyung-hayang."
+    narrator "Pocong tu - ia terhuyung-hayang."
     narrator "Macam ada dinding yang semakin menghimpit."
 
     pause 1.5
@@ -858,12 +858,12 @@ label b4_r5_combined:
 
     pause 1.0
 
-    narrator "Bukan benda yang mudah nak dibuat."
+    narrator "Ia bukan benda yang mudah dilakukan."
     narrator "Tapi MC dah lama buat kerja ni."
 
     pause 1.5
 
-    narrator "Pocong tu - dia rebah."
+    narrator "Pocong tu - ia rebah."
 
     # TODO audio: play sfx_arwah_cry_pain volume 0.5
 
@@ -886,7 +886,7 @@ label beat4_r5_close:
 
     pause 3.0
 
-    narrator "Benda tu terbaring di tanah."
+    narrator "Ia terbaring di tanah."
     narrator "Masih."
 
     pause 2.0
@@ -939,11 +939,11 @@ label beat4_death:
 
     pause 1.5
 
-    narrator "Dia cuba bangun."
+    narrator "Dia cuba untuk bangun."
 
     pause 1.0
 
-    narrator "Dia tak berjaya."
+    narrator "Dia tidak berjaya."
 
     pause 2.0
 
@@ -964,8 +964,8 @@ label beat4_close:
 
     pause 3.0
 
-    narrator "Kampung tu senyap."
-    narrator "Bukan senyap pelik macam malam-malam sebelum ni."
+    narrator "Kawasan kampung tu senyap."
+    narrator "Bukan senyap yang pelik dari malam-malam sebelum ni."
     narrator "Senyap yang biasa."
 
     pause 2.0
@@ -989,11 +989,11 @@ label beat4_close:
         pause 1.0
         narrator "Dia pegang kerisnya."
         pause 1.0
-        narrator "Dia rasa sesuatu yang dia tak boleh jelaskan."
+        narrator "Dia rasa sesuatu yang dia tak boleh definisikan."
         pause 1.5
         narrator "Macam ada sesuatu yang dia patut tahu."
         pause 1.0
-        narrator "Tapi sekarang dah terlambat."
+        narrator "Tapi terlambat sekarang."
 
     pause 3.0
 

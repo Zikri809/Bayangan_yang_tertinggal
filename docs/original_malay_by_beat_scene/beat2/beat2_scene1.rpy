@@ -59,7 +59,7 @@ label beat2_scene1:
     pause 1.0
 
     narrator "Bukan gelap sebab tak ada lampu."
-    narrator "Gelap macam tempat yang dah terlalu biasa dengan gelap."
+    narrator "Gelap macam tempat yang dah biasa dengan gelap."
 
     pause 1.5
 
@@ -70,13 +70,13 @@ label beat2_scene1:
 
         pause 1.0
 
-        hafiz "Nak masuk terus ke?"
+        hafiz "Nak masuk terus?"
         mc "Jap. Rehat dulu."
         hafiz "Ha."
 
         pause 2.0
 
-        hafiz "Aku nak pergi toilet jap. Tadi aku nampak ada surau tepi jalan."
+        hafiz "Aku nak pi toilet jap. Nampak tadi ada surau tepi jalan."
         mc "Ha. Pergi."
 
         hide spr_hafiz
@@ -91,8 +91,8 @@ label beat2_scene1:
 
     pause 3.0
 
-    narrator "Dia rasa penat perjalanan sampai ke tulang."
-    narrator "Kejap lagi baru masuk."
+    narrator "Dia rasa penat perjalanan dalam tulang-tulangnya."
+    narrator "Jap lagi baru masuk."
     narrator "Jap lagi."
 
     pause 2.0
@@ -118,7 +118,7 @@ label beat2_scene1:
 
     # TODO audio: play sfx_distant_scream volume 1.0
 
-    narrator "Lebih daripada seorang."
+    narrator "Lebih dari seorang."
 
     pause 0.5
 
@@ -147,11 +147,11 @@ label beat2_scene1:
     show spr_villager_1 terrified at left
     with dissolve
 
-    villager_1 "Ada... ada benda... kat sana..."
+    villager_1 "Ada... ada... kat sana..."
 
     mc "Berapa orang kat depan?"
 
-    villager_1 "Mak Cik Ros... dia kat depan..."
+    villager_1 "Mak Cik Ros... dia ada kat depan..."
 
     narrator "MC terus lari."
 
@@ -167,9 +167,9 @@ label beat2_scene1:
     pause 0.8
     # TODO audio: play sfx_pocong_cry volume 0.6
 
-    narrator "Dia dengar benda tu sebelum dia nampak."
+    narrator "Dia dengar ia sebelum dia nampak ia."
     narrator "Bunyi tu."
-    narrator "Macam tangisan. Macam ada sesuatu menangis dalam kain."
+    narrator "Macam tangisan. Macam sesuatu yang menangis dalam kain."
     narrator "Dan bunyi lompatan tu."
     narrator "Perlahan. Kuat. Dekat."
 
@@ -177,7 +177,7 @@ label beat2_scene1:
 
     mc "Hei!"
 
-    narrator "Benda tu pusing."
+    narrator "Ia pusing."
     narrator "Ke arah dia."
 
     pause 1.0
@@ -189,14 +189,14 @@ label beat2_scene1:
     # TODO audio: play sfx_pocong_hop volume 1.0
     pause 0.8
 
-    narrator "Benda tu semakin dekat."
-    narrator "Pelan-pelan. Tapi MC tahu - untuk pocong, pelan pun dah cukup laju."
+    narrator "Ia menghampiri."
+    narrator "Perlahan-perlahan. Tapi MC tahu - bagi pocong, perlahan dah cukup laju."
 
     menu:
-        "Jerit kuat-kuat untuk beri amaran kat orang kampung lain.":
+        "Jerit kuat untuk bagi amaran kat orang kampung lain.":
             jump b2_r1_shout
 
-        "Ambil apa-apa yang ada tepi jalan - kayu, batu.":
+        "Ambil apa-apa yang ada di tepi jalan - kayu, batu.":
             jump b2_r1_grab
 
         "Berdiri teguh. Jangan gerak. Tengok dulu.":
@@ -206,7 +206,7 @@ label b2_r1_shout:
 
     mc "Semua orang masuk rumah! Kunci pintu! Jangan keluar!"
 
-    narrator "Mak Cik Ros sempat masuk ke rumah jiran."
+    narrator "Mak Cik Ros berjaya masuk ke dalam rumah jiran."
     narrator "Satu nyawa selamat."
 
     $ villager_2_safe = True
@@ -215,21 +215,21 @@ label b2_r1_shout:
     pause 0.6
     # TODO audio: play sfx_pocong_hop volume 1.0
 
-    narrator "Tapi sekarang benda tu datang terus ke arah MC."
-    narrator "Tak ada lagi orang lain antara mereka."
+    narrator "Tapi sekarang ia datang terus ke arah MC."
+    narrator "Tiada lagi orang lain antara mereka."
 
     jump b2_round2
 
 label b2_r1_grab:
 
-    narrator "Dia pandang tepi. Ada sebatang kayu lama. Patah."
-    narrator "Bukan senjata pun. Tapi ada benda dalam tangan lagi baik daripada kosong."
+    narrator "Dia tengok tepi. Sepotong kayu lama. Patah."
+    narrator "Bukan senjata. Tapi ada dalam tangan lebih baik dari kosong."
 
     mc "Okay."
 
     narrator "Dia hayun kayu tu."
-    narrator "Kayu tu lalu terus - macam pukul angin."
-    narrator "Tapi cukup untuk buat benda tu berhenti sekejap."
+    narrator "Ia lalu terus melalui - macam pukul angin."
+    narrator "Tapi ia buat ia berhenti sekejap."
 
     $ b2_tried_wood = True
     $ villager_2_safe = True
@@ -241,13 +241,13 @@ label b2_r1_grab:
 label b2_r1_hold:
 
     narrator "Dia berdiri diam."
-    narrator "Tadi Abang Zul cakap - jangan lari."
+    narrator "Abang Zul cakap tadi - jangan lari."
     narrator "Dia ingat tu."
 
     pause 1.5
 
-    narrator "Benda tu perlahan sedikit."
-    narrator "Masih datang. Tapi tak secepat tadi."
+    narrator "Ia melambatkan langkah."
+    narrator "Masih datang. Tapi perlahan."
 
     $ b2_pak_zul_advice_used = True
     $ villager_2_safe = True
@@ -269,7 +269,7 @@ label b2_round2:
 
     pause 0.5
 
-    narrator "Dan dia rasa - sesuatu akan jadi."
+    narrator "Dan dia rasa - sesuatu akan berlaku."
 
     pause 0.5
 
@@ -293,9 +293,9 @@ label b2_shriek_cover:
 
     # TODO audio: play sfx_object_heavy_crash volume 1.0
 
-    narrator "Sesuatu yang berat menghentam badan dia dari tepi."
+    narrator "Sesuatu yang berat hentam badannya dari tepi."
     narrator "Dia tak nampak dari mana."
-    narrator "Dia cuma sempat rasa impaknya."
+    narrator "Ia hanya rasa."
 
     scene bg_village_path_night
     with fade
@@ -307,7 +307,7 @@ label b2_shriek_cover:
 
     narrator "MC terpelanting. Jatuh ke tanah."
     narrator "Bahu dia. Rusuk dia."
-    narrator "Ada sesuatu yang tak kena."
+    narrator "Ada yang tidak betul."
 
     $ shriek_covered = True
     $ arm_injured = True
@@ -336,12 +336,12 @@ label b2_shriek_take:
     narrator "MC jatuh ke lutut."
     narrator "Telinga dia berbunyi."
     narrator "Bukan bunyi biasa - bunyi yang duduk dalam kepala"
-    narrator "dan tak nak hilang."
+    narrator "dan tak mahu pergi."
 
     pause 1.0
 
     narrator "Dia nampak tanah. Dia nampak tangan dia sendiri."
-    narrator "Yang lain-lain dia tak nampak dengan jelas."
+    narrator "Dia tak nampak yang lain-lain dengan betul."
 
     $ shriek_covered = False
     $ mc_shaken = True
@@ -352,7 +352,7 @@ label b2_round3:
 
     # TODO audio: play sfx_pocong_cry volume 0.5
 
-    narrator "Lepas tu benda tu buat sesuatu yang lain."
+    narrator "Dan kemudian ia buat sesuatu yang lain."
     narrator "MC nampak sesuatu bergerak."
     narrator "Berat. Gelap. Dari tepi."
 
@@ -360,7 +360,7 @@ label b2_round3:
         "Halang dengan tangan.":
             jump b2_block_arm
 
-        "Gerak tepi. Biar benda tu lalu.":
+        "Gerak tepi. Biar ia lalu.":
             jump b2_roll_aside
 
 label b2_block_arm:
@@ -371,13 +371,13 @@ label b2_block_arm:
     with flash
 
     narrator "Dia angkat tangan."
-    narrator "Benda tu menghentam."
-    narrator "Ada bunyi yang salah keluar dari lengan dia."
+    narrator "Ia hentam."
+    narrator "Bunyi yang salah keluar dari lengan dia."
 
     pause 1.0
 
     narrator "Dia tahu bunyi tu."
-    narrator "Dia pernah dengar bunyi tu sebelum ni - pada orang lain."
+    narrator "Dia pernah dengar ia sebelum ni - pada orang lain."
 
     pause 1.0
 
@@ -393,8 +393,8 @@ label b2_block_arm:
 
     narrator "Seorang lelaki - orang kampung yang MC tak kenal -"
     narrator "berlari keluar nak tolong."
-    narrator "Benda tu kena dia."
-    narrator "Sepatutnya MC yang kena."
+    narrator "Ia kena dia."
+    narrator "Ia yang patut kena MC."
 
     pause 1.5
 
@@ -405,7 +405,7 @@ label b2_block_arm:
 label b2_roll_aside:
 
     narrator "Dia tolak dirinya ke tepi."
-    narrator "Benda tu lalu. Terhentak ke dinding rumah orang."
+    narrator "Benda tu lalu. Terhantuk ke dinding rumah orang."
 
     # TODO audio: play sfx_object_heavy_crash volume 0.8
 
@@ -431,7 +431,7 @@ label b2_round4:
 
     pause 1.0
 
-    narrator "Kemudian - perlahan-lahan - benda tu berundur."
+    narrator "Dan kemudian - perlahan-lahan - ia berundur."
 
     # TODO audio: play sfx_pocong_hop volume 0.5
     pause 2.0
@@ -446,15 +446,15 @@ label b2_round4:
     pause 2.0
 
     narrator "Ia pergi."
-    narrator "Entah pergi mana."
+    narrator "Entah ke mana."
 
     pause 1.5
 
     $ fc_stood_ground = True
 
     narrator "Dia nampak sesuatu malam tu."
-    narrator "Sebelum benda tu pergi."
-    narrator "Bukan benda yang senang nak diceritakan dengan kata-kata."
+    narrator "Sebelum ia pergi."
+    narrator "Bukan sesuatu yang boleh dia ceritakan dengan kata-kata."
     narrator "Tapi dia simpan."
 
     pause 2.0
@@ -488,7 +488,7 @@ label b2_aftermath:
     mc "Orang luar. Baru sampai."
 
     villager_1 "..."
-    villager_1 "Encik okay ke?"
+    villager_1 "Encik okay?"
 
     mc "Ha."
 
@@ -502,7 +502,7 @@ label b2_aftermath:
         show spr_hafiz serious at left
         with dissolve
 
-        hafiz "Apa yang jadi?"
+        hafiz "Apa jadi?"
 
         show spr_mc shaken at right
         with dissolve
@@ -511,7 +511,7 @@ label b2_aftermath:
 
         pause 1.0
 
-        hafiz "Kau okay ke?"
+        hafiz "Kau okay?"
         mc "Masih boleh jalan."
 
         narrator "Hafiz bantu dia bangun."
@@ -530,7 +530,7 @@ label b2_aftermath:
 
         pause 1.0
 
-        narrator "Orang kampung masih bersembunyi."
+        narrator "Orang kampung tu menyembunyikan diri."
         narrator "Dia faham tu."
 
         pause 1.5
@@ -555,13 +555,13 @@ label b2_dawn_with_hafiz:
 
     pause 3.0
 
-    hafiz "Tadi kau tak bawak apa-apa masuk?"
+    hafiz "Kau tak bawak apa-apa masuk tadi?"
     mc "Ha."
 
     pause 1.5
 
     hafiz "Kuat jugak dia."
-    mc "Lebih daripada yang aku sangka."
+    mc "Lebih dari yang aku sangka."
 
     pause 1.5
 
@@ -596,7 +596,7 @@ label b2_dawn_with_hafiz:
     hide spr_hafiz
     with dissolve
 
-    narrator "MC tengok kereta tu sampai hilang dalam gelap."
+    narrator "MC tengok kereta tu sampai ia hilang dalam gelap."
 
     pause 2.0
 
@@ -635,7 +635,7 @@ label b2_dawn_alone:
 
     pause 0.8
 
-    narrator "Dan dia tak buat apa-apa pun untuk hentikan semua tu."
+    narrator "Dan dia tak buat apa pun untuk hentikannya."
 
     pause 2.5
 
@@ -643,7 +643,7 @@ label b2_dawn_alone:
     narrator "Bukan salah sebab tergesa-gesa."
     narrator "Salah sebab dia datang dengan tangan kosong."
     narrator "Salah sebab dia fikir dia boleh rehat dulu."
-    narrator "Salah sebab dia ingat benda tu boleh tunggu."
+    narrator "Salah sebab dia rasa ia boleh tunggu."
 
     pause 3.0
 
@@ -657,7 +657,7 @@ label b2_dawn_alone:
 
     narrator "Langit mula berubah."
     narrator "Perlahan sangat."
-    narrator "Macam langit pun tak pasti nak terus atau tidak."
+    narrator "Macam ia pun tak pasti nak terus atau tidak."
 
     pause 2.0
 
@@ -671,8 +671,8 @@ label b2_dawn_alone:
     pause 1.0
 
     narrator "Dia dah dengar bunyi macam tu sebelum."
-    narrator "Selalunya daripada orang yang kehilangan sesuatu."
-    narrator "Bukan daripada benda yang kita datang untuk hentikan."
+    narrator "Selalu dari orang yang kehilangan sesuatu."
+    narrator "Bukan dari yang kita datang untuk hentikan."
 
     pause 3.0
 
@@ -685,8 +685,8 @@ label b2_dawn_alone:
 
     pause 1.5
 
-    narrator "Dia belum tahu semua ni tentang apa."
-    narrator "Tapi dia rasa - ini lebih daripada tu."
+    narrator "Dia tak tahu lagi ia tentang apa."
+    narrator "Tapi dia rasa - ia lebih dari tu."
 
     pause 3.0
 
@@ -710,7 +710,7 @@ label b2_dawn_alone:
 
     pause 1.0
 
-    narrator "Tapi kali ni rasa lain sikit."
+    narrator "Tapi malam ni rasa lain sikit."
 
     pause 1.0
 
@@ -726,13 +726,13 @@ label b2_dawn_converge:
         narrator "Dia pegang beg yang dia ambil sebelum Hafiz bertolak."
     else:
         narrator "Dia berjalan balik ke kereta."
-        narrator "Masih di tepi jalan. Masih berkunci."
+        narrator "Masih di tepi jalan. Masih terkunci."
         narrator "Dia buka pintu. Dia ambil beg dari tempat duduk belakang."
 
     pause 1.0
 
-    narrator "Dia buka zip beg tu."
-    narrator "Dia tengok apa yang ada di dalam."
+    narrator "Dia bukak zip tu."
+    narrator "Dia tengok apa yang ada dalam tu."
     narrator "Cukup."
 
     pause 2.0

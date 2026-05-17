@@ -22,7 +22,7 @@ label beat1_scene3:
 
     pause 1.5
 
-    melur "Encik yang selalu handle kes... luar biasa?"
+    melur "Encik yang selalu handle kes-kes... luar biasa?"
 
     # Careful. Testing the water before she commits.
 
@@ -30,12 +30,12 @@ label beat1_scene3:
 
     pause 1.0
 
-    melur "Saya dapat nombor encik dari orang yang encik pernah tolong dulu."
+    melur "Saya dapat nombor encik daripada orang yang encik pernah tolong dulu."
 
     # She does not say who. The MC does not ask.
     # This is how referrals work in this world.
 
-    mc "Okay. Apa yang berlaku?"
+    mc "Okay. Ada apa?"
 
     # SHE TAKES A BREATH
     # She is deciding how to begin something she has rehearsed for a while.
@@ -50,11 +50,11 @@ label beat1_scene3:
 
     pause 0.5
 
-    melur "Tapi... dia masih ada. Kat sana."
+    melur "Tapi... dia masih ada. Di sana."
 
     # A statement of fact. Delivered without drama.
 
-    narrator "MC diam. Dia dengar."
+    narrator "MC diam. Mendengar."
 
     melur "Kampung Nelayan Batu Layar."
 
@@ -62,14 +62,14 @@ label beat1_scene3:
 
     melur "Encik mungkin tak pernah dengar."
 
-    mc "Saya baru dengar nama tu hari ni."
+    mc "Saya dengar nama tu hari ni."
 
     # A small beat. She did not expect that.
 
     melur "..."
     melur "Dah ada orang mati ke?"
 
-    mc "Beberapa orang. Itu cerita yang sampai kat saya."
+    mc "Beberapa orang. Mengikut cerita yang saya dapat."
 
     pause 1.5
 
@@ -78,25 +78,25 @@ label beat1_scene3:
     # Not to the MC. To no one in particular.
     # Or to someone who is not on this call.
 
-    mc "Cik cerita apa yang cik tahu."
+    mc "Ceritakan apa yang encik tahu."
 
     # MELUR BEGINS
     # She does not tell the full truth here. She gives the MC the shape of it:
     # enough to bring him there. The rest is for the village.
 
-    melur "Abang saya... kami asal dari kampung tu."
+    melur "Abang saya... Kami dari kampung tu."
     melur "Dia meninggal lebih kurang dua puluh tahun lepas."
-    melur "Cara dia meninggal... tak elok."
+    melur "Keadaan dia meninggal... tidak baik."
 
-    mc "Maksud cik?"
+    mc "Maksud Cik?"
 
-    melur "Orang kampung tak faham apa yang jadi."
+    melur "Orang kampung tidak faham apa yang berlaku."
     melur "Mereka salah faham. Mereka marah."
     melur "Mereka salahkan keluarga kami."
 
     pause 1.0
 
-    melur "Pengebumian abang saya... dibuat tergesa-gesa."
+    melur "Pengebumian abang saya... tergesa-gesa."
 
     pause 1.0
 
@@ -109,11 +109,11 @@ label beat1_scene3:
 
     mc "Keluarga lain?"
 
-    melur "Isteri abang saya... dah tak ada."
+    melur "Isteri abang saya... dah tiada."
 
     # She does not say how. The MC does not push.
 
-    melur "Ibu kami masih hidup. Dah tua. Sorang-sorang."
+    melur "Ibu kami masih hidup. Tua. Sorang-sorang."
 
     # "Ibu kami" - OUR mother. Melur left her own mother behind.
 
@@ -131,20 +131,20 @@ label beat1_scene3:
 
     melur "Saya dengar pasal kematian-kematian tu."
     melur "Orang cakap ada pocong."
-    melur "Dan mereka cakap semua ni ada kaitan dengan keluarga kami."
+    melur "Dan mereka cakap ia berkaitan dengan keluarga kami."
 
     pause 1.0
 
-    melur "Saya tahu benda tu abang saya."
+    melur "Saya tahu ia abang saya."
 
     # Not a question. Not a theory. She knows.
 
-    mc "Cik nak saya buat apa?"
+    mc "Encik nak saya buat apa?"
 
     # THE ASK
 
     melur "Saya nak encik pergi ke sana."
-    melur "Tengok sendiri apa yang jadi."
+    melur "Tengok apa yang berlaku."
 
     pause 1.0
 
@@ -155,7 +155,7 @@ label beat1_scene3:
 
     pause 2.5
 
-    mc "Pocong tak boleh diselamatkan."
+    mc "Pocong tidak boleh diselamatkan."
 
     # The MC is honest. He does not soften it.
 
@@ -176,8 +176,8 @@ label beat1_scene3:
     # "Dilepaskan" (released) vs "diselamatkan" (saved).
     # These are two different things.
 
-    narrator "Bukan pasal menang."
-    narrator "Pasal melepaskan."
+    narrator "Bukan soal menang."
+    narrator "Soal melepaskan."
 
     mc "Saya akan pergi tengok."
 
@@ -198,14 +198,14 @@ label beat1_scene3:
     show spr_mc neutral at right
     with dissolve
 
-    narrator "Dia letak phone."
+    narrator "Dia letak telefon."
 
     pause 1.0
 
     show spr_hafiz neutral at left
     with dissolve
 
-    hafiz "Job ke?"
+    hafiz "Kerja ke?"
 
     mc "Ha."
 
