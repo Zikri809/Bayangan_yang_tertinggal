@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="72%">
+      <stop offset="0" stop-color="#000000" stop-opacity="0"/>
+      <stop offset=".60" stop-color="#000000" stop-opacity=".10"/>
+      <stop offset="1" stop-color="#000000" stop-opacity=".70"/>
+    </radialGradient>
+    <radialGradient id="danger" cx="50%" cy="55%" r="78%">
+      <stop offset="0" stop-color="#5b0c08" stop-opacity="0"/>
+      <stop offset=".74" stop-color="#5b0c08" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#5b0c08" stop-opacity=".38"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#vignette)"/>
+  <rect width="1920" height="1080" fill="url(#danger)"/>
+  <path d="M0 0 H1920 V46 C1540 18 1280 54 940 25 C640 -1 310 40 0 18 Z" fill="#000000" fill-opacity=".34"/>
+  <path d="M0 1080 H1920 V1026 C1560 1062 1282 1015 934 1052 C624 1084 292 1024 0 1058 Z" fill="#000000" fill-opacity=".44"/>
+  <path d="M0 0 H46 V1080 H0 Z M1874 0 H1920 V1080 H1874 Z" fill="#4b0907" fill-opacity=".16"/>
+</svg>

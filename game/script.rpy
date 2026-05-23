@@ -2,4 +2,4 @@
 
 label start:
 
-    jump beat1_scene1
+    jump adventure_start

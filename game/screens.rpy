@@ -230,6 +230,488 @@ style choice_button_text is default:
     properties gui.text_properties("choice_button")
 
 
+## Adventure route screens #####################################################
+
+screen adv_chapter_card(chapter, title, location, time_text, characters, mood):
+    modal True
+    zorder 200
+
+    add "bg_adv_chapter_card"
+
+    frame:
+        xalign 0.5
+        yalign 0.5
+        xsize 1280
+        ysize 520
+        background "#111111dd"
+        padding (48, 42)
+
+        vbox:
+            spacing 20
+
+            text chapter:
+                size 34
+                color "#b9b9b9"
+
+            text title:
+                size 58
+                bold True
+                color "#ffffff"
+
+            hbox:
+                spacing 60
+
+                vbox:
+                    spacing 8
+                    text "Tempat" size 22 color "#8f8f8f"
+                    text location size 28 color "#ffffff"
+
+                vbox:
+                    spacing 8
+                    text "Masa" size 22 color "#8f8f8f"
+                    text time_text size 28 color "#ffffff"
+
+            text "Watak: [characters]":
+                size 26
+                color "#dddddd"
+
+            text mood:
+                size 26
+                color "#c8c8c8"
+                xmaximum 1120
+
+            text "Klik atau tekan Space untuk teruskan":
+                size 20
+                color "#777777"
+                xalign 1.0
+
+    key "dismiss" action Return()
+    key "K_SPACE" action Return()
+    timer 2.5 action Return()
+
+
+screen adv_inventory():
+    zorder 90
+    default expanded = False
+
+    if expanded:
+        mousearea:
+            area (1460, 44, 430, 650)
+            hovered SetScreenVariable("expanded", True)
+            unhovered SetScreenVariable("expanded", False)
+    else:
+        mousearea:
+            area (1798, 216, 104, 104)
+            hovered SetScreenVariable("expanded", True)
+            unhovered SetScreenVariable("expanded", False)
+
+    button:
+        xpos 1812
+        ypos 230
+        xsize 70
+        ysize 70
+        background "gui/adventure/backpack_button_bg.svg"
+        hover_background "gui/adventure/backpack_button_bg_hover.svg"
+        padding (12, 12)
+        action ToggleScreenVariable("expanded")
+
+        add "ui_adv_backpack_icon":
+            xysize (46, 46)
+            xalign 0.5
+            yalign 0.5
+
+    if len(adv_case_notes) > 0:
+        frame:
+            xpos 1858
+            ypos 222
+            xsize 28
+            ysize 28
+            background "#6e1f16ee"
+            padding (0, 0)
+
+            text "[len(adv_case_notes)]":
+                size 16
+                bold True
+                color "#f8efe1"
+                xalign 0.5
+                yalign 0.5
+
+    if expanded:
+        frame:
+            xpos 1480
+            ypos 64
+            xsize 390
+            background "#111111ee"
+            padding (20, 18)
+
+            vbox:
+                spacing 10
+                text "Beg Siasatan" size 26 color "#ffffff" bold True
+
+                for item in adv_inventory_items():
+                    $ item_icon = adv_inventory_icon(item)
+                    if item == "Buku Nota":
+                        button:
+                            xfill True
+                            background "#24211fee"
+                            hover_background "#3a3028ee"
+                            padding (10, 8)
+                            action Show("adv_case_notes")
+
+                            hbox:
+                                spacing 10
+                                yalign 0.5
+
+                                add item_icon:
+                                    xysize (28, 28)
+                                    yalign 0.5
+
+                                text "Buku Nota / Nota Kes":
+                                    size 20
+                                    color "#f0eadc"
+                                    yalign 0.5
+                    else:
+                        hbox:
+                            spacing 10
+                            yalign 0.5
+
+                            if item_icon:
+                                add item_icon:
+                                    xysize (26, 26)
+                                    yalign 0.5
+                            else:
+                                frame:
+                                    xsize 26
+                                    ysize 26
+                                    background "#4d4d4d"
+
+                            text item size 20 color "#d8d8d8" yalign 0.5
+
+                if adv_case_notes:
+                    null height 8
+                    text "Nota Terkini" size 22 color "#ffffff" bold True
+                    for note in adv_case_notes[-3:]:
+                        text "- [note]" size 18 color "#c9c9c9" xmaximum 340
+                else:
+                    null height 8
+                    text "Belum ada nota kes." size 18 color "#8f8f8f"
+
+
+screen adv_case_notes():
+    modal True
+    zorder 180
+
+    add Solid("#050403cc")
+
+    frame:
+        xalign 0.5
+        yalign 0.5
+        xsize 1040
+        ysize 720
+        background "#1b0f09f4"
+        padding (18, 18)
+
+        fixed:
+            add "ui_adv_notebook_parchment":
+                xysize (1004, 684)
+                alpha 0.92
+
+            add Solid("#2a160dcc"):
+                xpos 34
+                ypos 22
+                xysize (10, 640)
+
+            vbox:
+                xpos 58
+                ypos 36
+                xsize 900
+                spacing 18
+
+                hbox:
+                    xfill True
+                    spacing 14
+
+                    add "ui_adv_open_book_icon":
+                        xysize (42, 42)
+                        yalign 0.5
+
+                    vbox:
+                        yalign 0.5
+                        spacing 1
+
+                        text "Nota Kes":
+                            size 34
+                            color "#24150d"
+                            bold True
+
+                        text "Catatan siasatan dan petunjuk yang dijumpai." size 17 color "#5b402b"
+
+                    null width 0 xfill True
+
+                    textbutton "Tutup":
+                        yalign 0.5
+                        background "#2d1a10cc"
+                        hover_background "#4a2c1acc"
+                        padding (16, 8)
+                        text_color "#f2dfbd"
+                        text_hover_color "#ffffff"
+                        action Hide("adv_case_notes")
+
+                add Solid("#4b2d1a66"):
+                    xsize 900
+                    ysize 2
+
+                if adv_case_notes:
+                    viewport:
+                        mousewheel True
+                        draggable True
+                        ymaximum 520
+
+                        vbox:
+                            spacing 10
+                            for note in adv_case_notes:
+                                frame:
+                                    xfill True
+                                    background "#f4dfb3cc"
+                                    padding (18, 12)
+
+                                    hbox:
+                                        spacing 12
+
+                                        text "-":
+                                            size 23
+                                            color "#6a4328"
+                                            yalign 0.0
+
+                                        text note:
+                                            size 23
+                                            color "#2d1c12"
+                                            xmaximum 820
+                else:
+                    frame:
+                        xfill True
+                        background "#f4dfb3aa"
+                        padding (18, 14)
+                        text "Belum ada nota lagi." size 24 color "#4c3826"
+
+
+screen adv_case_summary():
+    modal True
+    zorder 180
+
+    add Solid("#050403dd")
+
+    frame:
+        xalign 0.5
+        yalign 0.5
+        xsize 1080
+        background "#16120fee"
+        padding (34, 30)
+
+        vbox:
+            spacing 18
+
+            text "Semakan Nota Sebelum Malam":
+                size 38
+                color "#ffffff"
+                bold True
+
+            text adv_release_status_text():
+                size 23
+                color "#d8c6a8"
+                xmaximum 990
+
+            add Solid("#6a4a2f66"):
+                xsize 990
+                ysize 2
+
+            for line in adv_case_summary_lines():
+                frame:
+                    xfill True
+                    background "#241b15ee"
+                    padding (16, 12)
+
+                    text line:
+                        size 23
+                        color "#f0eadc"
+                        xmaximum 940
+
+            textbutton "Teruskan":
+                xalign 1.0
+                background "#5b241bee"
+                hover_background "#7b3124ee"
+                padding (18, 9)
+                text_color "#f8efe1"
+                text_hover_color "#ffffff"
+                action Return()
+
+    key "dismiss" action Return()
+    key "K_SPACE" action Return()
+
+
+screen adv_inspection(title, description, choices):
+    modal True
+    zorder 150
+
+    add Solid("#00000099")
+
+    frame:
+        xalign 0.5
+        yalign 0.5
+        xsize 980
+        background "#1b1b1bee"
+        padding (36, 30)
+
+        vbox:
+            spacing 18
+
+            text title size 38 color "#ffffff" bold True
+            text description size 24 color "#d8d8d8" xmaximum 900
+
+            for caption, value in choices:
+                textbutton caption:
+                    xfill True
+                    action Return(value)
+
+            textbutton "Selesai":
+                xfill True
+                action Return("done")
+
+
+screen adv_timed_choice(prompt, choices, timeout_value="timeout", seconds=12):
+    modal True
+    zorder 150
+    default time_left = seconds
+
+    add Solid("#00000099")
+    add "gui/horror_ui/timed_choice_overlay.svg"
+    timer 1.0 repeat True action If(time_left > 1, SetScreenVariable("time_left", time_left - 1), Return(timeout_value))
+
+    frame:
+        xalign 0.5
+        yalign 0.5
+        xsize 1020
+        background "#151515ee"
+        padding (38, 32)
+
+        vbox:
+            spacing 18
+
+            text prompt size 32 color "#ffffff" bold True xmaximum 930
+            text "Masa tinggal: [time_left] saat" size 22 color "#d8c6a8"
+
+            for caption, value in choices:
+                textbutton caption:
+                    xfill True
+                    action Return(value)
+
+
+transform adv_phone_vibrate:
+    linear 0.045 xoffset -5 yoffset 2
+    linear 0.045 xoffset 5 yoffset -2
+    linear 0.045 xoffset -3 yoffset -1
+    linear 0.045 xoffset 3 yoffset 1
+    linear 0.12 xoffset 0 yoffset 0
+    pause 0.35
+    repeat
+
+
+screen adv_incoming_call(caller="Melur"):
+    modal True
+    zorder 190
+
+    add Solid("#00000099")
+
+    button:
+        at adv_phone_vibrate
+        xalign 0.5
+        yalign 0.46
+        xysize (420, 420)
+        background None
+        hover_background None
+        padding (0, 0)
+        action Return("answer")
+
+        fixed:
+            add "gui/adventure/phone_call_glow.svg"
+
+            add "gui/adventure/phone_icon.svg":
+                xalign 0.5
+                yalign 0.5
+                zoom 0.92
+
+
+screen adv_phone_call_overlay():
+    zorder -1
+
+    add "gui/adventure/phone_call_line_left.svg":
+        xpos 700
+        ypos 370
+
+    add "gui/adventure/phone_call_line_right.svg":
+        xpos 1000
+        ypos 370
+
+    add "gui/adventure/phone_icon.svg":
+        xalign 0.5
+        ypos 400
+        zoom 0.78
+
+
+screen adv_ending_report(title, subtitle):
+    modal True
+    zorder 220
+
+    add Solid("#050403ee")
+
+    frame:
+        xalign 0.5
+        yalign 0.5
+        xsize 1040
+        background "#120f0dee"
+        padding (38, 34)
+
+        vbox:
+            spacing 18
+
+            text title:
+                size 44
+                color "#ffffff"
+                bold True
+
+            text subtitle:
+                size 24
+                color "#d8c6a8"
+                xmaximum 950
+
+            add Solid("#6a4a2f66"):
+                xsize 950
+                ysize 2
+
+            text "Ringkasan siasatan":
+                size 28
+                color "#ffffff"
+                bold True
+
+            for line in adv_ending_report_lines():
+                text line:
+                    size 23
+                    color "#f0eadc"
+                    xmaximum 940
+
+            textbutton "Selesai":
+                xalign 1.0
+                background "#5b241bee"
+                hover_background "#7b3124ee"
+                padding (18, 9)
+                text_color "#f8efe1"
+                text_hover_color "#ffffff"
+                action Return()
+
+    key "dismiss" action Return()
+    key "K_SPACE" action Return()
+
+
 ## Quick Menu screen ###########################################################
 ##
 ## The quick menu is displayed in-game to provide easy access to the out-of-game
@@ -1290,7 +1772,7 @@ style notify_text is gui_text
 style notify_frame:
     ypos gui.notify_ypos
 
-    background Frame("gui/notify.png", gui.notify_frame_borders, tile=gui.frame_tile)
+    background Solid(gui.muted_color)
     padding gui.notify_frame_borders.padding
 
 style notify_text:

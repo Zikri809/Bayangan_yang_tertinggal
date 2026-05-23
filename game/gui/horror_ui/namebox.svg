@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 76">
+  <defs>
+    <linearGradient id="cloth" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff4dd"/>
+      <stop offset=".48" stop-color="#e8dcc6"/>
+      <stop offset="1" stop-color="#c8b89f"/>
+    </linearGradient>
+  </defs>
+  <path d="M13 22 C52 9 88 17 127 14 C181 10 239 17 286 12 C325 8 358 16 377 31 C362 44 363 56 374 67 C310 61 252 70 192 64 C132 59 73 70 16 61 C25 47 25 35 13 22 Z" fill="url(#cloth)"/>
+  <path d="M18 24 C70 19 122 23 176 21 C238 18 299 20 368 31" fill="none" stroke="#fffaf0" stroke-opacity=".62" stroke-width="2"/>
+  <path d="M19 59 C76 65 133 55 194 60 C254 65 307 57 369 64" fill="none" stroke="#6f5a42" stroke-opacity=".36" stroke-width="2"/>
+  <path d="M336 17 C346 25 347 35 340 45 C352 43 362 39 374 31 C361 23 349 19 336 17 Z" fill="#d6c8b2"/>
+  <path d="M328 20 C345 30 348 46 337 62" fill="none" stroke="#7a5d42" stroke-opacity=".34" stroke-width="3"/>
+  <path d="M43 20 C38 31 37 45 43 61" fill="none" stroke="#7a5d42" stroke-opacity=".26" stroke-width="3"/>
+  <path d="M65 37 C114 29 161 42 207 35 C255 28 299 39 337 33" fill="none" stroke="#b8a58a" stroke-opacity=".34" stroke-width="2"/>
+</svg>

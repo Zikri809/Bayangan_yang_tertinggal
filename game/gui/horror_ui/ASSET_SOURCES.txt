@@ -1,0 +1,27 @@
+Horror dialogue UI sources
+
+GUI Buttons and boxes by Cliipso / KC_Studios
+Source: https://opengameart.org/content/gui-buttons-and-boxes
+License: Creative Commons Zero (CC0)
+Local source files:
+- source/GUI_2.zip
+- opengameart_gui_2/
+
+Speech box by Hybrid_Choko
+Source: https://opengameart.org/content/speech-box
+License: Creative Commons Zero (CC0)
+Local source file:
+- source/caixa_de_fala.png
+
+Simple UI for Game Menu Etc by LuminousDragonGames
+Source: https://opengameart.org/content/simple-ui-for-game-menu-etc
+License: Creative Commons Zero (CC0)
+Local source file:
+- source/TextBox.png
+
+Project UI files derived/designed for this prototype:
+- dialogue_box.svg
+- namebox.svg (kain kafan character label)
+- choice_idle.svg
+- choice_hover.svg
+- timed_choice_overlay.svg

@@ -1,0 +1,39 @@
+Inventory and notebook UI assets
+
+CC0 Book Icons by AntumDeluge
+Source: https://opengameart.org/content/cc0-book-icons
+License: Creative Commons Zero (CC0)
+Local files used:
+- book_icons/32x32/notebook_01.png
+- book_icons/32x32/open_book_01.png
+
+Parchment background by Felis Chaus
+Source: https://opengameart.org/content/parchment-background
+License: Creative Commons Zero (CC0)
+Local file used:
+- notebook_parchment.jpg
+
+Simple RPG Inventory Icons by DezrasDragons
+Source: https://opengameart.org/content/simple-rpg-inventory-icons
+License: Creative Commons Zero (CC0)
+Local file used:
+- inventory_icons/sword.png
+
+Outline backpack icon from SVG Silh
+Source: https://svgsilh.com/image/309936.html
+License: Creative Commons Zero (CC0)
+Local file used:
+- backpack_icon.svg
+
+Project placeholder item icons
+Source: Created in-project for this prototype
+License: Project-owned placeholder art
+Local files used:
+- item_icons/flashlight.svg
+- item_icons/camera.svg
+- item_icons/thread.svg
+- item_icons/letter.svg
+- item_icons/tasbih.svg
+- item_icons/salt.svg
+- backpack_button_bg.svg
+- backpack_button_bg_hover.svg
