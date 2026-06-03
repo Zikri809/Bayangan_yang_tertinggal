@@ -24,5 +24,9 @@ label adventure_start:
     $ adv_mak_ros_done = False
     $ adv_burial_done = False
     $ adv_house_done = False
+    $ adv_hafiz_drives = False
+    $ adv_villager_helped = False
+    $ adv_knows_bala_truth = False
+    $ adv_knows_child = False
 
     jump adv_prologue

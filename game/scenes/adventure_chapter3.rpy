@@ -9,7 +9,7 @@ label adv_chapter3:
     with dissolve
 
     narrator "Waktu siang buat Batu Layar nampak macam kampung biasa."
-    narrator "Itu yang buat rasa lagi tak sedap."
+    narrator "Itu yang buat rasa makin tak sedap."
 
     jump adv_investigation_hub
 
@@ -39,7 +39,7 @@ label adv_investigation_hub:
             if not adv_can_release():
                 narrator "MC tengok buku notanya."
                 narrator "Masih ada benda yang belum lengkap: gerak-geri, identiti, atau cara melepaskan."
-                narrator "Kalau dia teruskan sekarang, dia mungkin cuma bersedia untuk bertahan."
+                narrator "Kalau dia teruskan sekarang, mungkin dia cuma cukup bersedia untuk bertahan."
             jump adv_chapter4
 
 
@@ -56,12 +56,17 @@ label adv_mak_ros_house:
 
     mak_ros "Saya dengar bunyi tu dulu, sebelum benda tu sampai."
     mak_ros "Macam orang menangis. Tapi jauh. Dalam kain."
+    mak_ros "Saya dah lama tak tidur betul-betul."
+    mak_ros "Kalau terlelap pun, bunyi duk tu masuk mimpi dulu."
+    mc "Malam Nayan mati, Mak Ros nampak apa?"
+    mak_ros "Tak nampak jelas. Tapi saya tahu satu benda."
+    mak_ros "Dia bukan cari Nayan dari awal. Nayan cuma bergerak masa benda tu lalu."
 
     $ adv_pick = renpy.call_screen("adv_inspection", "Rumah Mak Ros", "Rumah saksi yang menghadap jalan tempat Nayan mati.", [("Guna kamera telefon di tingkap", "camera"), ("Minta Mak Ros ulang bunyi yang dia dengar", "sound"), ("Periksa calar dekat pintu", "scratches")])
 
     if adv_pick == "camera":
         narrator "Dalam kamera, bayang pucat lalu di jalan yang sama, berkali-kali."
-        narrator "Setiap kali jalan kosong, bayang tu berhenti sekejap sebelum melompat lagi."
+        narrator "Bila jalan kosong, bayang tu berhenti sekejap sebelum melompat lagi."
         $ adv_observed_pattern = True
         $ adv_understanding += 1
         $ adv_add_note("Pocong ulang laluan yang sama dan berhenti bila tiada mangsa bergerak")
@@ -69,7 +74,7 @@ label adv_mak_ros_house:
     elif adv_pick == "sound":
         mak_ros "Bunyi tu tak datang terus."
         mak_ros "Ada jeda. Macam sesuatu dalam kain tu perlu kumpul tenaga sebelum melompat lagi."
-        mak_ros "Kalau orang lari, dia makin laju. Kalau orang diam, kadang-kadang dia berhenti sekejap."
+        mak_ros "Kalau orang lari, dia makin laju. Kalau orang diam, kadang-kadang dia berhenti."
         $ adv_observed_pattern = True
         $ adv_understanding += 1
         $ adv_add_note("Lompatan pocong ada jeda yang boleh dibaca")
@@ -77,7 +82,16 @@ label adv_mak_ros_house:
     elif adv_pick == "scratches":
         narrator "Calar tu bukan bekas kuku."
         narrator "Macam kain dan tulang bergeser pada kayu."
+        narrator "Jarak calar tu tak sama. Ada ruang kosong, macam kesan lompatan yang selalu berhenti sekejap."
+        $ adv_observed_pattern = True
+        $ adv_understanding += 1
         $ adv_add_note("Gerakan terikat tinggalkan kesan kain")
+
+    mak_ros "Nayan tak ada kena-mengena dengan dosa lama tu."
+    mak_ros "Dia cuma lalu dekat laluan yang benda tu ulang setiap malam."
+    mak_ros "Orang kampung suka cakap jangan keluar malam."
+    mak_ros "Tapi mereka jarang tanya kenapa benda tu masih berjalan di jalan yang sama."
+    $ adv_add_note("Nayan jadi mangsa laluan pocong yang berulang")
 
     hide spr_mak_ros
     with dissolve
@@ -98,7 +112,10 @@ label adv_burial_ground:
     narrator "Kubur tu terletak jauh sikit daripada yang lain."
     narrator "Namanya pun dah kabur. Kubur tu macam dijaga asal cukup syarat saja."
     narrator "Tak ada rasa tenang."
-    narrator "Tanahnya tak rata, macam kerja yang dibuat cepat-cepat dan tak mahu dikenang."
+    narrator "Tanahnya tak rata, macam kerja yang dibuat cepat-cepat lepas tu semua orang pura-pura lupa."
+    narrator "Kubur lain ada batu yang dibersihkan, rumput yang dipotong, bekas doa orang yang datang."
+    narrator "Kubur ni cuma ada tanah berat dan kesan ditinggalkan."
+    narrator "MC rasa macam berdiri depan rahsia yang sengaja dibiarkan reput."
 
     $ adv_pick = renpy.call_screen("adv_inspection", "Kawasan Kubur", "Tanah kubur tak rata. Ada sesuatu yang putih tersangkut bawah batu lama.", [("Suluh tanah kubur", "soil"), ("Tarik benang putih perlahan-lahan", "thread"), ("Ambil gambar batu nisan", "marker")])
 
@@ -108,7 +125,7 @@ label adv_burial_ground:
         narrator "Kerja orang yang nak cepat siap."
         $ adv_burial_clue = True
         $ adv_understanding += 1
-        $ adv_add_note("Pengebumian dibuat tanpa tertib")
+        $ adv_add_note("Jenazah diurus kelam-kabut")
 
     elif adv_pick == "thread":
         narrator "MC tarik sehelai benang longgar dari tanah."
@@ -121,8 +138,23 @@ label adv_burial_ground:
 
     elif adv_pick == "marker":
         narrator "Gambar tu jadi jelas selepas beberapa saat."
-        narrator "Ada nama yang hampir nampak, kemudian hilang balik."
-        $ adv_add_note("Nama pada kubur sengaja dibiarkan hilang")
+        narrator "Huruf yang pudar tu tersusun perlahan-lahan."
+        narrator "AZLAN."
+        narrator "Lepas tu nama tu hilang balik bawah lumut dan tanah."
+        $ adv_identity_clue = True
+        $ adv_add_note("Nama pada kubur: Azlan")
+
+    if not adv_has_kafan_thread:
+        narrator "Sebelum MC berundur, lampu suluhnya menangkap sehelai benang putih tersangkut di bawah batu."
+        narrator "Dia simpan benang kafan tu. Bukti kecil yang simpulan itu belum selesai."
+        $ adv_has_kafan_thread = True
+        $ adv_add_note("Benang kafan jadi bukti simpulan")
+
+    $ adv_burial_clue = True
+    narrator "Angin lalu perlahan di kawasan kubur."
+    narrator "Benang kafan di tangan MC terasa kering, tapi bau tanah basah masih melekat."
+    narrator "Buat pertama kali, kes ni tak terasa macam memburu benda seram."
+    narrator "Ia terasa macam membetulkan sesuatu yang orang hidup pernah rosakkan."
 
     jump adv_investigation_hub
 
@@ -140,38 +172,84 @@ label adv_old_family_house:
 
     mother "Melur yang suruh kamu datang?"
     mc "Dia minta saya tolong abang dia."
+    mother "Melur masih ingat rumah ni?"
+    mc "Dia ingat cukup untuk takut, tapi cukup juga untuk minta tolong."
+    mother "Budak tu pergi sebab saya suruh dia pergi."
+    mother "Kalau dia tinggal, kampung ni akan telan dia sekali."
 
-    mother "Orang kampung ingat anak saya yang bawa bala."
+    mother "Nama dia Azlan."
+    mother "Orang kampung ingat Azlan yang bawa bala."
     mother "Mereka tak tahu dia mati sebab hentikan bala yang sebenar."
+    mother "Ada bomoh lama yang guna ketakutan kampung ni. Azlan hentikan dia, tapi orang cuma nampak dua mayat, lepas tu salahkan keluarga kami."
+    mother "Sebelum tu, ternakan mati, budak kecil demam tiba-tiba, orang balik meracau lepas jumpa bomoh tu malam-malam."
+    mother "Azlan jumpa tempat dia buat kerja. Itu sebab bomoh tu cari dia dulu."
+    mother "Azlan bukan orang alim besar. Dia cuma anak yang degil."
+    mother "Tapi bila semua orang tutup pintu, dia yang keluar tengok apa sebenarnya jadi."
     $ adv_identity_clue = True
-    $ adv_add_note("Pocong itu abang Melur")
+    $ adv_knows_bala_truth = True
+    $ adv_add_note("Pocong itu Azlan, abang Melur")
+    $ adv_add_note("Azlan dituduh membawa bala selepas menghentikan bomoh lama")
 
-    $ adv_pick = renpy.call_screen("adv_inspection", "Rumah Keluarga Lama", "Bilik ni penuh dengan duka lama: kotak berkunci, tasbih, dan surat yang dilipat terlalu banyak kali.", [("Baca surat lama", "letter"), ("Ambil tasbih", "tasbih"), ("Cari dalam kabinet dapur", "salt")])
+    $ adv_pick = renpy.call_screen("adv_inspection", "Rumah Keluarga Lama", "Bilik ni penuh dengan duka lama: kotak berkunci, tasbih, dan surat yang dilipat terlalu banyak kali.", [("Baca surat lama", "letter"), ("Ambil tasbih", "tasbih"), ("Cari garam untuk bertahan", "salt")])
 
     if adv_pick == "letter":
-        narrator "Surat tu menyebut dia sebagai anak, suami, dan ayah."
-        narrator "Surat tu juga ceritakan harga yang dia bayar."
+        narrator "Surat tu cerita tentang dia sebagai anak, suami, dan ayah."
+        narrator "Surat tu juga ceritakan harga yang dia bayar untuk hentikan bomoh itu."
+        narrator "Ayat terakhirnya bukan pasal mati."
+        narrator "Ayat terakhirnya minta sesiapa yang jumpa surat tu jangan biarkan anaknya membesar dengan nama ayah yang dipijak."
         $ adv_has_old_letter = True
+        $ adv_knows_child = True
+        $ adv_knows_bala_truth = True
         $ adv_understanding += 2
         $ adv_add_note("Dia mati melindungi kampung")
+        $ adv_add_note("Azlan tinggalkan seorang anak")
 
     elif adv_pick == "tasbih":
-        mother "Ambillah. Kalau kamu nak buka simpulan tu, jangan buat macam kamu tengah menghukum dia."
+        mother "Ambillah. Kalau kamu nak buka simpulan tu, jangan datang macam kamu nak hukum dia."
         $ adv_has_tasbih = True
         $ adv_understanding += 1
         $ adv_add_note("Doa perlu mengiringi pelepasan")
 
     elif adv_pick == "salt":
         narrator "Ada sebungkus kecil garam dalam kabinet."
-        narrator "Mungkin berguna."
-        narrator "Tapi benda tu terasa macam pilihan orang yang takut, bukan orang yang faham."
+        narrator "Mungkin berguna kalau MC cuma mahu hidup sampai subuh."
+        mother "Garam boleh buat dia berundur."
+        mother "Tapi kalau kamu cuma mahu dia sakit, kamu takkan faham kenapa dia masih terikat."
+        narrator "Pilihan tu terasa macam jalan orang yang takut, bukan orang yang sudah faham."
         $ adv_has_salt = True
+        $ adv_fear += 1
+        $ adv_add_note("Garam membantu bertahan, bukan melepaskan")
+
+    if adv_has_old_letter and not adv_has_tasbih:
+        mother "Surat saja tak cukup. Tangan kamu pun kena tenang."
+        mother "Ambil tasbih ni. Kalau kamu sebut nama dia, sebut macam orang yang datang nak tolong."
+        $ adv_has_tasbih = True
+        $ adv_understanding += 1
+        $ adv_add_note("Tasbih dibawa untuk pelepasan")
+
+    elif adv_has_tasbih and not adv_has_old_letter:
+        mother "Dan satu lagi. Jangan bawa tasbih tu tanpa tahu siapa yang kamu doakan."
+        narrator "Dia menyerahkan surat lama yang sudah berkali-kali dilipat."
+        narrator "Dalam surat tu, Azlan menulis tentang isterinya, anaknya, dan keputusan yang makan nyawanya."
+        $ adv_has_old_letter = True
+        $ adv_knows_child = True
+        $ adv_knows_bala_truth = True
+        $ adv_understanding += 1
+        $ adv_add_note("Surat Azlan dibawa bersama tasbih")
+        $ adv_add_note("Azlan tinggalkan seorang anak")
 
     if adv_burial_clue or adv_has_kafan_thread:
         mother "Mereka kebumikan dia cepat-cepat. Masa tu semua marah. Semua takut."
         mother "Simpulan kafan tu tak pernah dibuka."
+        mother "Saya minta mereka berhenti sekejap."
+        mother "Saya minta mereka sebut nama dia elok-elok."
+        mother "Mereka kata jangan panjang-panjangkan bala lagi."
         $ adv_understanding += 1
         $ adv_add_note("Ibu sahkan pengebumian tak selesai")
+
+    mother "Kalau kamu jumpa dia malam ni, jangan mulakan dengan keris."
+    mother "Mulakan dengan nama dia."
+    mother "Kalau Azlan masih dengar apa-apa, biar benda pertama yang sampai bukan takut."
 
     hide spr_mother
     with dissolve

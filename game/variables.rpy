@@ -66,6 +66,10 @@ default adv_final_force_used = False
 default adv_mak_ros_done = False
 default adv_burial_done = False
 default adv_house_done = False
+default adv_hafiz_drives = False
+default adv_villager_helped = False
+default adv_knows_bala_truth = False
+default adv_knows_child = False
 
 init python:
     def adv_add_note(note):
@@ -114,49 +118,63 @@ init python:
         return adv_burial_clue or adv_has_kafan_thread
 
     def adv_can_release():
-        return adv_observed_pattern and adv_known_identity() and adv_known_burial_problem() and adv_has_kafan_thread and adv_has_tasbih
+        return adv_observed_pattern and adv_known_identity() and adv_known_burial_problem() and adv_has_kafan_thread and adv_has_old_letter and adv_has_tasbih
+
+    def adv_ready_for_final_release():
+        return adv_can_release() and adv_final_identity_used and (adv_final_pattern_used or adv_understanding >= 5) and adv_pocong_anger < 3
 
     def adv_case_summary_lines():
         lines = []
 
         if adv_observed_pattern:
-            lines.append("Gerak-geri: Pocong ada jeda kecil bila mangsa tak lari.")
+            lines.append("Gerak-geri: Pocong ada jeda kecil bila orang tak lari.")
         else:
             lines.append("Gerak-geri: Belum jelas. MC belum tahu bila perlu diam dan bila perlu bergerak.")
 
         if adv_known_identity():
-            lines.append("Identiti: Dia bukan sekadar makhluk. Dia ada keluarga, dan namanya perlu diakui.")
+            lines.append("Siapa dia: Dia bukan sekadar pocong. Nama Azlan kena disebut dengan betul.")
         else:
-            lines.append("Identiti: Belum jelas. Tanpa nama, MC cuma boleh melawan benda yang dia tak faham.")
+            lines.append("Siapa dia: Belum jelas. Tanpa nama, MC cuma boleh melawan benda yang dia tak faham.")
 
         if adv_known_burial_problem():
-            lines.append("Kubur: Pengebumian tergesa-gesa dan simpulan kafan belum selesai.")
+            lines.append("Kubur: Jenazah diurus tergesa-gesa, dan simpulan kafan belum selesai.")
         else:
             lines.append("Kubur: Belum jelas. Punca ikatan roh masih kabur.")
 
         if adv_has_kafan_thread:
-            lines.append("Bukti fizikal: Benang kafan dibawa sebagai petunjuk simpulan.")
+            lines.append("Bukti: Benang kafan jadi petunjuk simpulan.")
         else:
-            lines.append("Bukti fizikal: Tiada benang kafan. Simpulan mungkin susah dibuka dengan betul.")
+            lines.append("Bukti: Tiada benang kafan. Simpulan mungkin susah dibuka dengan betul.")
+
+        if adv_has_old_letter:
+            lines.append("Kisah lama: Surat Azlan mengesahkan dia mati melindungi kampung dan meninggalkan seorang anak.")
+        else:
+            lines.append("Kisah lama: Cerita Azlan belum cukup jelas. Nama saja belum tentu cukup untuk melepaskan.")
 
         if adv_has_tasbih:
             lines.append("Cara melepaskan: Tasbih boleh menenangkan tangan dan niat MC.")
         else:
-            lines.append("Cara melepaskan: Belum cukup lembut. Keris dan garam hanya sesuai untuk bertahan.")
+            lines.append("Cara melepaskan: Belum cukup lembut. Keris dan garam cuma sesuai untuk bertahan.")
 
         return lines
 
     def adv_release_status_text():
         if adv_can_release():
-            return "Nota lengkap: MC sudah faham cara mendekati, mengenali, dan melepaskan arwah."
+            return "Nota lengkap dari segi petunjuk: MC tahu cara dekat, kenal, dan lepaskan arwah. Malam nanti masih bergantung pada cara dia bertindak."
         return "Nota belum lengkap: MC mungkin boleh hidup, tapi belum tentu boleh melepaskan arwah."
 
     def adv_ending_report_lines():
         return [
-            "Gerak-geri difahami: " + adv_yes_no(adv_observed_pattern or adv_final_pattern_used),
-            "Identiti arwah diketahui: " + adv_yes_no(adv_known_identity() or adv_final_identity_used),
-            "Masalah simpulan/kubur difahami: " + adv_yes_no(adv_known_burial_problem()),
+            "Gerak pocong dibaca: " + adv_yes_no(adv_observed_pattern or adv_final_pattern_used),
+            "Nama arwah diketahui: " + adv_yes_no(adv_known_identity() or adv_final_identity_used),
+            "Masalah kubur/simpulan jelas: " + adv_yes_no(adv_known_burial_problem()),
             "Benang kafan ditemui: " + adv_yes_no(adv_has_kafan_thread),
+            "Surat Azlan dibawa: " + adv_yes_no(adv_has_old_letter),
             "Tasbih dibawa: " + adv_yes_no(adv_has_tasbih),
-            "Kekerasan digunakan: " + adv_yes_no(adv_aggressive_prepare or adv_final_force_used),
+            "Anak Azlan diingat: " + adv_yes_no(adv_knows_child),
+            "Bala sebenar jelas: " + adv_yes_no(adv_knows_bala_truth),
+            "Hafiz menunggu: " + adv_yes_no(adv_hafiz_drives),
+            "Kekerasan dipilih: " + adv_yes_no(adv_aggressive_prepare or adv_final_force_used),
+            "Tahap faham: " + str(adv_understanding),
+            "Kemarahan diprovokasi: " + adv_yes_no(adv_pocong_anger >= 2),
         ]

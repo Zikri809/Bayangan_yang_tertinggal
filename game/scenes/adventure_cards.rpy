@@ -1,12 +1,12 @@
 label adv_card_prologue:
 
-    $ renpy.call_screen("adv_chapter_card", "PROLOG", "Pukul 2:47 Pagi", "Kampung Batu Layar", "2:47 pagi", "Nayan, pocong yang belum kelihatan", "Jalan balik terakhir. Senyap, tangisan jauh, dan bunyi sesuatu yang melompat dalam kain.")
+    $ renpy.call_screen("adv_chapter_card", "PROLOG", "Pukul 2:47 Pagi", "Kampung Batu Layar", "2:47 pagi", "Nayan, pocong yang belum kelihatan", "Jalan balik terakhir. Sunyi, tangisan jauh, dan bunyi sesuatu melompat dalam kain.")
     return
 
 
 label adv_card_ch1:
 
-    $ renpy.call_screen("adv_chapter_card", "BAB 1", "Restoran Zulkifli", "Restoran lama", "Petang", "MC, Hafiz, Melur, Abang Zul", "Kes ni bermula sebagai permintaan untuk melepaskan, bukan memburu.")
+    $ renpy.call_screen("adv_chapter_card", "BAB 1", "Restoran Zulkifli", "Restoran lama", "Petang", "MC, Hafiz, Melur, Abang Zul", "Kes ni bermula dengan permintaan untuk lepaskan seseorang, bukan buru sesuatu.")
     return
 
 
@@ -30,5 +30,5 @@ label adv_card_ch4:
 
 label adv_card_ch5:
 
-    $ renpy.call_screen("adv_chapter_card", "BAB 5", "Simpulan Terakhir", "Kawasan kubur", "2:47 pagi", "MC, arwah/pocong", "Simpulan terakhir boleh dibuka, atau roh itu boleh dipaksa jatuh sekali lagi.")
+    $ renpy.call_screen("adv_chapter_card", "BAB 5", "Simpulan Terakhir", "Kawasan kubur", "2:47 pagi", "MC, arwah/pocong", "Simpulan terakhir boleh dibuka, atau dia dipaksa jatuh sekali lagi.")
     return

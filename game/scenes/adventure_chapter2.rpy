@@ -10,13 +10,16 @@ label adv_chapter2:
     show spr_mc alert at adv_right
     with dissolve
 
+    if adv_hafiz_drives:
+        narrator "Hafiz tunggu dekat kereta, enjin masih hidup, macam dia pun rasa kampung ni belum habis dengan sesiapa."
+
     narrator "Batu Layar menunggu dengan pintu berkunci dan lampu yang padam."
     narrator "Lepas tu ada orang menjerit."
 
     show spr_villager_1 terrified at adv_left
     with dissolve
 
-    narrator "Seorang penduduk kampung terhuyung-hayang keluar dari gelap."
+    narrator "Seorang lelaki kampung terhuyung-hayang keluar dari gelap."
     narrator "Di belakangnya, ada sesuatu yang pucat dengan kaki terikat."
     narrator "Satu tubuh yang tak sepatutnya bergerak."
 
@@ -24,14 +27,17 @@ label adv_chapter2:
         "Jerit amaran dan tarik dia ke tepi.":
             mc "Masuk rumah! Cepat!"
             narrator "Lelaki tu jatuh masuk ke pintu rumah."
-            narrator "Makhluk tu terus berpaling ke arah MC."
+            narrator "Benda tu terus berpaling ke arah MC."
+            $ adv_villager_helped = True
             $ adv_fear += 1
             $ adv_add_note("Pocong berpaling kepada orang yang menghalang")
 
         "Berdiri diam dan perhatikan geraknya.":
             narrator "MC tahan diri daripada bergerak."
+            narrator "Lelaki kampung itu sempat merangkak masuk ke rumah."
             narrator "Pocong tu mula perlahan."
             narrator "Sekejap je. Tapi cukup untuk nampak coraknya."
+            $ adv_villager_helped = True
             $ adv_observed_pattern = True
             $ adv_understanding += 1
             $ adv_add_note("Diam sekejap buat pocong hilang rentak")
@@ -47,6 +53,7 @@ label adv_chapter2:
     if adv_first_attack == "cover":
         narrator "MC sempat tutup telinga."
         narrator "Sesuatu yang berat menghentam bahu dia dalam gelap."
+        narrator "Untuk beberapa saat, dunia tinggal bunyi darah berdenyut dalam kepala."
         $ adv_damage += 1
         $ adv_add_note("Jeritan boleh ditahan, tapi tetap bahaya")
 
@@ -61,6 +68,8 @@ label adv_chapter2:
         with dissolve
         narrator "Mula-mula gambar tu nampak macam tak berguna."
         narrator "Lepas tu dia nampak: kain tertarik ketat di bahagian kaki."
+        narrator "Dalam satu bingkai kabur, ada juga tanah basah melekat pada simpulan itu."
+        narrator "Bukan sekadar benda muncul dari gelap. Macam ada kubur yang masih menariknya balik."
         $ adv_understanding += 1
         $ adv_add_note("Kamera rakam kain kafan yang masih terikat")
 
@@ -76,9 +85,30 @@ label adv_chapter2:
         $ adv_damage += 1
         $ adv_fear += 1
 
+    if adv_villager_helped:
+        villager_1 "Dia... dia datang ikut jalan yang sama."
+        villager_1 "Malam-malam sebelum ni pun macam tu. Kalau orang lari, dia kejar."
+        villager_1 "Kalau semua tutup pintu, dia tunggu."
+        narrator "Lelaki tu bercakap sambil menggigil, tapi kata-katanya melekat dalam kepala MC."
+        $ adv_add_note("Penduduk nampak pocong ulang laluan yang sama")
+
+    else:
+        narrator "Pintu rumah di sekeliling tertutup rapat."
+        narrator "Tak ada sesiapa berani keluar untuk tanya sama ada MC masih hidup."
+        narrator "Di Batu Layar, takut dah jadi bahasa harian."
+
     narrator "Pocong tu berundur sebelum subuh."
     narrator "Bukan macam ia kalah."
     narrator "Macam ia cuma terganggu."
+    narrator "MC buka buku nota dengan tangan yang belum berhenti menggigil."
+    narrator "Serangan itu bukan rawak."
+    narrator "Ada laluan. Ada jeda. Ada simpulan."
+
+    if adv_hafiz_drives:
+        narrator "Telefon Hafiz masuk, suaranya rendah."
+        hafiz "Aku nampak dari jauh. Kau masih boleh teruskan?"
+        mc "Boleh. Tapi benda ni bukan kes serang dan habis."
+        hafiz "Jadi cari sebab dia masih ulang benda sama."
 
     hide spr_villager_1
     hide spr_pocong
