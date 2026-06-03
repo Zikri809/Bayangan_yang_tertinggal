@@ -116,10 +116,12 @@ label adv_burial_ground:
     narrator "Kubur lain ada batu yang dibersihkan, rumput yang dipotong, bekas doa orang yang datang."
     narrator "Kubur ni cuma ada tanah berat dan kesan ditinggalkan."
     narrator "MC rasa macam berdiri depan rahsia yang sengaja dibiarkan reput."
+    narrator "Dia angkat lampu suluh dan biarkan cahayanya bergerak perlahan atas tanah."
 
-    $ adv_pick = renpy.call_screen("adv_inspection", "Kawasan Kubur", "Tanah kubur tak rata. Ada sesuatu yang putih tersangkut bawah batu lama.", [("Suluh tanah kubur", "soil"), ("Tarik benang putih perlahan-lahan", "thread"), ("Ambil gambar batu nisan", "marker")])
+    $ adv_grave_hotspots = [("Tanah tak rata", "soil", 140, 700, 420, 190, "Bekas gali lama."), ("Benang putih", "thread", 940, 780, 330, 170, "Kain kafan tersangkut di bawah batu."), ("Batu nisan", "marker", 1520, 330, 300, 330, "Nama yang hampir hilang bawah lumut.")]
+    $ adv_found_grave = renpy.call_screen("adv_flashlight_search", "Kawasan Kubur", "Lampu suluh cuma cukup terang untuk satu bahagian pada satu masa.", adv_grave_hotspots, 2)
 
-    if adv_pick == "soil":
+    if "soil" in adv_found_grave:
         narrator "Lampu suluh nampakkan bekas gali lama."
         narrator "Bukan kerja yang dibuat dengan tertib."
         narrator "Kerja orang yang nak cepat siap."
@@ -127,7 +129,7 @@ label adv_burial_ground:
         $ adv_understanding += 1
         $ adv_add_note("Jenazah diurus kelam-kabut")
 
-    elif adv_pick == "thread":
+    if "thread" in adv_found_grave:
         narrator "MC tarik sehelai benang longgar dari tanah."
         narrator "Kain kafan."
         narrator "Simpulannya masih ketat."
@@ -136,8 +138,8 @@ label adv_burial_ground:
         $ adv_understanding += 1
         $ adv_add_note("Simpulan kafan tak pernah dibuka")
 
-    elif adv_pick == "marker":
-        narrator "Gambar tu jadi jelas selepas beberapa saat."
+    if "marker" in adv_found_grave:
+        narrator "Tulisan pada batu tu jadi jelas selepas beberapa saat."
         narrator "Huruf yang pudar tu tersusun perlahan-lahan."
         narrator "AZLAN."
         narrator "Lepas tu nama tu hilang balik bawah lumut dan tanah."

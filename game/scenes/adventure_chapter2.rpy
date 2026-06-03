@@ -33,14 +33,24 @@ label adv_chapter2:
             $ adv_add_note("Pocong berpaling kepada orang yang menghalang")
 
         "Berdiri diam dan perhatikan geraknya.":
-            narrator "MC tahan diri daripada bergerak."
-            narrator "Lelaki kampung itu sempat merangkak masuk ke rumah."
-            narrator "Pocong tu mula perlahan."
-            narrator "Sekejap je. Tapi cukup untuk nampak coraknya."
-            $ adv_villager_helped = True
-            $ adv_observed_pattern = True
-            $ adv_understanding += 1
-            $ adv_add_note("Diam sekejap buat pocong hilang rentak")
+            $ adv_still_result = renpy.call_screen("adv_stillness", "Pocong tu melompat makin dekat. MC paksa badan dia jangan ikut panik.", 4)
+            if adv_still_result == "still":
+                narrator "MC tahan diri daripada bergerak."
+                narrator "Lelaki kampung itu sempat merangkak masuk ke rumah."
+                narrator "Pocong tu mula perlahan."
+                narrator "Sekejap je. Tapi cukup untuk nampak coraknya."
+                $ adv_villager_helped = True
+                $ adv_observed_pattern = True
+                $ adv_understanding += 1
+                $ adv_add_note("Diam sekejap buat pocong hilang rentak")
+            else:
+                narrator "Jari MC tersentak sebelum dia sempat kawal diri."
+                narrator "Pocong tu terus melompat ke arah gerakan kecil itu."
+                narrator "Lelaki kampung sempat masuk, tapi bahu MC terkena hentaman kain dan tulang."
+                $ adv_villager_helped = True
+                $ adv_damage += 1
+                $ adv_fear += 1
+                $ adv_add_note("Pocong lebih cepat mengejar gerakan panik")
 
         "Terus angkat keris.":
             narrator "Bilah keris menangkap cahaya bulan."

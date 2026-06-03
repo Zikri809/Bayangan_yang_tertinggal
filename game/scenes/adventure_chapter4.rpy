@@ -104,14 +104,22 @@ label adv_chapter4:
         $ adv_pocong_anger += 1
 
     elif adv_night_attack == "still":
-        if adv_observed_pattern:
-            narrator "MC ingat kata Mak Ros."
-            narrator "Dia berdiri diam, bukan sebab takut, tapi sebab dia faham rentak benda tu."
-            narrator "Untuk satu detik, pocong tu pun diam."
-            $ adv_understanding += 1
+        $ adv_still_result = renpy.call_screen("adv_stillness", "Bunyi duk berhenti betul-betul depan MC.", 4)
+        if adv_still_result == "still":
+            if adv_observed_pattern:
+                narrator "MC ingat kata Mak Ros."
+                narrator "Dia berdiri diam, bukan sebab takut, tapi sebab dia faham rentak benda tu."
+                narrator "Untuk satu detik, pocong tu pun diam."
+                $ adv_understanding += 1
+            else:
+                narrator "MC berdiri diam, tapi dia tak tahu kenapa itu patut berkesan."
+                narrator "Ragu itu cukup untuk buat tubuhnya lambat bergerak."
+                $ adv_fear += 1
         else:
-            narrator "MC berdiri diam, tapi dia tak tahu kenapa itu patut berkesan."
-            narrator "Ragu itu cukup untuk buat tubuhnya lambat bergerak."
+            narrator "MC tersentak sebelum jeda itu habis."
+            narrator "Pocong tu menangkap gerakan kecil itu seperti jawapan."
+            narrator "Hentaman kain dan tulang buat lutut MC hampir jatuh."
+            $ adv_damage += 1
             $ adv_fear += 1
 
     elif adv_night_attack == "freeze" and adv_observed_pattern:

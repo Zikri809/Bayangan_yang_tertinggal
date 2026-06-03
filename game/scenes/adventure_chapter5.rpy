@@ -36,11 +36,18 @@ label adv_chapter5:
     $ adv_final_move = renpy.call_screen("adv_timed_choice", "Dia mula melompat ke arah MC. Apa MC buat?", adv_step_movement_choices, "freeze", 14)
 
     if adv_final_move == "pattern":
-        narrator "MC tahan diri daripada lari."
-        narrator "Duk. Jeda. Duk. Jeda."
-        narrator "Betul kata Mak Ros: bila MC tak panik, gerak pocong tu boleh dibaca."
-        $ adv_final_pattern_used = True
-        $ adv_understanding += 1
+        $ adv_still_result = renpy.call_screen("adv_stillness", "Pocong tu datang lurus ke arah MC. Kalau MC bergerak, rentak dia pecah.", 4)
+        if adv_still_result == "still":
+            narrator "MC tahan diri daripada lari."
+            narrator "Duk. Jeda. Duk. Jeda."
+            narrator "Betul kata Mak Ros: bila MC tak panik, gerak pocong tu boleh dibaca."
+            $ adv_final_pattern_used = True
+            $ adv_understanding += 1
+        else:
+            narrator "MC bergerak sedikit, cukup untuk pecahkan jeda itu."
+            narrator "Pocong tu melompat terlalu dekat sebelum MC sempat tarik nafas."
+            $ adv_damage += 1
+            $ adv_fear += 1
 
     elif adv_final_move == "light" and adv_known_burial_problem():
         narrator "Cahaya lampu jatuh tepat pada simpulan kain di kakinya."

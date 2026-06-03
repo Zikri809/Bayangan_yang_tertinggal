@@ -578,6 +578,160 @@ screen adv_inspection(title, description, choices):
                 action Return("done")
 
 
+screen adv_flashlight_search(title, description, hotspots, required=3):
+    modal True
+    zorder 150
+    default found = []
+    default beam_value = None
+    default mouse_xy = (960, 540)
+
+    add Solid("#020202")
+    add Solid("#000000cc")
+    timer 0.03 repeat True action SetScreenVariable("mouse_xy", renpy.get_mouse_pos())
+
+    fixed:
+        xysize (1920, 1080)
+
+        add "gui/adventure/flashlight_beam.svg":
+            xpos mouse_xy[0] - 260
+            ypos mouse_xy[1] - 260
+            xysize (520, 520)
+
+        for caption, value, hx, hy, hw, hh, clue in hotspots:
+            $ clue_alpha = 0.95 if value in found or beam_value == value else 0.16
+
+            if value in found or beam_value == value:
+                add Solid("#f1d89033"):
+                    xpos hx - 90
+                    ypos hy - 75
+                    xysize (hw + 180, hh + 150)
+
+            if value == "soil":
+                add Solid("#3a2b21"):
+                    xpos hx + 36
+                    ypos hy + 42
+                    xysize (210, 76)
+                    alpha clue_alpha
+
+                add Solid("#5c4332"):
+                    xpos hx + 118
+                    ypos hy + 82
+                    xysize (250, 58)
+                    alpha clue_alpha
+
+                add Solid("#1a120e"):
+                    xpos hx + 72
+                    ypos hy + 116
+                    xysize (170, 32)
+                    alpha clue_alpha
+
+            elif value == "thread":
+                add "gui/adventure/item_icons/thread.svg":
+                    xpos hx + 94
+                    ypos hy + 26
+                    xysize (126, 126)
+                    alpha clue_alpha
+
+                add Solid("#f2dfbd"):
+                    xpos hx + 44
+                    ypos hy + 142
+                    xysize (230, 6)
+                    alpha clue_alpha
+
+            elif value == "marker":
+                add Solid("#55574f"):
+                    xpos hx + 82
+                    ypos hy + 16
+                    xysize (150, 250)
+                    alpha clue_alpha
+
+                add Solid("#242620"):
+                    xpos hx + 52
+                    ypos hy + 254
+                    xysize (210, 44)
+                    alpha clue_alpha
+
+                if value in found or beam_value == value:
+                    text "AZLAN":
+                        xpos hx + 105
+                        ypos hy + 112
+                        size 28
+                        color "#e8dfca"
+                        bold True
+
+            if beam_value == value and value not in found:
+                frame:
+                    xpos hx
+                    ypos hy - 46
+                    xsize 280
+                    background "#111111cc"
+                    padding (10, 6)
+
+                    text caption:
+                        size 19
+                        color "#f7e7c2"
+                        xmaximum 260
+
+            if value in found:
+                frame:
+                    xpos hx
+                    ypos hy + hh + 8
+                    xsize 360
+                    background "#111111dd"
+                    padding (12, 8)
+
+                    text clue:
+                        size 20
+                        color "#f7e7c2"
+                        xmaximum 336
+
+            button:
+                xpos hx
+                ypos hy
+                xysize (hw, hh)
+                background "#f1d89010"
+                hover_background "#f1d89025"
+                hovered SetScreenVariable("beam_value", value)
+                unhovered SetScreenVariable("beam_value", None)
+                action If(value in found, NullAction(), [SetScreenVariable("found", found + [value]), SetScreenVariable("beam_value", value)])
+
+    frame:
+        xpos 70
+        ypos 58
+        xsize 700
+        background "#111111dd"
+        padding (24, 20)
+
+        vbox:
+            spacing 8
+
+            text title:
+                size 36
+                color "#ffffff"
+                bold True
+
+            text description:
+                size 22
+                color "#d8c6a8"
+                xmaximum 640
+
+            text "Petunjuk ditemui: [len(found)]/[required]":
+                size 22
+                color "#f2dfbd"
+
+    if len(found) >= required:
+        textbutton "Selesai":
+            xpos 1540
+            ypos 900
+            xsize 260
+            background "#5b241bee"
+            hover_background "#7b3124ee"
+            padding (18, 12)
+            text_color "#f8efe1"
+            text_hover_color "#ffffff"
+            action Return(found)
+
+
 screen adv_timed_choice(prompt, choices, timeout_value="timeout", seconds=12):
     modal True
     zorder 150
@@ -604,6 +758,112 @@ screen adv_timed_choice(prompt, choices, timeout_value="timeout", seconds=12):
                 textbutton caption:
                     xfill True
                     action Return(value)
+
+
+screen adv_stillness(prompt, beats=4):
+    modal True
+    zorder 160
+    default prep_left = 5
+    default started = False
+    default beat_pos = 0
+    default hits = 0
+    default beat_locked = False
+    default zone_center = renpy.random.randint(28, 72)
+    $ in_window = beat_pos >= zone_center - 8 and beat_pos <= zone_center + 8
+
+    add Solid("#000000dd")
+    add "gui/horror_ui/timed_choice_overlay.svg"
+
+    if started:
+        timer 0.04 repeat True action If(beat_pos >= 100, [SetScreenVariable("beat_pos", 0), SetScreenVariable("beat_locked", False), SetScreenVariable("zone_center", renpy.random.randint(28, 72))], SetScreenVariable("beat_pos", beat_pos + 4))
+    else:
+        timer 1.0 repeat True action If(prep_left > 1, SetScreenVariable("prep_left", prep_left - 1), [SetScreenVariable("started", True), SetScreenVariable("beat_pos", 0), SetScreenVariable("beat_locked", False), SetScreenVariable("zone_center", renpy.random.randint(28, 72))])
+
+    key "K_SPACE" action If(started, If(in_window and not beat_locked, If(hits + 1 >= beats, Return("still"), [SetScreenVariable("hits", hits + 1), SetScreenVariable("beat_locked", True)]), Return("moved")), NullAction())
+    key "K_RETURN" action If(started, Return("moved"), NullAction())
+    key "K_KP_ENTER" action If(started, Return("moved"), NullAction())
+    key "K_ESCAPE" action If(started, Return("moved"), NullAction())
+    key "K_PAGEUP" action If(started, Return("moved"), NullAction())
+    key "K_PAGEDOWN" action If(started, Return("moved"), NullAction())
+    key "mouseup_1" action If(started, Return("moved"), NullAction())
+    key "mouseup_2" action If(started, Return("moved"), NullAction())
+    key "mouseup_3" action If(started, Return("moved"), NullAction())
+
+    frame:
+        xalign 0.5
+        yalign 0.5
+        xsize 960
+        background "#111111ee"
+        padding (42, 36)
+
+        vbox:
+            spacing 16
+
+            text prompt:
+                size 34
+                color "#ffffff"
+                bold True
+                xmaximum 860
+
+            text "Bila rentak mula, tekan Space tepat masa duk sampai. Tunggu kalau belum yakin. Salah tekan atau klik mouse akan buat MC tersentak.":
+                size 25
+                color "#f2dfbd"
+                xmaximum 860
+
+            if not started:
+                text "Bersedia. Rentak mula dalam [prep_left]...":
+                    size 34
+                    color "#f2dfbd"
+                    bold True
+                    xalign 0.5
+
+                text "Letak jari dekat Space. Jangan tekan dulu.":
+                    size 24
+                    color "#b9b9b9"
+                    xalign 0.5
+
+            else:
+                fixed:
+                    xsize 760
+                    ysize 86
+                    xalign 0.5
+
+                    add Solid("#26211dcc"):
+                        xpos 0
+                        ypos 34
+                        xysize (760, 18)
+
+                    add Solid("#7b312466"):
+                        xpos int(zone_center * 7.2) - 61
+                        ypos 20
+                        xysize (122, 46)
+
+                    add Solid("#f2dfbd"):
+                        xpos int(beat_pos * 7.2)
+                        ypos 14
+                        xysize (18, 58)
+
+                hbox:
+                    xalign 0.5
+                    spacing 18
+
+                    text "Rentak kena: [hits]/[beats]":
+                        size 24
+                        color "#b9b9b9"
+
+                    if in_window and not beat_locked:
+                        text "DUK":
+                            size 24
+                            color "#f2dfbd"
+                            bold True
+                    elif beat_locked:
+                        text "diam...":
+                            size 24
+                            color "#8f8f8f"
+                    else:
+                        text "jeda...":
+                            size 24
+                            color "#8f8f8f"
 
 
 transform adv_phone_vibrate:

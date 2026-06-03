@@ -57,11 +57,11 @@ image spr_mc scared = Transform("images/characters/mc/mc_scared_transparent.png"
 image spr_mc still = Transform("images/characters/mc/mc_injured_transparent.png", zoom=0.36)
 image spr_nayan neutral = Transform("images/characters/nayan/nayan_default.png", zoom=0.36)
 image spr_nayan terrified = Transform("images/characters/nayan/nayan_terrified.png", zoom=0.36)
-image spr_hafiz neutral = Transform("images/characters/hafiz/hafiz_neutral.png", zoom=0.768)
-image spr_melur phone = Placeholder("girl")
-image spr_owner serious = Placeholder("boy")
+image spr_hafiz neutral = Transform("images/characters/hafiz/hafiz_neutral.png", zoom=0.72)
+image spr_melur phone = Transform("images/characters/melur/melur_phone.png", zoom=0.56)
+image spr_owner serious = Transform("images/characters/zulkifli/zulkifli_serious.png", zoom=0.64)
 image spr_villager_1 terrified = Placeholder("boy")
-image spr_mak_ros nervous = Placeholder("girl")
+image spr_mak_ros nervous = Transform("images/characters/mak_ros/mak_ros_nervous.png", zoom=0.64)
 image spr_mother neutral = Placeholder("girl")
 image spr_pocong present = Placeholder("boy")
 image spr_pocong stilled = Placeholder("boy")
@@ -78,7 +78,7 @@ transform adv_right:
     yalign 1.0
 
 transform adv_trio_left:
-    xalign 0.22
+    xalign 0.18
     yalign 1.0
 
 transform adv_trio_center:
@@ -86,7 +86,7 @@ transform adv_trio_center:
     yalign 1.0
 
 transform adv_trio_right:
-    xalign 0.78
+    xalign 0.82
     yalign 1.0
 
 transform adv_phone_left:
