@@ -585,7 +585,7 @@ screen adv_flashlight_search(title, description, hotspots, required=3):
     default beam_value = None
     default mouse_xy = (960, 540)
 
-    add Solid("#020202")
+    add Transform("images/bg/bg_grave_inspection_night.png.png", xysize=(1920, 1080))
     add Solid("#000000cc")
     timer 0.03 repeat True action SetScreenVariable("mouse_xy", renpy.get_mouse_pos())
 
@@ -600,64 +600,26 @@ screen adv_flashlight_search(title, description, hotspots, required=3):
         for caption, value, hx, hy, hw, hh, clue in hotspots:
             $ clue_alpha = 0.95 if value in found or beam_value == value else 0.16
 
-            if value in found or beam_value == value:
-                add Solid("#f1d89033"):
-                    xpos hx - 90
-                    ypos hy - 75
-                    xysize (hw + 180, hh + 150)
-
             if value == "soil":
-                add Solid("#3a2b21"):
-                    xpos hx + 36
-                    ypos hy + 42
-                    xysize (210, 76)
-                    alpha clue_alpha
-
-                add Solid("#5c4332"):
-                    xpos hx + 118
-                    ypos hy + 82
-                    xysize (250, 58)
-                    alpha clue_alpha
-
-                add Solid("#1a120e"):
-                    xpos hx + 72
-                    ypos hy + 116
-                    xysize (170, 32)
+                add Crop((208, 326, 2463, 994), "images/assets/clue_uneven_soil.png.png"):
+                    xpos hx - 72
+                    ypos hy - 16
+                    xysize (560, 228)
                     alpha clue_alpha
 
             elif value == "thread":
-                add "gui/adventure/item_icons/thread.svg":
-                    xpos hx + 94
-                    ypos hy + 26
-                    xysize (126, 126)
-                    alpha clue_alpha
-
-                add Solid("#f2dfbd"):
-                    xpos hx + 44
-                    ypos hy + 142
-                    xysize (230, 6)
+                add Crop((262, 404, 2181, 793), "images/assets/clue_white_thread.png.png"):
+                    xpos hx - 42
+                    ypos hy - 18
+                    xysize (420, 244)
                     alpha clue_alpha
 
             elif value == "marker":
-                add Solid("#55574f"):
-                    xpos hx + 82
-                    ypos hy + 16
-                    xysize (150, 250)
+                add Crop((821, 149, 1080, 1296), "images/assets/clue_old_grave_marker.png.png"):
+                    xpos hx + 48
+                    ypos hy - 18
+                    xysize (210, 302)
                     alpha clue_alpha
-
-                add Solid("#242620"):
-                    xpos hx + 52
-                    ypos hy + 254
-                    xysize (210, 44)
-                    alpha clue_alpha
-
-                if value in found or beam_value == value:
-                    text "AZLAN":
-                        xpos hx + 105
-                        ypos hy + 112
-                        size 28
-                        color "#e8dfca"
-                        bold True
 
             if beam_value == value and value not in found:
                 frame:
@@ -689,8 +651,8 @@ screen adv_flashlight_search(title, description, hotspots, required=3):
                 xpos hx
                 ypos hy
                 xysize (hw, hh)
-                background "#f1d89010"
-                hover_background "#f1d89025"
+                background "#00000000"
+                hover_background "#00000000"
                 hovered SetScreenVariable("beam_value", value)
                 unhovered SetScreenVariable("beam_value", None)
                 action If(value in found, NullAction(), [SetScreenVariable("found", found + [value]), SetScreenVariable("beam_value", value)])
