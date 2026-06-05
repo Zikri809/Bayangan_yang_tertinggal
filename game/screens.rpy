@@ -737,7 +737,7 @@ screen adv_stillness(prompt, beats=4):
     add "gui/horror_ui/timed_choice_overlay.svg"
 
     if started:
-        timer 0.04 repeat True action If(beat_pos >= 100, [SetScreenVariable("beat_pos", 0), SetScreenVariable("beat_locked", False), SetScreenVariable("zone_center", renpy.random.randint(28, 72))], SetScreenVariable("beat_pos", beat_pos + 4))
+        timer 0.05 repeat True action If(beat_pos >= 100, [SetScreenVariable("beat_pos", 0), SetScreenVariable("beat_locked", False), SetScreenVariable("zone_center", renpy.random.randint(28, 72))], SetScreenVariable("beat_pos", beat_pos + 4))
     else:
         timer 1.0 repeat True action If(prep_left > 1, SetScreenVariable("prep_left", prep_left - 1), [SetScreenVariable("started", True), SetScreenVariable("beat_pos", 0), SetScreenVariable("beat_locked", False), SetScreenVariable("zone_center", renpy.random.randint(28, 72))])
 
@@ -1046,6 +1046,11 @@ style navigation_button:
 
 style navigation_button_text:
     properties gui.text_properties("navigation_button")
+    color "#d8d8d8"
+    hover_color "#ffffff"
+    selected_color "#ffffff"
+    insensitive_color "#777777"
+    outlines [(2, "#000000cc", 0, 0)]
 
 
 ## Main Menu screen ############################################################
@@ -1059,7 +1064,11 @@ screen main_menu():
     ## This ensures that any other menu screen is replaced.
     tag menu
 
-    add gui.main_menu_background
+    add gui.main_menu_background at main_menu_background_drift
+    add "gui/main_menu_fog.png" at main_menu_fog_drift
+    add "gui/main_menu_bw_flicker.png" at main_menu_bw_flicker
+    add Solid("#ffffff") at main_menu_exposure_pulse
+    add Solid("#000000") at main_menu_dark_flicker
 
     ## This empty frame darkens the main menu.
     frame:
@@ -1091,7 +1100,7 @@ style main_menu_frame:
     xsize 420
     yfill True
 
-    background "gui/overlay/main_menu.png"
+    background "#00000099"
 
 style main_menu_vbox:
     xalign 1.0
@@ -1102,12 +1111,75 @@ style main_menu_vbox:
 
 style main_menu_text:
     properties gui.text_properties("main_menu", accent=True)
+    color "#ffffff"
+    outlines [(2, "#000000dd", 0, 0)]
 
 style main_menu_title:
     properties gui.text_properties("title")
+    color "#ffffff"
+    outlines [(3, "#000000dd", 0, 0)]
 
 style main_menu_version:
     properties gui.text_properties("version")
+    color "#bdbdbd"
+    outlines [(2, "#000000dd", 0, 0)]
+
+
+transform main_menu_background_drift:
+    subpixel True
+    xysize (1984, 1116)
+    xalign 0.5
+    yalign 0.5
+    xoffset -18
+    yoffset -8
+    ease 12.0 xoffset 18 yoffset 8
+    ease 14.0 xoffset -18 yoffset -8
+    repeat
+
+
+transform main_menu_fog_drift:
+    subpixel True
+    alpha 0.24
+    xpos -190
+    ypos 0
+    linear 18.0 xpos -25 alpha 0.34
+    linear 20.0 xpos -190 alpha 0.24
+    repeat
+
+
+transform main_menu_bw_flicker:
+    alpha 0.04
+    pause 1.15
+    linear 0.06 alpha 0.20
+    linear 0.08 alpha 0.04
+    pause 0.18
+    linear 0.03 alpha 0.16
+    linear 0.05 alpha 0.06
+    pause 2.10
+    repeat
+
+
+transform main_menu_exposure_pulse:
+    alpha 0.0
+    pause 2.40
+    linear 0.18 alpha 0.035
+    linear 0.35 alpha 0.0
+    pause 3.10
+    linear 0.12 alpha 0.025
+    linear 0.25 alpha 0.0
+    repeat
+
+
+transform main_menu_dark_flicker:
+    alpha 0.0
+    pause 1.55
+    linear 0.04 alpha 0.10
+    linear 0.08 alpha 0.0
+    pause 0.27
+    linear 0.03 alpha 0.06
+    linear 0.04 alpha 0.0
+    pause 2.30
+    repeat
 
 
 ## Game Menu screen ############################################################
@@ -1124,7 +1196,11 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
     style_prefix "game_menu"
 
     if main_menu:
-        add gui.main_menu_background
+        add gui.main_menu_background at main_menu_background_drift
+        add "gui/main_menu_fog.png" at main_menu_fog_drift
+        add "gui/main_menu_bw_flicker.png" at main_menu_bw_flicker
+        add Solid("#ffffff") at main_menu_exposure_pulse
+        add Solid("#000000") at main_menu_dark_flicker
     else:
         add gui.game_menu_background
 
