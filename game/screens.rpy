@@ -585,7 +585,7 @@ screen adv_flashlight_search(title, description, hotspots, required=3):
     default beam_value = None
     default mouse_xy = (960, 540)
 
-    add Transform("images/bg/bg_grave_inspection_night.png.png", xysize=(1920, 1080))
+    add "bg_adv_grave_inspect"
     add Solid("#000000cc")
     timer 0.03 repeat True action SetScreenVariable("mouse_xy", renpy.get_mouse_pos())
 
@@ -884,7 +884,18 @@ screen adv_ending_report(title, subtitle):
     modal True
     zorder 220
 
-    add Solid("#050403ee")
+    if "DILEPASKAN" in title:
+        add "bg_ending_released"
+    elif "DITINGGALKAN" in title:
+        add "bg_ending_abandoned"
+    elif "TERKUBUR" in title:
+        add "bg_ending_buried"
+    elif "TIDAK FAHAM" in title:
+        add "bg_ending_ignorance"
+    else:
+        add Solid("#050403")
+
+    add Solid("#050403bb")
 
     frame:
         xalign 0.5
@@ -946,18 +957,21 @@ screen quick_menu():
 
     if quick_menu:
 
-        hbox:
-            style_prefix "quick"
-            style "quick_menu"
+        frame:
+            style "quick_menu_frame"
 
-            textbutton _("Back") action Rollback()
-            textbutton _("History") action ShowMenu('history')
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
+            hbox:
+                style_prefix "quick"
+                style "quick_menu"
+
+                textbutton _("Back") action Rollback()
+                textbutton _("History") action ShowMenu('history')
+                textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
+                textbutton _("Auto") action Preference("auto-forward", "toggle")
+                textbutton _("Save") action ShowMenu('save')
+                textbutton _("Q.Save") action QuickSave()
+                textbutton _("Q.Load") action QuickLoad()
+                textbutton _("Prefs") action ShowMenu('preferences')
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -968,18 +982,34 @@ init python:
 default quick_menu = True
 
 style quick_menu is hbox
+style quick_menu_frame is frame
 style quick_button is default
 style quick_button_text is button_text
+
+style quick_menu_frame:
+    xalign 0.5
+    yalign 1.0
+    yoffset -34
+    background "#05050599"
+    padding (18, 2)
 
 style quick_menu:
     xalign 0.5
     yalign 1.0
+    spacing 14
 
 style quick_button:
     properties gui.button_properties("quick_button")
+    background None
+    hover_background None
+    padding (0, 0)
 
 style quick_button_text:
     properties gui.text_properties("quick_button")
+    color "#9f9f9f"
+    hover_color "#ffffff"
+    selected_color "#ffffff"
+    outlines [(1, "#000000dd", 0, 0)]
 
 
 ################################################################################
@@ -1074,20 +1104,12 @@ screen main_menu():
     frame:
         style "main_menu_frame"
 
+    if gui.show_name:
+        add "gui/main_menu_title.png" at main_menu_title_idle
+
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.
     use navigation
-
-    if gui.show_name:
-
-        vbox:
-            style "main_menu_vbox"
-
-            text "[config.name!t]":
-                style "main_menu_title"
-
-            text "[config.version]":
-                style "main_menu_version"
 
 
 style main_menu_frame is empty
@@ -1144,6 +1166,23 @@ transform main_menu_fog_drift:
     ypos 0
     linear 18.0 xpos -25 alpha 0.34
     linear 20.0 xpos -190 alpha 0.24
+    repeat
+
+
+transform main_menu_title_idle:
+    subpixel True
+    xalign 1.0
+    yalign 1.0
+    xoffset -48
+    yoffset -48
+    zoom 0.86
+    alpha 0.92
+    pause 1.65
+    linear 0.05 alpha 0.72
+    linear 0.08 alpha 0.96
+    pause 2.75
+    linear 0.04 alpha 0.82
+    linear 0.06 alpha 0.94
     repeat
 
 
