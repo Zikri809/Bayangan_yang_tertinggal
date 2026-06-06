@@ -22,7 +22,6 @@ label adv_chapter1:
     scene bg_adv_restaurant
     show spr_melur phone at adv_phone_left
     show spr_mc neutral at adv_phone_right
-    show screen adv_phone_call_overlay
     with dissolve
 
     melur "Encik... saya nak minta tolong pasal abang saya."
@@ -33,7 +32,6 @@ label adv_chapter1:
     melur "Tolong lepaskan dia dengan cara yang betul."
     $ adv_knows_child = True
 
-    hide screen adv_phone_call_overlay
     hide spr_melur
     hide spr_mc
     scene bg_adv_restaurant

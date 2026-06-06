@@ -195,6 +195,9 @@ label adv_old_family_house:
     $ adv_pick = renpy.call_screen("adv_inspection", "Rumah Keluarga Lama", "Bilik ni penuh dengan duka lama: kotak berkunci, tasbih, dan surat yang dilipat terlalu banyak kali.", [("Baca surat lama", "letter"), ("Ambil tasbih", "tasbih"), ("Cari garam untuk bertahan", "salt")])
 
     if adv_pick == "letter":
+        scene bg_adv_old_house_azlan_paper
+        with dissolve
+
         narrator "Surat tu cerita tentang dia sebagai anak, suami, dan ayah."
         narrator "Surat tu juga ceritakan harga yang dia bayar untuk hentikan bomoh itu."
         narrator "Ayat terakhirnya bukan pasal mati."
@@ -222,6 +225,12 @@ label adv_old_family_house:
         $ adv_fear += 1
         $ adv_add_note("Garam membantu bertahan, bukan melepaskan")
 
+    if adv_pick == "letter":
+        scene bg_adv_old_house
+        show spr_mother neutral at adv_left
+        show spr_mc neutral at adv_right
+        with dissolve
+
     if adv_has_old_letter and not adv_has_tasbih:
         mother "Surat saja tak cukup. Tangan kamu pun kena tenang."
         mother "Ambil tasbih ni. Kalau kamu sebut nama dia, sebut macam orang yang datang nak tolong."
@@ -231,6 +240,9 @@ label adv_old_family_house:
 
     elif adv_has_tasbih and not adv_has_old_letter:
         mother "Dan satu lagi. Jangan bawa tasbih tu tanpa tahu siapa yang kamu doakan."
+        scene bg_adv_old_house_azlan_paper
+        with dissolve
+
         narrator "Dia menyerahkan surat lama yang sudah berkali-kali dilipat."
         narrator "Dalam surat tu, Azlan menulis tentang isterinya, anaknya, dan keputusan yang makan nyawanya."
         $ adv_has_old_letter = True
@@ -239,6 +251,11 @@ label adv_old_family_house:
         $ adv_understanding += 1
         $ adv_add_note("Surat Azlan dibawa bersama tasbih")
         $ adv_add_note("Azlan tinggalkan seorang anak")
+
+        scene bg_adv_old_house
+        show spr_mother neutral at adv_left
+        show spr_mc neutral at adv_right
+        with dissolve
 
     if adv_burial_clue or adv_has_kafan_thread:
         mother "Mereka kebumikan dia cepat-cepat. Masa tu semua marah. Semua takut."

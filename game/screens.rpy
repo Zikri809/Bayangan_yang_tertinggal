@@ -232,18 +232,18 @@ style choice_button_text is default:
 
 ## Adventure route screens #####################################################
 
-screen adv_chapter_card(chapter, title, location, time_text, characters, mood):
+screen adv_chapter_card(chapter, title, location, time_text, characters, mood, bg="bg_adv_chapter_card", card_xalign=0.5, card_xsize=1280, card_background="#111111dd"):
     modal True
     zorder 200
 
-    add "bg_adv_chapter_card"
+    add bg
 
     frame:
-        xalign 0.5
+        xalign card_xalign
         yalign 0.5
-        xsize 1280
+        xsize card_xsize
         ysize 520
-        background "#111111dd"
+        background card_background
         padding (48, 42)
 
         vbox:
@@ -274,16 +274,17 @@ screen adv_chapter_card(chapter, title, location, time_text, characters, mood):
             text "Watak: [characters]":
                 size 26
                 color "#dddddd"
+                xmaximum card_xsize - 96
 
             text mood:
                 size 26
                 color "#c8c8c8"
-                xmaximum 1120
+                xmaximum card_xsize - 96
 
             text "Klik atau tekan Space untuk teruskan":
                 size 20
                 color "#777777"
-                xalign 1.0
+                xalign 0.0
 
     key "dismiss" action Return()
     key "K_SPACE" action Return()

@@ -243,7 +243,7 @@ label adv_release_ending:
         mc "Dia yang berjaya pergi. Kita cuma kena pastikan cerita dia sampai."
 
     hide screen adv_inventory
-    scene black
+    scene bg_ending_released
     with fade
 
     narrator "Melepaskan bukan sama dengan melupakan."
@@ -269,7 +269,7 @@ label adv_ignorance_ending:
         narrator "MC tak mampu jawab dengan yakin."
 
     hide screen adv_inventory
-    scene black
+    scene bg_ending_ignorance
     with fade
 
     narrator "Tak semua yang menakutkan datang untuk membunuh."
@@ -292,7 +292,7 @@ label adv_abandon_ending:
         narrator "Di belakang keputusan itu, anak Azlan masih mewarisi cerita yang salah."
 
     hide screen adv_inventory
-    scene black
+    scene bg_ending_abandoned
     with fade
 
     narrator "Benda yang ditinggalkan tak semestinya hilang."
@@ -311,7 +311,7 @@ label adv_death_ending:
         narrator "Anak Azlan masih hidup dengan cerita yang belum sempat dibetulkan."
 
     hide screen adv_inventory
-    scene black
+    scene bg_ending_buried
     with flash
 
     narrator "Di tempat yang terlalu lama menyimpan luka, ragu yang sesaat pun boleh jadi terlalu mahal."

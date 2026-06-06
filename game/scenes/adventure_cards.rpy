@@ -1,34 +1,34 @@
 label adv_card_prologue:
 
-    $ renpy.call_screen("adv_chapter_card", "PROLOG", "Pukul 2:47 Pagi", "Kampung Batu Layar", "2:47 pagi", "Nayan, pocong yang belum kelihatan", "Jalan balik terakhir. Sunyi, tangisan jauh, dan bunyi sesuatu melompat dalam kain.")
+    $ renpy.call_screen("adv_chapter_card", "PROLOG", "Pukul 2:47 Pagi", "Kampung Batu Layar", "2:47 pagi", "Nayan, pocong yang belum kelihatan", "Jalan balik terakhir. Sunyi, tangisan jauh, dan bunyi sesuatu melompat dalam kain.", bg="bg_adv_chapter_card_prologue", card_xalign=0.27, card_xsize=820, card_background=None)
     return
 
 
 label adv_card_ch1:
 
-    $ renpy.call_screen("adv_chapter_card", "BAB 1", "Restoran Zulkifli", "Restoran lama", "Petang", "MC, Hafiz, Melur, Abang Zul", "Kes ni bermula dengan permintaan untuk lepaskan seseorang, bukan buru sesuatu.")
+    $ renpy.call_screen("adv_chapter_card", "BAB 1", "Restoran Zulkifli", "Restoran lama", "Petang", "MC, Hafiz, Melur, Abang Zul", "Kes ni bermula dengan permintaan untuk lepaskan seseorang, bukan buru sesuatu.", bg="bg_adv_chapter_card_ch1", card_xalign=0.27, card_xsize=820, card_background=None)
     return
 
 
 label adv_card_ch2:
 
-    $ renpy.call_screen("adv_chapter_card", "BAB 2", "Malam Pertama di Batu Layar", "Pintu masuk kampung", "Malam", "MC, orang kampung, pocong", "Cerita orang kampung dah jadi sesuatu yang betul-betul bergerak dalam gelap.")
+    $ renpy.call_screen("adv_chapter_card", "BAB 2", "Malam Pertama di Batu Layar", "Pintu masuk kampung", "Malam", "MC, orang kampung, pocong", "Cerita orang kampung dah jadi sesuatu yang betul-betul bergerak dalam gelap.", bg="bg_adv_chapter_card_ch2", card_xalign=0.27, card_xsize=820, card_background=None)
     return
 
 
 label adv_card_ch3:
 
-    $ renpy.call_screen("adv_chapter_card", "BAB 3", "Sisa Yang Tertinggal", "Batu Layar", "Siang", "MC, Mak Ros, ibu, anak", "Tiga tempat. Tiga cebisan cerita yang kampung ni cuba tanam.")
+    $ renpy.call_screen("adv_chapter_card", "BAB 3", "Sisa Yang Tertinggal", "Batu Layar", "Siang", "MC, Mak Ros, ibu, anak", "Tiga tempat. Tiga cebisan cerita yang kampung ni cuba tanam.", bg="bg_adv_chapter_card_ch3", card_xalign=0.27, card_xsize=820, card_background=None)
     return
 
 
 label adv_card_ch4:
 
-    $ renpy.call_screen("adv_chapter_card", "BAB 4", "Menunggu Malam", "Laluan kampung", "Senja", "MC, pocong", "Barang dalam beg bukan sekadar alat lagi. Semuanya jadi pilihan.")
+    $ renpy.call_screen("adv_chapter_card", "BAB 4", "Menunggu Malam", "Laluan kampung", "Senja", "MC, pocong", "Barang dalam beg bukan sekadar alat lagi. Semuanya jadi pilihan.", bg="bg_adv_chapter_card_ch4", card_xalign=0.27, card_xsize=820, card_background=None)
     return
 
 
 label adv_card_ch5:
 
-    $ renpy.call_screen("adv_chapter_card", "BAB 5", "Simpulan Terakhir", "Kawasan kubur", "2:47 pagi", "MC, arwah/pocong", "Simpulan terakhir boleh dibuka, atau dia dipaksa jatuh sekali lagi.")
+    $ renpy.call_screen("adv_chapter_card", "BAB 5", "Simpulan Terakhir", "Kawasan kubur", "2:47 pagi", "MC, arwah/pocong", "Simpulan terakhir boleh dibuka, atau dia dipaksa jatuh sekali lagi.", bg="bg_adv_chapter_card_ch5", card_xalign=0.27, card_xsize=820, card_background=None)
     return
