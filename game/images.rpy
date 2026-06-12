@@ -74,8 +74,8 @@ image spr_owner serious = Transform("images/characters/zulkifli/zulkifli_serious
 image spr_villager_1 terrified = Transform("base_chara/terriified villager.png", zoom=0.36)
 image spr_mak_ros nervous = Transform("images/characters/mak_ros/mak_ros_nervous.png", zoom=0.64)
 image spr_mother neutral = Transform("base_chara/mok_salmah.png", zoom=0.56)
-image spr_pocong present = Placeholder("boy")
-image spr_pocong stilled = Placeholder("boy")
+image spr_pocong present = Transform("images/characters/pocong/pocong_present.png", zoom=0.58)
+image spr_pocong stilled = Transform("images/characters/pocong/pocong_stilled.png", zoom=0.58)
 image effect_flash_white = Solid("#ffffff")
 
 define flash = Fade(0.1, 0.0, 0.3, color="#ffffff")
