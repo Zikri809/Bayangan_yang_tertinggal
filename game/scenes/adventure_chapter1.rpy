@@ -17,7 +17,7 @@ label adv_chapter1:
     hafiz "Tapi cerita orang kampung ni pelik sikit."
     hafiz "Dia tak muncul merata. Dia ulang jalan yang sama, macam ada benda yang belum selesai."
 
-    narrator "Masa tu, telefon MC berbunyi."
+    narrator "Masa tu, telefon Aris berbunyi."
 
     play sound audio.sfx_phone_ring loop
     $ renpy.call_screen("adv_incoming_call", "Melur")
@@ -51,7 +51,7 @@ label adv_chapter1:
     owner "Tapi jangan fikir simpulan tu cuma kain."
     owner "Kadang-kadang simpulan yang paling ketat datang dari fitnah, takut, dan nama yang orang sengaja padam."
 
-    narrator "Abang Zul menghulur satu beg kecil kepada MC."
+    narrator "Abang Zul menghulur satu beg kecil kepada Aris."
     narrator "Lampu suluh. Kamera telefon. Keris kecil. Buku nota kosong."
     narrator "Dia letak beg tu perlahan-lahan, macam isinya bukan barang lawan, tapi tanggungjawab."
 
@@ -94,7 +94,7 @@ label adv_chapter1:
         "Biar Hafiz drive.":
             mc "Kau drive."
             narrator "Hafiz tak tanya lebih."
-            narrator "Sebab itulah MC percayakan Hafiz."
+            narrator "Sebab itulah Aris percayakan Hafiz."
             $ adv_hafiz_drives = True
             $ adv_fear -= 1
 

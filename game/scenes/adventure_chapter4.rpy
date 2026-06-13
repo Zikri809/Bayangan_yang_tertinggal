@@ -9,7 +9,7 @@ label adv_chapter4:
     with dissolve
 
     narrator "Matahari mula tenggelam di belakang Batu Layar."
-    narrator "MC susun semua barang dari beg kecilnya."
+    narrator "Aris susun semua barang dari beg kecilnya."
 
     $ renpy.call_screen("adv_case_summary")
     narrator "Buku nota itu bukan lagi senarai petunjuk."
@@ -19,17 +19,17 @@ label adv_chapter4:
     narrator "Satu halaman untuk nama Azlan."
 
     if adv_hafiz_drives:
-        narrator "Telefon Hafiz masuk sekejap: dia masih tunggu di luar kampung, siap kalau MC perlu keluar cepat."
+        narrator "Telefon Hafiz masuk sekejap: dia masih tunggu di luar kampung, siap kalau Aris perlu keluar cepat."
 
     if adv_villager_helped:
-        narrator "Lelaki yang MC bantu semalam tinggalkan air dan kain bersih dekat pintu. Tak ada ucapan, cuma tanda dia masih hidup."
+        narrator "Lelaki yang Aris bantu semalam tinggalkan air dan kain bersih dekat pintu. Tak ada ucapan, cuma tanda dia masih hidup."
 
     if adv_can_release():
         $ adv_release_ready = True
         narrator "Benang kafan. Surat lama. Tasbih."
-        narrator "Kali ni, semua petunjuk bawa MC ke satu arah: melepaskan, bukan melawan."
+        narrator "Kali ni, semua petunjuk bawa Aris ke satu arah: melepaskan, bukan melawan."
         narrator "Masalahnya, faham waktu senja belum tentu cukup bila benda tu melompat tepat depan mata."
-        narrator "Malam nanti, nota lengkap belum cukup. MC masih kena ikut rentak, sebut nama Azlan, dan dekat tanpa memaksa."
+        narrator "Malam nanti, nota lengkap belum cukup. Aris masih kena ikut rentak, sebut nama Azlan, dan dekat tanpa memaksa."
     else:
         narrator "Dia ada cukup barang untuk hidup."
         narrator "Mungkin belum cukup untuk faham."
@@ -37,14 +37,15 @@ label adv_chapter4:
 
     menu:
         "Bersedia untuk lepaskan dia." if adv_release_ready:
-            narrator "MC biarkan keris dalam sarung."
+            narrator "Aris biarkan keris dalam sarung."
             narrator "Tasbih dililit di pergelangan tangan."
             narrator "Surat Azlan dilipat dan diselitkan dalam buku nota, dekat dengan benang kafan."
-            narrator "Kalau tangan MC menggigil nanti, sekurang-kurangnya dia tahu kenapa dia datang sini."
+            narrator "Kalau tangan Aris menggigil nanti, sekurang-kurangnya dia tahu kenapa dia datang sini."
             $ adv_understanding += 1
 
         "Bersedia untuk paksa dia berundur.":
-            narrator "MC pegang keris dekat tangan."
+            play sound audio.sfx_keris_draw volume 1.0
+            narrator "Aris pegang keris dekat tangan."
             narrator "Bila takut, rancangan paling kasar pun rasa paling selamat."
             narrator "Tapi makin lama bilah tu ada di tangan, makin senang lupa yang Azlan pernah jadi manusia."
             if adv_release_ready:
@@ -53,11 +54,11 @@ label adv_chapter4:
             $ adv_pocong_anger += 1
 
         "Bersedia untuk lari kalau semua gagal.":
-            narrator "MC tengok jalan keluar dari kampung."
+            narrator "Aris tengok jalan keluar dari kampung."
             narrator "Fikiran itu terasa pahit."
             narrator "Ada beza antara hidup untuk sambung siasatan, dengan lari sebab tak mahu faham."
             if adv_release_ready:
-                narrator "Nota mungkin lengkap, tapi niat untuk lari boleh buat MC gagal mendekat bila simpulan perlu dibuka."
+                narrator "Nota mungkin lengkap, tapi niat untuk lari boleh buat Aris gagal mendekat bila simpulan perlu dibuka."
             $ adv_fear += 1
 
     $ adv_ch4_choices = [("Suluh dengan lampu", "light")]
@@ -71,9 +72,10 @@ label adv_chapter4:
     else:
         $ adv_ch4_choices.append(("Berdiri diam", "still"))
 
-    $ adv_night_attack = renpy.call_screen("adv_timed_choice", "Makhluk itu muncul di hujung kampung. MC nak guna petunjuk mana dulu?", adv_ch4_choices, "freeze", 12)
+    $ adv_night_attack = renpy.call_screen("adv_timed_choice", "Makhluk itu muncul di hujung kampung. Aris nak guna petunjuk mana dulu?", adv_ch4_choices, "freeze", 12)
 
     if adv_night_attack == "light":
+        play sound audio.sfx_flashlight_on volume 1.0
         narrator "Cahaya lampu suluh jatuh pada kain dan simpulan di kakinya."
         narrator "Pocong tu berhenti, macam baru pertama kali ada orang nampak dia betul-betul."
         narrator "Bukan macam cerita seram."
@@ -81,7 +83,7 @@ label adv_chapter4:
         $ adv_understanding += 1
 
     elif adv_night_attack == "pray" and adv_has_tasbih:
-        narrator "Doa tu menenangkan tangan MC."
+        narrator "Doa tu menenangkan tangan Aris."
         narrator "Pocong tu menggigil, tapi tak menyerang."
         narrator "Untuk beberapa saat, bunyi duk di jalan kampung berhenti."
         narrator "Senyap tu tak aman, tapi ia bagi ruang."
@@ -92,10 +94,11 @@ label adv_chapter4:
         narrator "Pocong tu tersentak ke belakang."
         narrator "Nampak macam dia sakit, bukan sekadar terhalang."
         if adv_release_ready:
-            narrator "MC rasa ruang untuk melepaskan Azlan makin sempit."
+            narrator "Aris rasa ruang untuk melepaskan Azlan makin sempit."
         $ adv_pocong_anger += 1
 
     elif adv_night_attack == "keris":
+        play sound audio.sfx_keris_draw volume 1.0
         narrator "Bilah keris diangkat."
         narrator "Makhluk tu menjerit."
         if adv_release_ready:
@@ -105,33 +108,33 @@ label adv_chapter4:
 
     elif adv_night_attack == "still":
         play rhythm audio.mus_rhythm_game fadein 0.2 volume 1.35
-        $ adv_still_result = renpy.call_screen("adv_stillness", "Bunyi duk berhenti betul-betul depan MC.", 4)
-        stop rhythm fadeout 0.2
+        $ adv_still_result = renpy.call_screen("adv_stillness", "Bunyi duk berhenti betul-betul depan Aris.", 4)
+        stop rhythm fadeout 1.0
         if adv_still_result == "still":
             if adv_observed_pattern:
-                narrator "MC ingat kata Mak Ros."
+                narrator "Aris ingat kata Mak Ros."
                 narrator "Dia berdiri diam, bukan sebab takut, tapi sebab dia faham rentak benda tu."
                 narrator "Untuk satu detik, pocong tu pun diam."
                 $ adv_understanding += 1
             else:
-                narrator "MC berdiri diam, tapi dia tak tahu kenapa itu patut berkesan."
+                narrator "Aris berdiri diam, tapi dia tak tahu kenapa itu patut berkesan."
                 narrator "Ragu itu cukup untuk buat tubuhnya lambat bergerak."
                 $ adv_fear += 1
         else:
-            narrator "MC tersentak sebelum jeda itu habis."
+            narrator "Aris tersentak sebelum jeda itu habis."
             narrator "Pocong tu menangkap gerakan kecil itu seperti jawapan."
             play sound audio.sfx_body_hit volume 1.25
-            narrator "Hentaman kain dan tulang buat lutut MC hampir jatuh."
+            narrator "Hentaman kain dan tulang buat lutut Aris hampir jatuh."
             $ adv_damage += 1
             $ adv_fear += 1
 
     elif adv_night_attack == "freeze" and adv_observed_pattern:
-        narrator "MC hampir terkaku, tapi dia teringat jeda kecil dalam gerakan pocong tu."
+        narrator "Aris hampir terkaku, tapi dia teringat jeda kecil dalam gerakan pocong tu."
         narrator "Dia diam dengan sengaja."
         $ adv_understanding += 1
 
     else:
-        narrator "MC teragak-agak."
+        narrator "Aris teragak-agak."
         play sound audio.sfx_body_hit volume 1.25
         narrator "Hentaman tu buat nafas dia putus sekejap."
         $ adv_damage += 1

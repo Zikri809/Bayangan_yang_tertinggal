@@ -30,17 +30,17 @@ label adv_chapter2:
         "Jerit amaran dan tarik dia ke tepi.":
             mc "Masuk rumah! Cepat!"
             narrator "Lelaki tu jatuh masuk ke pintu rumah."
-            narrator "Benda tu terus berpaling ke arah MC."
+            narrator "Benda tu terus berpaling ke arah Aris."
             $ adv_villager_helped = True
             $ adv_fear += 1
             $ adv_add_note("Pocong berpaling kepada orang yang menghalang")
 
         "Berdiri diam dan perhatikan geraknya.":
             play rhythm audio.mus_rhythm_game fadein 0.2 volume 1.35
-            $ adv_still_result = renpy.call_screen("adv_stillness", "Pocong tu melompat makin dekat. MC paksa badan dia jangan ikut panik.", 4)
-            stop rhythm fadeout 0.2
+            $ adv_still_result = renpy.call_screen("adv_stillness", "Pocong tu melompat makin dekat. Aris paksa badan dia jangan ikut panik.", 4)
+            stop rhythm fadeout 1.0
             if adv_still_result == "still":
-                narrator "MC tahan diri daripada bergerak."
+                narrator "Aris tahan diri daripada bergerak."
                 narrator "Lelaki kampung itu sempat merangkak masuk ke rumah."
                 narrator "Pocong tu mula perlahan."
                 narrator "Sekejap je. Tapi cukup untuk nampak coraknya."
@@ -49,16 +49,17 @@ label adv_chapter2:
                 $ adv_understanding += 1
                 $ adv_add_note("Diam sekejap buat pocong hilang rentak")
             else:
-                narrator "Jari MC tersentak sebelum dia sempat kawal diri."
+                narrator "Jari Aris tersentak sebelum dia sempat kawal diri."
                 narrator "Pocong tu terus melompat ke arah gerakan kecil itu."
                 play sound audio.sfx_body_hit volume 1.25
-                narrator "Lelaki kampung sempat masuk, tapi bahu MC terkena hentaman kain dan tulang."
+                narrator "Lelaki kampung sempat masuk, tapi bahu Aris terkena hentaman kain dan tulang."
                 $ adv_villager_helped = True
                 $ adv_damage += 1
                 $ adv_fear += 1
                 $ adv_add_note("Pocong lebih cepat mengejar gerakan panik")
 
         "Terus angkat keris.":
+            play sound audio.sfx_keris_draw volume 1.0
             narrator "Bilah keris menangkap cahaya bulan."
             narrator "Pocong tu berhenti, kemudian menggigil lebih kuat."
             $ adv_pocong_anger += 1
@@ -68,7 +69,7 @@ label adv_chapter2:
     $ adv_first_attack = renpy.call_screen("adv_timed_choice", "Pocong tu macam menarik nafas. Satu kampung terus senyap.", [("Tutup telinga", "cover"), ("Guna kamera telefon", "camera"), ("Berdiri teguh dan perhati", "watch")], "freeze", 10)
 
     if adv_first_attack == "cover":
-        narrator "MC sempat tutup telinga."
+        narrator "Aris sempat tutup telinga."
         play sound audio.sfx_body_hit volume 1.25
         play earring audio.sfx_ear_ringing volume 1.25 fadein 0.15
         narrator "Sesuatu yang berat menghentam bahu dia dalam gelap."
@@ -103,7 +104,7 @@ label adv_chapter2:
         $ adv_add_note("Jeritan buat badan hilang arah")
 
     else:
-        narrator "MC terkaku."
+        narrator "Aris terkaku."
         narrator "Jeritan tu buat dia jatuh tersungkur."
         play sound audio.sfx_body_hit volume 1.25
         $ adv_damage += 1
@@ -113,26 +114,39 @@ label adv_chapter2:
         villager_1 "Dia... dia datang ikut jalan yang sama."
         villager_1 "Malam-malam sebelum ni pun macam tu. Kalau orang lari, dia kejar."
         villager_1 "Kalau semua tutup pintu, dia tunggu."
-        narrator "Lelaki tu bercakap sambil menggigil, tapi kata-katanya melekat dalam kepala MC."
+        narrator "Lelaki tu bercakap sambil menggigil, tapi kata-katanya melekat dalam kepala Aris."
         $ adv_add_note("Penduduk nampak pocong ulang laluan yang sama")
 
     else:
         narrator "Pintu rumah di sekeliling tertutup rapat."
-        narrator "Tak ada sesiapa berani keluar untuk tanya sama ada MC masih hidup."
+        narrator "Tak ada sesiapa berani keluar untuk tanya sama ada Aris masih hidup."
         narrator "Di Batu Layar, takut dah jadi bahasa harian."
 
     narrator "Pocong tu berundur sebelum subuh."
     narrator "Bukan macam ia kalah."
     narrator "Macam ia cuma terganggu."
-    narrator "MC buka buku nota dengan tangan yang belum berhenti menggigil."
+    narrator "Aris buka buku nota dengan tangan yang belum berhenti menggigil."
     narrator "Serangan itu bukan rawak."
     narrator "Ada laluan. Ada jeda. Ada simpulan."
 
     if adv_hafiz_drives:
-        narrator "Telefon Hafiz masuk, suaranya rendah."
+        narrator "Telefon Hafiz masuk, skrin menyala dalam gelap."
+        play sound audio.sfx_phone_ring loop
+        $ renpy.call_screen("adv_incoming_call", "Hafiz")
+        stop sound fadeout 0.2
+
+        scene bg_adv_village_gate
+        show spr_hafiz neutral at adv_phone_left
+        show spr_mc alert at adv_phone_right
+        with dissolve
+
         hafiz "Aku nampak dari jauh. Kau masih boleh teruskan?"
         mc "Boleh. Tapi benda ni bukan kes serang dan habis."
         hafiz "Jadi cari sebab dia masih ulang benda sama."
+
+        hide spr_hafiz
+        hide spr_mc
+        with dissolve
 
     hide spr_villager_1
     hide spr_pocong

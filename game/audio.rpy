@@ -10,10 +10,17 @@ init python:
     renpy.music.register_channel("earring", "sfx", loop=False)
     renpy.music.register_channel("camera", "sfx", loop=False)
     renpy.music.register_channel("creature", "sfx", loop=False)
+    renpy.music.register_channel("cutting", "sfx", loop=False)
 
 # Shared ambience and music:
 define audio.amb_nayan_night = "audio/ambience/amb_nayan_night.ogg"
 define audio.amb_restaurant_crowd = "audio/ambience/amb_restaurant_crowd.ogg"
+define audio.amb_village_morning = "audio/ambience/amb_village_morning.wav"
+define audio.amb_village_morning_loud = "audio/ambience/amb_village_morning_loud.wav"
+define audio.amb_village_morning_present = "audio/ambience/amb_village_morning_present.wav"
+define audio.mus_credits = "audio/music/mus_credits.mp3"
+define audio.mus_ending_positive = "audio/music/mus_ending_positive.mp3"
+define audio.mus_ending_negative = "audio/music/mus_ending_negative.mp3"
 define audio.mus_final_confrontation = "audio/music/mus_main_menu_try_to_survive.ogg"
 define audio.mus_rhythm_game = "audio/music/mus_rhythm_game_16.wav"
 # define audio.amb_village_night = "audio/ambience/amb_village_night.ogg"
@@ -32,6 +39,7 @@ define audio.ui_button_select = "audio/sfx/ui_button_select.ogg"
 
 # adv_prologue:
 define audio.sfx_nayan_scream = "audio/sfx/sfx_nayan_scream.ogg"
+define audio.sfx_nayan_scream_loud = "audio/sfx/sfx_nayan_scream_loud.wav"
 # define audio.sfx_pocong_hop = "audio/sfx/sfx_pocong_hop.ogg"
 define audio.sfx_pocong_cry = "audio/sfx/sfx_pocong_cry.mp3"
 # define audio.sfx_pocong_shriek = "audio/sfx/sfx_pocong_shriek.ogg"
@@ -51,16 +59,20 @@ define audio.sfx_body_hit = "audio/sfx/sfx_body_hit_loud.wav"
 # define audio.sfx_thread_pull = "audio/sfx/sfx_thread_pull.ogg"
 
 # adv_old_family_house:
-# define audio.sfx_paper_unfold = "audio/sfx/sfx_paper_unfold.ogg"
+define audio.sfx_door_open = "audio/sfx/sfx_door_open.wav"
+define audio.sfx_flashlight_on = "audio/sfx/sfx_flashlight_on.wav"
+define audio.sfx_item_grab = "audio/sfx/sfx_item_grab.wav"
+define audio.sfx_paper_unfold = "audio/sfx/sfx_paper_unfold.wav"
 # define audio.sfx_tasbih_beads = "audio/sfx/sfx_tasbih_beads.ogg"
 
 # adv_chapter4:
-# define audio.sfx_keris_draw = "audio/sfx/sfx_keris_draw.ogg"
+define audio.sfx_keris_draw = "audio/sfx/sfx_keris_draw.wav"
 # define audio.sfx_prayer_low = "audio/sfx/sfx_prayer_low.ogg"
 # define audio.sfx_salt_throw = "audio/sfx/sfx_salt_throw.ogg"
 
 # adv_chapter5 and endings:
-# define audio.sfx_knot_untied = "audio/sfx/sfx_knot_untied.ogg"
+define audio.sfx_cloth_cut = "audio/sfx/sfx_cloth_cut.wav"
+define audio.sfx_knot_pull = "audio/sfx/sfx_knot_pull.wav"
 # define audio.sfx_keris_strike = "audio/sfx/sfx_keris_strike.ogg"
 # define audio.sfx_arwah_cry_pain = "audio/sfx/sfx_arwah_cry_pain.ogg"
 # define audio.sfx_arwah_final = "audio/sfx/sfx_arwah_final.ogg"

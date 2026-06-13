@@ -5,6 +5,8 @@ label adv_chapter3:
     scene bg_village_path_day
     with fade
 
+    play ambient audio.amb_village_morning_present fadein 1.5 volume 0.25
+
     show spr_mc neutral at center
     with dissolve
 
@@ -20,9 +22,10 @@ label adv_investigation_hub:
     with dissolve
 
     if adv_mak_ros_done and adv_burial_done and adv_house_done:
+        stop ambient fadeout 1.0
         jump adv_chapter4
 
-    narrator "MC semak buku notanya."
+    narrator "Aris semak buku notanya."
     narrator "Masih ada masa sebelum malam."
 
     menu:
@@ -37,9 +40,10 @@ label adv_investigation_hub:
 
         "Bersiap sekarang, walaupun siasatan belum habis.":
             if not adv_can_release():
-                narrator "MC tengok buku notanya."
+                narrator "Aris tengok buku notanya."
                 narrator "Masih ada benda yang belum lengkap: gerak-geri, identiti, atau cara melepaskan."
                 narrator "Kalau dia teruskan sekarang, mungkin dia cuma cukup bersedia untuk bertahan."
+            stop ambient fadeout 1.0
             jump adv_chapter4
 
 
@@ -47,6 +51,7 @@ label adv_mak_ros_house:
 
     $ adv_mak_ros_done = True
 
+    play sound audio.sfx_door_open volume 1.0
     scene bg_adv_mak_ros_house
     with fade
 
@@ -93,6 +98,7 @@ label adv_mak_ros_house:
     mak_ros "Tapi mereka jarang tanya kenapa benda tu masih berjalan di jalan yang sama."
     $ adv_add_note("Nayan jadi mangsa laluan pocong yang berulang")
 
+    play sound audio.sfx_door_open volume 1.0
     hide spr_mak_ros
     with dissolve
 
@@ -115,7 +121,8 @@ label adv_burial_ground:
     narrator "Tanahnya tak rata, macam kerja yang dibuat cepat-cepat lepas tu semua orang pura-pura lupa."
     narrator "Kubur lain ada batu yang dibersihkan, rumput yang dipotong, bekas doa orang yang datang."
     narrator "Kubur ni cuma ada tanah berat dan kesan ditinggalkan."
-    narrator "MC rasa macam berdiri depan rahsia yang sengaja dibiarkan reput."
+    narrator "Aris rasa macam berdiri depan rahsia yang sengaja dibiarkan reput."
+    play sound audio.sfx_flashlight_on volume 1.0
     narrator "Dia angkat lampu suluh dan biarkan cahayanya bergerak perlahan atas tanah."
 
     $ adv_grave_hotspots = [("Tanah tak rata", "soil", 140, 700, 420, 190, "Bekas gali lama."), ("Benang putih", "thread", 940, 780, 330, 170, "Kain kafan tersangkut di bawah batu."), ("Batu nisan", "marker", 1520, 330, 300, 330, "Nama yang hampir hilang bawah lumut.")]
@@ -130,7 +137,7 @@ label adv_burial_ground:
         $ adv_add_note("Jenazah diurus kelam-kabut")
 
     if "thread" in adv_found_grave:
-        narrator "MC tarik sehelai benang longgar dari tanah."
+        narrator "Aris tarik sehelai benang longgar dari tanah."
         narrator "Kain kafan."
         narrator "Simpulannya masih ketat."
         $ adv_has_kafan_thread = True
@@ -147,14 +154,14 @@ label adv_burial_ground:
         $ adv_add_note("Nama pada kubur: Azlan")
 
     if not adv_has_kafan_thread:
-        narrator "Sebelum MC berundur, lampu suluhnya menangkap sehelai benang putih tersangkut di bawah batu."
+        narrator "Sebelum Aris berundur, lampu suluhnya menangkap sehelai benang putih tersangkut di bawah batu."
         narrator "Dia simpan benang kafan tu. Bukti kecil yang simpulan itu belum selesai."
         $ adv_has_kafan_thread = True
         $ adv_add_note("Benang kafan jadi bukti simpulan")
 
     $ adv_burial_clue = True
     narrator "Angin lalu perlahan di kawasan kubur."
-    narrator "Benang kafan di tangan MC terasa kering, tapi bau tanah basah masih melekat."
+    narrator "Benang kafan di tangan Aris terasa kering, tapi bau tanah basah masih melekat."
     narrator "Buat pertama kali, kes ni tak terasa macam memburu benda seram."
     narrator "Ia terasa macam membetulkan sesuatu yang orang hidup pernah rosakkan."
 
@@ -165,6 +172,7 @@ label adv_old_family_house:
 
     $ adv_house_done = True
 
+    play sound audio.sfx_door_open volume 1.0
     scene bg_adv_old_house
     with fade
 
@@ -195,6 +203,7 @@ label adv_old_family_house:
     $ adv_pick = renpy.call_screen("adv_inspection", "Rumah Keluarga Lama", "Bilik ni penuh dengan duka lama: kotak berkunci, tasbih, dan surat yang dilipat terlalu banyak kali.", [("Baca surat lama", "letter"), ("Ambil tasbih", "tasbih"), ("Cari garam untuk bertahan", "salt")])
 
     if adv_pick == "letter":
+        play sound audio.sfx_paper_unfold volume 1.4
         scene bg_adv_old_house_azlan_paper
         with dissolve
 
@@ -211,16 +220,18 @@ label adv_old_family_house:
 
     elif adv_pick == "tasbih":
         mother "Ambillah. Kalau kamu nak buka simpulan tu, jangan datang macam kamu nak hukum dia."
+        play sound audio.sfx_item_grab volume 1.0
         $ adv_has_tasbih = True
         $ adv_understanding += 1
         $ adv_add_note("Doa perlu mengiringi pelepasan")
 
     elif adv_pick == "salt":
         narrator "Ada sebungkus kecil garam dalam kabinet."
-        narrator "Mungkin berguna kalau MC cuma mahu hidup sampai subuh."
+        narrator "Mungkin berguna kalau Aris cuma mahu hidup sampai subuh."
         mother "Garam boleh buat dia berundur."
         mother "Tapi kalau kamu cuma mahu dia sakit, kamu takkan faham kenapa dia masih terikat."
         narrator "Pilihan tu terasa macam jalan orang yang takut, bukan orang yang sudah faham."
+        play sound audio.sfx_item_grab volume 1.0
         $ adv_has_salt = True
         $ adv_fear += 1
         $ adv_add_note("Garam membantu bertahan, bukan melepaskan")
@@ -234,12 +245,14 @@ label adv_old_family_house:
     if adv_has_old_letter and not adv_has_tasbih:
         mother "Surat saja tak cukup. Tangan kamu pun kena tenang."
         mother "Ambil tasbih ni. Kalau kamu sebut nama dia, sebut macam orang yang datang nak tolong."
+        play sound audio.sfx_item_grab volume 1.0
         $ adv_has_tasbih = True
         $ adv_understanding += 1
         $ adv_add_note("Tasbih dibawa untuk pelepasan")
 
     elif adv_has_tasbih and not adv_has_old_letter:
         mother "Dan satu lagi. Jangan bawa tasbih tu tanpa tahu siapa yang kamu doakan."
+        play sound audio.sfx_paper_unfold volume 1.4
         scene bg_adv_old_house_azlan_paper
         with dissolve
 
@@ -270,6 +283,7 @@ label adv_old_family_house:
     mother "Mulakan dengan nama dia."
     mother "Kalau Azlan masih dengar apa-apa, biar benda pertama yang sampai bukan takut."
 
+    play sound audio.sfx_door_open volume 1.0
     hide spr_mother
     with dissolve
 

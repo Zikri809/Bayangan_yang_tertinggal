@@ -1,6 +1,6 @@
 # Character definitions.
 
-define mc = Character("You")
+define mc = Character("Aris")
 define nayan = Character("Nayan")
 define hafiz = Character("Hafiz")
 define melur = Character("Melur")

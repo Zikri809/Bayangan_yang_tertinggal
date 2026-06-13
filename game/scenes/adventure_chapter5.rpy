@@ -10,18 +10,18 @@ label adv_chapter5:
     scene bg_adv_final_grave
     with fade
 
-    play music audio.mus_final_confrontation fadein 1.5
+    play music audio.mus_final_confrontation fadein 1.5 volume 0.65
 
     show spr_mc focused at adv_right
     show spr_pocong present at adv_left
     with dissolve
 
-    narrator "Pukul 2:47 pagi, MC sampai di kubur itu."
+    narrator "Pukul 2:47 pagi, Aris sampai di kubur itu."
     narrator "Pocong tu menunggu di sana."
     narrator "Kain di kakinya tertarik ketat, seolah-olah tanah sendiri belum mahu melepaskan dia."
     narrator "Kali ni, buku nota bukan sekadar catatan."
     narrator "Setiap petunjuk mungkin jadi cara untuk terus hidup."
-    narrator "MC teringat suara Mak Ros."
+    narrator "Aris teringat suara Mak Ros."
     narrator "Jangan lari kalau mahu baca rentaknya."
     narrator "Dia teringat tanah kubur yang tak rata."
     narrator "Jangan potong kalau simpulan itu perlu dibuka."
@@ -35,51 +35,56 @@ label adv_chapter5:
     $ adv_step_movement_choices.append(("Angkat keris supaya dia berundur", "keris"))
     $ adv_step_movement_choices.append(("Lari ke belakang batu nisan", "run"))
 
-    $ adv_final_move = renpy.call_screen("adv_timed_choice", "Dia mula melompat ke arah MC. Apa MC buat?", adv_step_movement_choices, "freeze", 14)
+    $ adv_final_move = renpy.call_screen("adv_timed_choice", "Dia mula melompat ke arah Aris. Apa Aris buat?", adv_step_movement_choices, "freeze", 14)
 
     if adv_final_move == "pattern":
+        stop music fadeout 0.7
         play rhythm audio.mus_rhythm_game fadein 0.2 volume 1.35
-        $ adv_still_result = renpy.call_screen("adv_stillness", "Pocong tu datang lurus ke arah MC. Kalau MC bergerak, rentak dia pecah.", 4)
-        stop rhythm fadeout 0.2
+        $ adv_still_result = renpy.call_screen("adv_stillness", "Pocong tu datang lurus ke arah Aris. Kalau Aris bergerak, rentak dia pecah.", 4)
+        stop rhythm fadeout 1.0
+        play music audio.mus_final_confrontation fadein 1.0 volume 0.65
         if adv_still_result == "still":
-            narrator "MC tahan diri daripada lari."
+            narrator "Aris tahan diri daripada lari."
             narrator "Duk. Jeda. Duk. Jeda."
-            narrator "Betul kata Mak Ros: bila MC tak panik, gerak pocong tu boleh dibaca."
+            narrator "Betul kata Mak Ros: bila Aris tak panik, gerak pocong tu boleh dibaca."
             $ adv_final_pattern_used = True
             $ adv_understanding += 1
         else:
-            narrator "MC bergerak sedikit, cukup untuk pecahkan jeda itu."
+            narrator "Aris bergerak sedikit, cukup untuk pecahkan jeda itu."
             play sound audio.sfx_body_hit volume 1.25
-            narrator "Pocong tu melompat terlalu dekat sebelum MC sempat tarik nafas."
+            narrator "Pocong tu melompat terlalu dekat sebelum Aris sempat tarik nafas."
             $ adv_damage += 1
             $ adv_fear += 1
 
     elif adv_final_move == "light" and adv_known_burial_problem():
+        play sound audio.sfx_flashlight_on volume 1.0
         narrator "Cahaya lampu jatuh tepat pada simpulan kain di kakinya."
         narrator "Bukan sekadar serangan. Ada sesuatu yang masih terikat."
         $ adv_understanding += 1
 
     elif adv_final_move == "light":
-        narrator "Cahaya lampu terkena kain putih, tapi MC belum faham apa yang patut dicari."
+        play sound audio.sfx_flashlight_on volume 1.0
+        narrator "Cahaya lampu terkena kain putih, tapi Aris belum faham apa yang patut dicari."
         narrator "Pocong tu menghentam tanah terlalu dekat."
         $ adv_fear += 1
 
     elif adv_final_move == "keris":
-        narrator "MC mengangkat keris sebelum sempat menyebut nama arwah."
+        play sound audio.sfx_keris_draw volume 1.0
+        narrator "Aris mengangkat keris sebelum sempat menyebut nama arwah."
         narrator "Pocong tu menggigil, lebih marah daripada takut."
         $ adv_aggressive_prepare = True
         $ adv_final_force_used = True
         $ adv_pocong_anger += 1
 
     elif adv_final_move == "freeze" and adv_observed_pattern:
-        narrator "MC hampir terkaku."
+        narrator "Aris hampir terkaku."
         narrator "Tapi dia teringat satu benda: jangan lari."
         narrator "Dia diam dengan sengaja, dan pocong tu hilang rentak sekejap."
         $ adv_final_pattern_used = True
         $ adv_understanding += 1
 
     else:
-        narrator "MC bergerak tanpa membaca rentaknya."
+        narrator "Aris bergerak tanpa membaca rentaknya."
         play sound audio.sfx_body_hit volume 1.25
         narrator "Bahu dia terkena hentaman kain dan tulang."
         $ adv_damage += 1
@@ -95,7 +100,7 @@ label adv_chapter5:
     $ adv_step_identity_choices.append(("Paksa dia tunduk dengan keris", "force"))
     $ adv_step_identity_choices.append(("Diam dan tunggu dia berhenti sendiri", "silent"))
 
-    $ adv_final_identity = renpy.call_screen("adv_timed_choice", "Dia berhenti dekat kubur, cukup dekat untuk mendengar suara MC.", adv_step_identity_choices, "freeze", 14)
+    $ adv_final_identity = renpy.call_screen("adv_timed_choice", "Dia berhenti dekat kubur, cukup dekat untuk mendengar suara Aris.", adv_step_identity_choices, "freeze", 14)
 
     if adv_final_identity == "identity":
         mc "Azlan."
@@ -108,7 +113,8 @@ label adv_chapter5:
         $ adv_understanding += 1
 
     elif adv_final_identity == "letter":
-        narrator "MC buka surat lama dengan tangan yang menggigil."
+        play sound audio.sfx_paper_unfold volume 1.4
+        narrator "Aris buka surat lama dengan tangan yang menggigil."
         mc "Azlan, kau mati bukan sebab bawa bala."
         mc "Kau mati sebab hentikan bomoh yang kampung ni takut nak sebut."
         mc "Anak kau masih ada. Dia berhak tahu bapanya bukan punca bala."
@@ -118,12 +124,13 @@ label adv_chapter5:
         $ adv_understanding += 1
 
     elif adv_final_identity == "generic_pray":
-        narrator "Doa itu menahan takut dalam dada MC, tapi doa itu tak memanggil dia dengan namanya."
-        narrator "Pocong tu masih tak tahu sama ada MC datang untuk faham, atau untuk hukum."
+        narrator "Doa itu menahan takut dalam dada Aris, tapi doa itu tak memanggil dia dengan namanya."
+        narrator "Pocong tu masih tak tahu sama ada Aris datang untuk faham, atau untuk hukum."
         $ adv_fear += 1
 
     elif adv_final_identity == "force":
-        narrator "MC buka ruang dengan keris."
+        play sound audio.sfx_keris_draw volume 1.0
+        narrator "Aris buka ruang dengan keris."
         narrator "Untuk sekejap, pocong tu tunduk."
         narrator "Tapi tunduk bukan sama dengan reda."
         $ adv_aggressive_prepare = True
@@ -131,14 +138,14 @@ label adv_chapter5:
         $ adv_pocong_anger += 1
 
     else:
-        narrator "MC tunggu terlalu lama."
+        narrator "Aris tunggu terlalu lama."
         narrator "Tanpa nama, senyap itu cuma jadi satu lagi cara meninggalkan dia."
         $ adv_fear += 1
 
     narrator "Simpulan di kaki pocong itu menegang."
-    narrator "Benang kafan dalam beg MC terasa ringan, tapi maknanya makin berat."
+    narrator "Benang kafan dalam beg Aris terasa ringan, tapi maknanya makin berat."
     narrator "Ini bukan lagi soalan tentang cara menang."
-    narrator "Ini soalan sama ada MC cukup berani untuk dekat tanpa niat nak hukum."
+    narrator "Ini soalan sama ada Aris cukup berani untuk dekat tanpa niat nak hukum."
 
     $ adv_step_release_choices = []
     if adv_ready_for_final_release():
@@ -152,26 +159,28 @@ label adv_chapter5:
     $ adv_step_release_choices.append(("Potong kain dengan keris", "keris"))
     $ adv_step_release_choices.append(("Berundur dari kubur", "leave"))
 
-    $ adv_final_release = renpy.call_screen("adv_timed_choice", "Simpulan itu menegang. Pocong itu menggigil di depan MC.", adv_step_release_choices, "freeze", 16)
+    $ adv_final_release = renpy.call_screen("adv_timed_choice", "Simpulan itu menegang. Pocong itu menggigil di depan Aris.", adv_step_release_choices, "freeze", 16)
 
     if adv_final_release == "release":
+        play sound audio.sfx_knot_pull volume 1.0
         $ adv_final_release_used = True
         jump adv_release_ending
 
     elif adv_final_release == "inspect_knot" and adv_ready_for_final_release():
-        narrator "MC berhenti sekejap dan ingat semula semua petunjuk yang dia kumpul."
+        narrator "Aris berhenti sekejap dan ingat semula semua petunjuk yang dia kumpul."
         narrator "Nama. Simpulan. Tasbih. Bukan senjata."
         $ adv_final_release_used = True
         jump adv_release_ending
 
     elif adv_final_release == "inspect_knot":
-        narrator "MC nampak simpulan itu, tapi dia belum cukup faham cara membukanya."
+        narrator "Aris nampak simpulan itu, tapi dia belum cukup faham cara membukanya."
         narrator "Faham separuh jalan pun boleh melukakan."
         jump adv_ignorance_ending
 
     elif adv_final_release == "partial_release":
-        narrator "MC cuba membuka simpulan itu."
-        narrator "Tasbih ada di tangannya, tapi hati MC masih belum pasti siapa yang sedang dia lepaskan."
+        play sound audio.sfx_knot_pull volume 1.0
+        narrator "Aris cuba membuka simpulan itu."
+        narrator "Tasbih ada di tangannya, tapi hati Aris masih belum pasti siapa yang sedang dia lepaskan."
         $ adv_fear += 1
         jump adv_ignorance_ending
 
@@ -183,6 +192,8 @@ label adv_chapter5:
         jump adv_ignorance_ending
 
     elif adv_final_release == "keris":
+        play sound audio.sfx_keris_draw volume 1.0
+        play cutting audio.sfx_cloth_cut volume 1.0
         narrator "Keris memotong kain, tapi bukan semua ikatan boleh diputuskan dengan bilah."
         $ adv_final_force_used = True
         $ adv_pocong_anger += 1
@@ -191,7 +202,7 @@ label adv_chapter5:
         jump adv_ignorance_ending
 
     elif adv_final_release == "freeze":
-        narrator "MC terkaku di depan simpulan terakhir."
+        narrator "Aris terkaku di depan simpulan terakhir."
         if adv_damage >= 1 or adv_fear >= 2 or adv_pocong_anger >= 3:
             jump adv_death_ending
         jump adv_abandon_ending
@@ -202,7 +213,7 @@ label adv_chapter5:
 
 label adv_release_ending:
 
-    narrator "MC turunkan keris."
+    narrator "Aris turunkan keris."
     mc "Azlan."
     mc "Aku tahu siapa kau."
     mc "Melur ingat kau. Ibu kau ingat kau."
@@ -215,20 +226,20 @@ label adv_release_ending:
 
     narrator "Pocong tu tak tunduk."
     narrator "Ia berhenti."
-    narrator "Beza itu kecil, tapi MC rasa seluruh malam berubah."
-    narrator "MC melangkah satu tapak."
+    narrator "Beza itu kecil, tapi Aris rasa seluruh malam berubah."
+    narrator "Aris melangkah satu tapak."
     narrator "Duk."
     narrator "Pocong tu menggigil."
-    narrator "MC berhenti, ikut jeda yang dia belajar dari Mak Ros."
+    narrator "Aris berhenti, ikut jeda yang dia belajar dari Mak Ros."
     narrator "Bila kain putih tu diam semula, dia melangkah lagi."
-    narrator "Tasbih bergerak perlahan di jari MC."
+    narrator "Tasbih bergerak perlahan di jari Aris."
     narrator "Setiap butir bantu dia jangan panik."
     narrator "Surat Azlan berada dalam buku nota, terbuka pada nama yang akhirnya disebut dengan betul."
-    narrator "Benang kafan yang MC jumpa di kubur diletakkan dekat simpulan lama tu."
+    narrator "Benang kafan yang Aris jumpa di kubur diletakkan dekat simpulan lama tu."
     narrator "Bukan sebab benang itu sakti."
     narrator "Tapi sebab dari situlah masalahnya bermula."
     narrator "Simpulan lama tu melawan sekejap, kemudian longgar."
-    narrator "Tanah di bawah kaki MC terasa bernafas keluar."
+    narrator "Tanah di bawah kaki Aris terasa bernafas keluar."
     narrator "Kain putih tu akhirnya diam."
     stop music fadeout 2.0
 
@@ -236,7 +247,7 @@ label adv_release_ending:
     azlan "Jaga anak saya."
     if adv_knows_child:
         mc "Saya akan pastikan anak kau dengar cerita yang betul."
-        narrator "Janji itu terasa lebih berat daripada benang kafan di tangan MC."
+        narrator "Janji itu terasa lebih berat daripada benang kafan di tangan Aris."
     narrator "Suara tu perlahan."
     narrator "Tapi untuk pertama kali malam itu, ia bukan jeritan."
 
@@ -253,49 +264,67 @@ label adv_release_ending:
     scene bg_ending_released
     with fade
 
+    play music audio.mus_ending_positive fadein 1.0 volume 0.35 noloop
     narrator "Melepaskan bukan sama dengan melupakan."
     narrator "Kadang-kadang, itulah cara paling jujur untuk menjaga orang yang masih hidup."
-    $ renpy.call_screen("adv_ending_report", "PENAMAT: DILEPASKAN", "Petunjuk yang MC kumpul digunakan untuk kenal Azlan dan buka simpulan dengan niat yang betul.")
+    play music audio.mus_credits fadein 1.0 volume 0.5 noloop
+    $ adv_report_result = renpy.call_screen("adv_ending_report", "PENAMAT: DILEPASKAN", "Petunjuk yang Aris kumpul digunakan untuk kenal Azlan dan buka simpulan dengan niat yang betul.")
+    call adv_positive_credits
     return
 
 
 label adv_ignorance_ending:
 
     if adv_final_force_used or adv_aggressive_prepare:
-        narrator "MC pilih cara yang buat pocong tu tunduk."
+        narrator "Aris pilih cara yang buat pocong tu tunduk."
     else:
-        narrator "MC cuba buat benda yang betul, tapi petunjuk di tangannya belum cukup."
+        narrator "Aris cuba buat benda yang betul, tapi petunjuk di tangannya belum cukup."
     play sound audio.sfx_pocong_cry volume 1.45
     narrator "Pocong tu menjerit, tubuhnya melipat, lalu jatuh."
     narrator "Kampung jadi senyap."
     narrator "Tapi senyap tak semestinya tenang."
     if adv_knows_child:
-        narrator "MC teringat anak Azlan, dan rasa pahit itu datang lambat: ada kebenaran yang masih belum cukup berani dia bawa pulang."
+        narrator "Aris teringat anak Azlan, dan rasa pahit itu datang lambat: ada kebenaran yang masih belum cukup berani dia bawa pulang."
     if adv_hafiz_drives:
-        narrator "Hafiz jumpa MC di tepi jalan sebelum subuh."
+        narrator "Hafiz jumpa Aris di tepi jalan sebelum subuh."
         hafiz "Dia dah lepas?"
-        narrator "MC tak mampu jawab dengan yakin."
+        narrator "Aris tak mampu jawab dengan yakin."
 
     stop music fadeout 1.0
     hide screen adv_inventory
     scene bg_ending_ignorance
     with fade
 
+    play music audio.mus_ending_positive fadein 1.0 volume 0.35 noloop
     narrator "Tak semua yang menakutkan datang untuk membunuh."
     narrator "Bila takut dijadikan jawapan, kebenaran pun ikut tertanam."
-    $ renpy.call_screen("adv_ending_report", "PENAMAT: TIDAK FAHAM", "MC selamat, tapi tak semua petunjuk digunakan dengan betul. Pocong tu dihentikan, bukan dilepaskan.")
+    play music audio.mus_credits fadein 1.0 volume 0.5 noloop
+    $ adv_report_result = renpy.call_screen("adv_ending_report", "PENAMAT: TIDAK FAHAM", "Aris selamat, tapi tak semua petunjuk digunakan dengan betul. Pocong tu dihentikan, bukan dilepaskan.")
+    call adv_positive_credits
+    return
+
+
+label adv_positive_credits:
+
+    scene black
+    with fade
+
+    $ renpy.call_screen("adv_credits_roll")
+    stop music fadeout 2.0
+    pause 2.0
+
     return
 
 
 label adv_abandon_ending:
 
-    narrator "MC berundur dari kubur."
+    narrator "Aris berundur dari kubur."
     narrator "Di belakangnya, bunyi melompat bermula semula."
     narrator "Duk."
     narrator "Duk."
     narrator "Duk."
     if adv_hafiz_drives:
-        narrator "Hafiz buka pintu kereta tanpa banyak tanya, tapi matanya tetap mencari jawapan di muka MC."
+        narrator "Hafiz buka pintu kereta tanpa banyak tanya, tapi matanya tetap mencari jawapan di muka Aris."
         hafiz "Kita tinggalkan macam ni?"
     if adv_knows_child:
         narrator "Di belakang keputusan itu, anak Azlan masih mewarisi cerita yang salah."
@@ -305,18 +334,19 @@ label adv_abandon_ending:
     scene bg_ending_abandoned
     with fade
 
+    play music audio.mus_ending_negative fadein 1.0 volume 0.35 loop
     narrator "Benda yang ditinggalkan tak semestinya hilang."
     narrator "Kadang-kadang ia cuma tunggu orang lain tanggung akibatnya."
-    $ renpy.call_screen("adv_ending_report", "PENAMAT: DITINGGALKAN", "MC pilih hidup, tapi siasatan tak diselesaikan. Batu Layar masih menyimpan simpulan itu.")
+    $ renpy.call_screen("adv_ending_report", "PENAMAT: DITINGGALKAN", "Aris pilih hidup, tapi siasatan tak diselesaikan. Batu Layar masih menyimpan simpulan itu.")
     return
 
 
 label adv_death_ending:
 
-    narrator "Untuk satu saat, MC tak boleh bergerak."
+    narrator "Untuk satu saat, Aris tak boleh bergerak."
     narrator "Itu saja yang Batu Layar perlukan."
     if adv_hafiz_drives:
-        narrator "Telefon Hafiz menyala di luar kampung, memanggil nama MC sampai baterinya makin lemah."
+        narrator "Telefon Hafiz menyala di luar kampung, memanggil nama Aris sampai baterinya makin lemah."
     if adv_knows_child:
         narrator "Anak Azlan masih hidup dengan cerita yang belum sempat dibetulkan."
 
@@ -325,7 +355,8 @@ label adv_death_ending:
     scene bg_ending_buried
     with flash
 
+    play music audio.mus_ending_negative fadein 1.0 volume 0.35 loop
     narrator "Di tempat yang terlalu lama menyimpan luka, ragu yang sesaat pun boleh jadi terlalu mahal."
-    narrator "Apa yang MC tak berani faham akhirnya datang menuntut bayaran, senyap-senyap."
-    $ renpy.call_screen("adv_ending_report", "PENAMAT: TERKUBUR BERSAMA", "Takut dan petunjuk yang diabaikan buat MC hilang ruang untuk memilih.")
+    narrator "Apa yang Aris tak berani faham akhirnya datang menuntut bayaran, senyap-senyap."
+    $ renpy.call_screen("adv_ending_report", "PENAMAT: TERKUBUR BERSAMA", "Takut dan petunjuk yang diabaikan buat Aris hilang ruang untuk memilih.")
     return

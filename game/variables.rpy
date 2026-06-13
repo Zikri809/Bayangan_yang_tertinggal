@@ -130,12 +130,12 @@ init python:
         if adv_observed_pattern:
             lines.append("Gerak-geri: Pocong ada jeda kecil bila orang tak lari.")
         else:
-            lines.append("Gerak-geri: Belum jelas. MC belum tahu bila perlu diam dan bila perlu bergerak.")
+            lines.append("Gerak-geri: Belum jelas. Aris belum tahu bila perlu diam dan bila perlu bergerak.")
 
         if adv_known_identity():
             lines.append("Siapa dia: Dia bukan sekadar pocong. Nama Azlan kena disebut dengan betul.")
         else:
-            lines.append("Siapa dia: Belum jelas. Tanpa nama, MC cuma boleh melawan benda yang dia tak faham.")
+            lines.append("Siapa dia: Belum jelas. Tanpa nama, Aris cuma boleh melawan benda yang dia tak faham.")
 
         if adv_known_burial_problem():
             lines.append("Kubur: Jenazah diurus tergesa-gesa, dan simpulan kafan belum selesai.")
@@ -153,7 +153,7 @@ init python:
             lines.append("Kisah lama: Cerita Azlan belum cukup jelas. Nama saja belum tentu cukup untuk melepaskan.")
 
         if adv_has_tasbih:
-            lines.append("Cara melepaskan: Tasbih boleh menenangkan tangan dan niat MC.")
+            lines.append("Cara melepaskan: Tasbih boleh menenangkan tangan dan niat Aris.")
         else:
             lines.append("Cara melepaskan: Belum cukup lembut. Keris dan garam cuma sesuai untuk bertahan.")
 
@@ -161,8 +161,8 @@ init python:
 
     def adv_release_status_text():
         if adv_can_release():
-            return "Nota lengkap dari segi petunjuk: MC tahu cara dekat, kenal, dan lepaskan arwah. Malam nanti masih bergantung pada cara dia bertindak."
-        return "Nota belum lengkap: MC mungkin boleh hidup, tapi belum tentu boleh melepaskan arwah."
+            return "Nota lengkap dari segi petunjuk: Aris tahu cara dekat, kenal, dan lepaskan arwah. Malam nanti masih bergantung pada cara dia bertindak."
+        return "Nota belum lengkap: Aris mungkin boleh hidup, tapi belum tentu boleh melepaskan arwah."
 
     def adv_ending_report_lines():
         return [

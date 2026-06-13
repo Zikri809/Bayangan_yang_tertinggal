@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 ## Initialization
 ################################################################################
 
@@ -776,7 +776,7 @@ screen adv_stillness(prompt, beats=4):
                 bold True
                 xmaximum 860
 
-            text "Bila rentak mula, tekan Space tepat masa duk sampai. Tunggu kalau belum yakin. Salah tekan atau klik mouse akan buat MC tersentak.":
+            text "Bila rentak mula, tekan Space tepat masa duk sampai. Tunggu kalau belum yakin. Salah tekan atau klik mouse akan buat Aris tersentak.":
                 size 25
                 color "#f2dfbd"
                 xmaximum 860
@@ -1033,6 +1033,168 @@ screen adv_ending_report(title, subtitle):
 
     key "dismiss" action Return()
     key "K_SPACE" action Return()
+
+screen adv_credits_roll():
+    modal True
+    zorder 230
+
+    add Solid("#050403")
+
+    vbox:
+        xalign 0.5
+        ypos 0.5
+        yanchor 0.0
+        spacing 26
+        at adv_credits_scroll
+
+        text "Bayangan yang Tertinggal":
+            xalign 0.5
+            size 50
+            color "#ffffff"
+            bold True
+
+        text "A Malay horror visual novel prototype":
+            xalign 0.5
+            size 28
+            color "#d8c6a8"
+
+        null height 30
+
+        text "Creative Director":
+            xalign 0.5
+            size 28
+            color "#f0eadc"
+
+        text "Naszrul":
+            xalign 0.5
+            size 34
+            color "#ffffff"
+            bold True
+
+        null height 22
+
+        text "Developer & Level Design":
+            xalign 0.5
+            size 28
+            color "#f0eadc"
+
+        text "Zikri":
+            xalign 0.5
+            size 34
+            color "#ffffff"
+            bold True
+
+        null height 22
+
+        text "UI/UX":
+            xalign 0.5
+            size 28
+            color "#f0eadc"
+
+        text "Syabil & Haziq":
+            xalign 0.5
+            size 34
+            color "#ffffff"
+            bold True
+
+        null height 22
+
+        text "Documentation & Testing":
+            xalign 0.5
+            size 28
+            color "#f0eadc"
+
+        text "Syauqi":
+            xalign 0.5
+            size 34
+            color "#ffffff"
+            bold True
+
+        null height 36
+
+        text "Created for Interaction System Tools":
+            xalign 0.5
+            size 24
+            color "#d8c6a8"
+
+        null height 36
+
+        text "Built With":
+            xalign 0.5
+            size 28
+            color "#f0eadc"
+
+        text "Ren'Py":
+            xalign 0.5
+            size 34
+            color "#ffffff"
+            bold True
+
+        null height 22
+
+        text "Tools Used":
+            xalign 0.5
+            size 28
+            color "#f0eadc"
+
+        text "VS Code & Figma":
+            xalign 0.5
+            size 34
+            color "#ffffff"
+            bold True
+
+        null height 36
+
+        text "Character & Asset Generation":
+            xalign 0.5
+            size 28
+            color "#f0eadc"
+
+        text "PixAI":
+            xalign 0.5
+            size 34
+            color "#ffffff"
+            bold True
+
+        text "https://pixai.art/en":
+            xalign 0.5
+            size 22
+            color "#d8c6a8"
+
+        null height 36
+
+        text "Audio / Sound Assets":
+            xalign 0.5
+            size 28
+            color "#f0eadc"
+
+        text "We Love Indies":
+            xalign 0.5
+            size 34
+            color "#ffffff"
+            bold True
+
+        text "https://www.weloveindies.com/en/sounds-for-games":
+            xalign 0.5
+            size 22
+            color "#d8c6a8"
+
+        null height 42
+
+        text "Thank you for playing":
+            xalign 0.5
+            size 34
+            color "#ffffff"
+            bold True
+
+    timer 62.5 action Return()
+    key "dismiss" action Return()
+    key "K_SPACE" action Return()
+
+
+transform adv_credits_scroll:
+    yoffset 0
+    linear 62.0 yoffset -2200
 
 
 ## Quick Menu screen ###########################################################
@@ -2150,9 +2312,9 @@ screen skip_indicator():
 
             text _("Skipping")
 
-            text "▸" at delayed_blink(0.0, 1.0) style "skip_triangle"
-            text "▸" at delayed_blink(0.2, 1.0) style "skip_triangle"
-            text "▸" at delayed_blink(0.4, 1.0) style "skip_triangle"
+            text "?" at delayed_blink(0.0, 1.0) style "skip_triangle"
+            text "?" at delayed_blink(0.2, 1.0) style "skip_triangle"
+            text "?" at delayed_blink(0.4, 1.0) style "skip_triangle"
 
 
 ## This transform is used to blink the arrows one after another.

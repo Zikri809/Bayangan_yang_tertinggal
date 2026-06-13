@@ -57,7 +57,7 @@ label adv_prologue:
 
     stop ambient fadeout 0.6
     scene black
-    play sound audio.sfx_nayan_scream
+    play sound audio.sfx_nayan_scream_loud
     with flash
 
     narrator "Jeritan tu tak sampai sesaat."
