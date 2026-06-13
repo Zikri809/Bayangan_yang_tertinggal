@@ -104,7 +104,9 @@ label adv_chapter4:
         $ adv_pocong_anger += 1
 
     elif adv_night_attack == "still":
+        play rhythm audio.mus_rhythm_game fadein 0.2 volume 1.35
         $ adv_still_result = renpy.call_screen("adv_stillness", "Bunyi duk berhenti betul-betul depan MC.", 4)
+        stop rhythm fadeout 0.2
         if adv_still_result == "still":
             if adv_observed_pattern:
                 narrator "MC ingat kata Mak Ros."
@@ -118,6 +120,7 @@ label adv_chapter4:
         else:
             narrator "MC tersentak sebelum jeda itu habis."
             narrator "Pocong tu menangkap gerakan kecil itu seperti jawapan."
+            play sound audio.sfx_body_hit volume 1.25
             narrator "Hentaman kain dan tulang buat lutut MC hampir jatuh."
             $ adv_damage += 1
             $ adv_fear += 1
@@ -129,6 +132,7 @@ label adv_chapter4:
 
     else:
         narrator "MC teragak-agak."
+        play sound audio.sfx_body_hit volume 1.25
         narrator "Hentaman tu buat nafas dia putus sekejap."
         $ adv_damage += 1
 

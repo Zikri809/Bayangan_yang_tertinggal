@@ -5,6 +5,8 @@ label adv_chapter2:
     scene bg_adv_village_gate
     with fade
 
+    play ambient audio.amb_nayan_night fadein 1.5
+
     show screen adv_inventory
 
     show spr_mc alert at adv_right
@@ -14,6 +16,7 @@ label adv_chapter2:
         narrator "Hafiz tunggu dekat kereta, enjin masih hidup, macam dia pun rasa kampung ni belum habis dengan sesiapa."
 
     narrator "Batu Layar menunggu dengan pintu berkunci dan lampu yang padam."
+    play sound audio.sfx_villager_scream volume 1.35
     narrator "Lepas tu ada orang menjerit."
 
     show spr_villager_1 terrified at adv_left
@@ -33,7 +36,9 @@ label adv_chapter2:
             $ adv_add_note("Pocong berpaling kepada orang yang menghalang")
 
         "Berdiri diam dan perhatikan geraknya.":
+            play rhythm audio.mus_rhythm_game fadein 0.2 volume 1.35
             $ adv_still_result = renpy.call_screen("adv_stillness", "Pocong tu melompat makin dekat. MC paksa badan dia jangan ikut panik.", 4)
+            stop rhythm fadeout 0.2
             if adv_still_result == "still":
                 narrator "MC tahan diri daripada bergerak."
                 narrator "Lelaki kampung itu sempat merangkak masuk ke rumah."
@@ -46,6 +51,7 @@ label adv_chapter2:
             else:
                 narrator "Jari MC tersentak sebelum dia sempat kawal diri."
                 narrator "Pocong tu terus melompat ke arah gerakan kecil itu."
+                play sound audio.sfx_body_hit volume 1.25
                 narrator "Lelaki kampung sempat masuk, tapi bahu MC terkena hentaman kain dan tulang."
                 $ adv_villager_helped = True
                 $ adv_damage += 1
@@ -58,18 +64,23 @@ label adv_chapter2:
             $ adv_pocong_anger += 1
             $ adv_aggressive_prepare = True
 
+    play sound audio.sfx_pocong_cry volume 1.45
     $ adv_first_attack = renpy.call_screen("adv_timed_choice", "Pocong tu macam menarik nafas. Satu kampung terus senyap.", [("Tutup telinga", "cover"), ("Guna kamera telefon", "camera"), ("Berdiri teguh dan perhati", "watch")], "freeze", 10)
 
     if adv_first_attack == "cover":
         narrator "MC sempat tutup telinga."
+        play sound audio.sfx_body_hit volume 1.25
+        play earring audio.sfx_ear_ringing volume 1.25 fadein 0.15
         narrator "Sesuatu yang berat menghentam bahu dia dalam gelap."
         narrator "Untuk beberapa saat, dunia tinggal bunyi darah berdenyut dalam kepala."
+        stop earring fadeout 1.4
         $ adv_damage += 1
         $ adv_add_note("Jeritan boleh ditahan, tapi tetap bahaya")
 
     elif adv_first_attack == "camera":
         narrator "Dia angkat kamera telefon tepat masa jeritan tu pecah di jalan."
         scene black
+        play camera audio.sfx_camera_shutter volume 2.7
         with flash
         scene bg_adv_village_gate
         with fade
@@ -84,7 +95,9 @@ label adv_chapter2:
         $ adv_add_note("Kamera rakam kain kafan yang masih terikat")
 
     elif adv_first_attack == "watch":
+        play creature audio.sfx_creature_scream volume 1.0
         narrator "Dia perhati terlalu lama."
+        stop creature fadeout 0.8
         narrator "Jeritan tu masuk terus ke kepala."
         $ adv_fear += 2
         $ adv_add_note("Jeritan buat badan hilang arah")
@@ -92,6 +105,7 @@ label adv_chapter2:
     else:
         narrator "MC terkaku."
         narrator "Jeritan tu buat dia jatuh tersungkur."
+        play sound audio.sfx_body_hit volume 1.25
         $ adv_damage += 1
         $ adv_fear += 1
 
@@ -123,5 +137,7 @@ label adv_chapter2:
     hide spr_villager_1
     hide spr_pocong
     with dissolve
+
+    stop ambient fadeout 1.0
 
     jump adv_chapter3

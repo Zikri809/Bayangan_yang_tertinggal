@@ -75,6 +75,7 @@ init python:
     def adv_add_note(note):
         if note not in adv_case_notes:
             adv_case_notes.append(note)
+            renpy.sound.play("audio/sfx/sfx_clue_obtained_loud.wav")
             renpy.notify("Nota kes ditambah: " + note)
 
     def adv_inventory_items():

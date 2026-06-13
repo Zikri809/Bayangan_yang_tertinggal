@@ -27,6 +27,12 @@ style gui_text:
 
 style button:
     properties gui.button_properties("button")
+    hover_sound "audio/sfx/ui_button_hover_satisfying.wav"
+    activate_sound "audio/sfx/ui_button_select.ogg"
+
+style gui_button:
+    hover_sound "audio/sfx/ui_button_hover_satisfying.wav"
+    activate_sound "audio/sfx/ui_button_select.ogg"
 
 style button_text is gui_text:
     properties gui.text_properties("button")
@@ -225,6 +231,8 @@ style choice_vbox:
 
 style choice_button is default:
     properties gui.button_properties("choice_button")
+    hover_sound "audio/sfx/ui_button_hover_satisfying.wav"
+    activate_sound "audio/sfx/ui_button_select.ogg"
 
 style choice_button_text is default:
     properties gui.text_properties("choice_button")
@@ -742,7 +750,7 @@ screen adv_stillness(prompt, beats=4):
     else:
         timer 1.0 repeat True action If(prep_left > 1, SetScreenVariable("prep_left", prep_left - 1), [SetScreenVariable("started", True), SetScreenVariable("beat_pos", 0), SetScreenVariable("beat_locked", False), SetScreenVariable("zone_center", renpy.random.randint(28, 72))])
 
-    key "K_SPACE" action If(started, If(in_window and not beat_locked, If(hits + 1 >= beats, Return("still"), [SetScreenVariable("hits", hits + 1), SetScreenVariable("beat_locked", True)]), Return("moved")), NullAction())
+    key "K_SPACE" action If(started, [Play("sound", "audio/sfx/sfx_rhythm_tap_horror_loud.wav"), If(in_window and not beat_locked, If(hits + 1 >= beats, Return("still"), [SetScreenVariable("hits", hits + 1), SetScreenVariable("beat_locked", True)]), Return("moved"))], NullAction())
     key "K_RETURN" action If(started, Return("moved"), NullAction())
     key "K_KP_ENTER" action If(started, Return("moved"), NullAction())
     key "K_ESCAPE" action If(started, Return("moved"), NullAction())
@@ -830,12 +838,93 @@ screen adv_stillness(prompt, beats=4):
 
 
 transform adv_phone_vibrate:
+    pause 0.05
+    linear 0.045 xoffset -6 yoffset 2
+    linear 0.045 xoffset 6 yoffset -2
+    linear 0.045 xoffset -4 yoffset -1
+    linear 0.045 xoffset 4 yoffset 1
+    linear 0.045 xoffset -6 yoffset 2
+    linear 0.045 xoffset 6 yoffset -2
+    linear 0.045 xoffset -4 yoffset -1
+    linear 0.045 xoffset 4 yoffset 1
+    linear 0.045 xoffset -6 yoffset 2
+    linear 0.045 xoffset 6 yoffset -2
+    linear 0.045 xoffset -4 yoffset -1
+    linear 0.045 xoffset 4 yoffset 1
+    linear 0.045 xoffset -6 yoffset 2
+    linear 0.045 xoffset 6 yoffset -2
+    linear 0.045 xoffset -4 yoffset -1
+    linear 0.045 xoffset 4 yoffset 1
+    linear 0.045 xoffset -6 yoffset 2
+    linear 0.045 xoffset 6 yoffset -2
+    linear 0.045 xoffset -4 yoffset -1
+    linear 0.045 xoffset 4 yoffset 1
+    linear 0.045 xoffset -6 yoffset 2
+    linear 0.045 xoffset 6 yoffset -2
+    linear 0.045 xoffset -4 yoffset -1
+    linear 0.045 xoffset 4 yoffset 1
+    linear 0.07 xoffset 0 yoffset 0
+    pause 1.1
     linear 0.045 xoffset -5 yoffset 2
     linear 0.045 xoffset 5 yoffset -2
     linear 0.045 xoffset -3 yoffset -1
     linear 0.045 xoffset 3 yoffset 1
-    linear 0.12 xoffset 0 yoffset 0
-    pause 0.35
+    linear 0.045 xoffset -5 yoffset 2
+    linear 0.045 xoffset 5 yoffset -2
+    linear 0.045 xoffset -3 yoffset -1
+    linear 0.045 xoffset 3 yoffset 1
+    linear 0.045 xoffset -5 yoffset 2
+    linear 0.045 xoffset 5 yoffset -2
+    linear 0.045 xoffset -3 yoffset -1
+    linear 0.045 xoffset 3 yoffset 1
+    linear 0.045 xoffset -5 yoffset 2
+    linear 0.045 xoffset 5 yoffset -2
+    linear 0.045 xoffset -3 yoffset -1
+    linear 0.045 xoffset 3 yoffset 1
+    linear 0.045 xoffset -5 yoffset 2
+    linear 0.045 xoffset 5 yoffset -2
+    linear 0.045 xoffset -3 yoffset -1
+    linear 0.045 xoffset 3 yoffset 1
+    linear 0.045 xoffset -5 yoffset 2
+    linear 0.045 xoffset 5 yoffset -2
+    linear 0.045 xoffset -3 yoffset -1
+    linear 0.045 xoffset 3 yoffset 1
+    linear 0.045 xoffset -5 yoffset 2
+    linear 0.045 xoffset 5 yoffset -2
+    linear 0.045 xoffset -3 yoffset -1
+    linear 0.045 xoffset 3 yoffset 1
+    linear 0.14 xoffset 0 yoffset 0
+    pause 0.85
+    linear 0.045 xoffset -6 yoffset 2
+    linear 0.045 xoffset 6 yoffset -2
+    linear 0.045 xoffset -4 yoffset -1
+    linear 0.045 xoffset 4 yoffset 1
+    linear 0.045 xoffset -6 yoffset 2
+    linear 0.045 xoffset 6 yoffset -2
+    linear 0.045 xoffset -4 yoffset -1
+    linear 0.045 xoffset 4 yoffset 1
+    linear 0.045 xoffset -6 yoffset 2
+    linear 0.045 xoffset 6 yoffset -2
+    linear 0.045 xoffset -4 yoffset -1
+    linear 0.045 xoffset 4 yoffset 1
+    linear 0.045 xoffset -6 yoffset 2
+    linear 0.045 xoffset 6 yoffset -2
+    linear 0.045 xoffset -4 yoffset -1
+    linear 0.045 xoffset 4 yoffset 1
+    linear 0.045 xoffset -6 yoffset 2
+    linear 0.045 xoffset 6 yoffset -2
+    linear 0.045 xoffset -4 yoffset -1
+    linear 0.045 xoffset 4 yoffset 1
+    linear 0.045 xoffset -6 yoffset 2
+    linear 0.045 xoffset 6 yoffset -2
+    linear 0.045 xoffset -4 yoffset -1
+    linear 0.045 xoffset 4 yoffset 1
+    linear 0.045 xoffset -6 yoffset 2
+    linear 0.045 xoffset 6 yoffset -2
+    linear 0.045 xoffset -4 yoffset -1
+    linear 0.045 xoffset 4 yoffset 1
+    linear 0.19 xoffset 0 yoffset 0
+    pause 1.18
     repeat
 
 
@@ -1004,6 +1093,8 @@ style quick_button:
     background None
     hover_background None
     padding (0, 0)
+    hover_sound "audio/sfx/ui_button_hover_satisfying.wav"
+    activate_sound "audio/sfx/ui_button_select.ogg"
 
 style quick_button_text:
     properties gui.text_properties("quick_button")
@@ -1074,6 +1165,8 @@ style navigation_button_text is gui_button_text
 style navigation_button:
     size_group "navigation"
     properties gui.button_properties("navigation_button")
+    hover_sound "audio/sfx/ui_button_hover_satisfying.wav"
+    activate_sound "audio/sfx/ui_button_select.ogg"
 
 style navigation_button_text:
     properties gui.text_properties("navigation_button")
@@ -1356,6 +1449,8 @@ style return_button:
     xpos gui.navigation_xpos
     yalign 1.0
     yoffset -45
+    hover_sound "audio/sfx/ui_button_hover_satisfying.wav"
+    activate_sound "audio/sfx/ui_button_select.ogg"
 
 
 ## About screen ################################################################
@@ -1532,12 +1627,16 @@ style page_label_text:
 
 style page_button:
     properties gui.button_properties("page_button")
+    hover_sound "audio/sfx/ui_button_hover_satisfying.wav"
+    activate_sound "audio/sfx/ui_button_select.ogg"
 
 style page_button_text:
     properties gui.text_properties("page_button")
 
 style slot_button:
     properties gui.button_properties("slot_button")
+    hover_sound "audio/sfx/ui_button_hover_satisfying.wav"
+    activate_sound "audio/sfx/ui_button_select.ogg"
 
 style slot_button_text:
     properties gui.text_properties("slot_button")
@@ -1673,6 +1772,8 @@ style radio_vbox:
 style radio_button:
     properties gui.button_properties("radio_button")
     foreground "gui/button/radio_[prefix_]foreground.png"
+    hover_sound "audio/sfx/ui_button_hover_satisfying.wav"
+    activate_sound "audio/sfx/ui_button_select.ogg"
 
 style radio_button_text:
     properties gui.text_properties("radio_button")
@@ -1683,6 +1784,8 @@ style check_vbox:
 style check_button:
     properties gui.button_properties("check_button")
     foreground "gui/button/check_[prefix_]foreground.png"
+    hover_sound "audio/sfx/ui_button_hover_satisfying.wav"
+    activate_sound "audio/sfx/ui_button_select.ogg"
 
 style check_button_text:
     properties gui.text_properties("check_button")
@@ -1694,6 +1797,8 @@ style slider_button:
     properties gui.button_properties("slider_button")
     yalign 0.5
     left_margin 15
+    hover_sound "audio/sfx/ui_button_hover_satisfying.wav"
+    activate_sound "audio/sfx/ui_button_select.ogg"
 
 style slider_button_text:
     properties gui.text_properties("slider_button")
@@ -1939,6 +2044,8 @@ style help_text is gui_text
 style help_button:
     properties gui.button_properties("help_button")
     xmargin 12
+    hover_sound "audio/sfx/ui_button_hover_satisfying.wav"
+    activate_sound "audio/sfx/ui_button_select.ogg"
 
 style help_button_text:
     properties gui.text_properties("help_button")
@@ -2017,6 +2124,8 @@ style confirm_prompt_text:
 
 style confirm_button:
     properties gui.button_properties("confirm_button")
+    hover_sound "audio/sfx/ui_button_hover_satisfying.wav"
+    activate_sound "audio/sfx/ui_button_select.ogg"
 
 style confirm_button_text:
     properties gui.text_properties("confirm_button")
@@ -2230,6 +2339,8 @@ style nvl_button:
     properties gui.button_properties("nvl_button")
     xpos gui.nvl_button_xpos
     xanchor gui.nvl_button_xalign
+    hover_sound "audio/sfx/ui_button_hover_satisfying.wav"
+    activate_sound "audio/sfx/ui_button_select.ogg"
 
 style nvl_button_text:
     properties gui.text_properties("nvl_button")

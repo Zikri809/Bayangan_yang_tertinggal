@@ -5,6 +5,8 @@ label adv_prologue:
     scene bg_village_path_night
     with fade
 
+    play ambient audio.amb_nayan_night fadein 1.5
+
     show spr_nayan neutral at adv_left
     with dissolve
 
@@ -38,6 +40,7 @@ label adv_prologue:
     narrator "Nayan hampir tergelak kecil, paksa diri percaya itu cuma kain orang jemur."
     narrator "Kemudian kain itu jatuh sendiri."
     narrator "Lepas tu dia dengar."
+    play sound audio.sfx_pocong_cry volume 1.45
     narrator "Duk."
     narrator "Duk."
     narrator "Duk."
@@ -52,7 +55,9 @@ label adv_prologue:
     narrator "Cukup lama untuk Nayan sempat berharap ia berhenti."
     narrator "Cukup cepat untuk harapan tu mati balik."
 
+    stop ambient fadeout 0.6
     scene black
+    play sound audio.sfx_nayan_scream
     with flash
 
     narrator "Jeritan tu tak sampai sesaat."

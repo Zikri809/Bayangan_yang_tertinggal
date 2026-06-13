@@ -5,6 +5,8 @@ label adv_chapter1:
     scene bg_adv_restaurant
     with fade
 
+    play ambient audio.amb_restaurant_crowd fadein 1.0
+
     show spr_hafiz neutral at adv_trio_left
     show spr_mc neutral at adv_trio_right
     with dissolve
@@ -17,7 +19,9 @@ label adv_chapter1:
 
     narrator "Masa tu, telefon MC berbunyi."
 
+    play sound audio.sfx_phone_ring loop
     $ renpy.call_screen("adv_incoming_call", "Melur")
+    stop sound fadeout 0.2
 
     scene bg_adv_restaurant
     show spr_melur phone at adv_phone_left
@@ -93,5 +97,7 @@ label adv_chapter1:
             narrator "Sebab itulah MC percayakan Hafiz."
             $ adv_hafiz_drives = True
             $ adv_fear -= 1
+
+    stop ambient fadeout 1.0
 
     jump adv_chapter2

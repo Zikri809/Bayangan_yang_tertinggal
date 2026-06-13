@@ -10,6 +10,8 @@ label adv_chapter5:
     scene bg_adv_final_grave
     with fade
 
+    play music audio.mus_final_confrontation fadein 1.5
+
     show spr_mc focused at adv_right
     show spr_pocong present at adv_left
     with dissolve
@@ -36,7 +38,9 @@ label adv_chapter5:
     $ adv_final_move = renpy.call_screen("adv_timed_choice", "Dia mula melompat ke arah MC. Apa MC buat?", adv_step_movement_choices, "freeze", 14)
 
     if adv_final_move == "pattern":
+        play rhythm audio.mus_rhythm_game fadein 0.2 volume 1.35
         $ adv_still_result = renpy.call_screen("adv_stillness", "Pocong tu datang lurus ke arah MC. Kalau MC bergerak, rentak dia pecah.", 4)
+        stop rhythm fadeout 0.2
         if adv_still_result == "still":
             narrator "MC tahan diri daripada lari."
             narrator "Duk. Jeda. Duk. Jeda."
@@ -45,6 +49,7 @@ label adv_chapter5:
             $ adv_understanding += 1
         else:
             narrator "MC bergerak sedikit, cukup untuk pecahkan jeda itu."
+            play sound audio.sfx_body_hit volume 1.25
             narrator "Pocong tu melompat terlalu dekat sebelum MC sempat tarik nafas."
             $ adv_damage += 1
             $ adv_fear += 1
@@ -75,6 +80,7 @@ label adv_chapter5:
 
     else:
         narrator "MC bergerak tanpa membaca rentaknya."
+        play sound audio.sfx_body_hit volume 1.25
         narrator "Bahu dia terkena hentaman kain dan tulang."
         $ adv_damage += 1
         $ adv_fear += 1
@@ -224,6 +230,7 @@ label adv_release_ending:
     narrator "Simpulan lama tu melawan sekejap, kemudian longgar."
     narrator "Tanah di bawah kaki MC terasa bernafas keluar."
     narrator "Kain putih tu akhirnya diam."
+    stop music fadeout 2.0
 
     azlan "Terima kasih."
     azlan "Jaga anak saya."
@@ -258,6 +265,7 @@ label adv_ignorance_ending:
         narrator "MC pilih cara yang buat pocong tu tunduk."
     else:
         narrator "MC cuba buat benda yang betul, tapi petunjuk di tangannya belum cukup."
+    play sound audio.sfx_pocong_cry volume 1.45
     narrator "Pocong tu menjerit, tubuhnya melipat, lalu jatuh."
     narrator "Kampung jadi senyap."
     narrator "Tapi senyap tak semestinya tenang."
@@ -268,6 +276,7 @@ label adv_ignorance_ending:
         hafiz "Dia dah lepas?"
         narrator "MC tak mampu jawab dengan yakin."
 
+    stop music fadeout 1.0
     hide screen adv_inventory
     scene bg_ending_ignorance
     with fade
@@ -291,6 +300,7 @@ label adv_abandon_ending:
     if adv_knows_child:
         narrator "Di belakang keputusan itu, anak Azlan masih mewarisi cerita yang salah."
 
+    stop music fadeout 1.0
     hide screen adv_inventory
     scene bg_ending_abandoned
     with fade
@@ -310,6 +320,7 @@ label adv_death_ending:
     if adv_knows_child:
         narrator "Anak Azlan masih hidup dengan cerita yang belum sempat dibetulkan."
 
+    stop music fadeout 1.0
     hide screen adv_inventory
     scene bg_ending_buried
     with flash
