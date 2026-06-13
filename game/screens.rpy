@@ -271,15 +271,15 @@ screen adv_chapter_card(chapter, title, location, time_text, characters, mood, b
 
                 vbox:
                     spacing 8
-                    text "Tempat" size 22 color "#8f8f8f"
+                    text _("Tempat") size 22 color "#8f8f8f"
                     text location size 28 color "#ffffff"
 
                 vbox:
                     spacing 8
-                    text "Masa" size 22 color "#8f8f8f"
+                    text _("Masa") size 22 color "#8f8f8f"
                     text time_text size 28 color "#ffffff"
 
-            text "Watak: [characters]":
+            text _("Watak: [characters]"):
                 size 26
                 color "#dddddd"
                 xmaximum card_xsize - 96
@@ -289,7 +289,7 @@ screen adv_chapter_card(chapter, title, location, time_text, characters, mood, b
                 color "#c8c8c8"
                 xmaximum card_xsize - 96
 
-            text "Klik atau tekan Space untuk teruskan":
+            text _("Klik atau tekan Space untuk teruskan"):
                 size 20
                 color "#777777"
                 xalign 0.0
@@ -355,7 +355,7 @@ screen adv_inventory():
 
             vbox:
                 spacing 10
-                text "Beg Siasatan" size 26 color "#ffffff" bold True
+                text _("Beg Siasatan") size 26 color "#ffffff" bold True
 
                 for item in adv_inventory_items():
                     $ item_icon = adv_inventory_icon(item)
@@ -375,7 +375,7 @@ screen adv_inventory():
                                     xysize (28, 28)
                                     yalign 0.5
 
-                                text "Buku Nota / Nota Kes":
+                                text _("Buku Nota / Nota Kes"):
                                     size 20
                                     color "#f0eadc"
                                     yalign 0.5
@@ -394,16 +394,17 @@ screen adv_inventory():
                                     ysize 26
                                     background "#4d4d4d"
 
-                            text item size 20 color "#d8d8d8" yalign 0.5
+                            text adv_localize(item) size 20 color "#d8d8d8" yalign 0.5
 
                 if adv_case_notes:
                     null height 8
-                    text "Nota Terkini" size 22 color "#ffffff" bold True
+                    text _("Nota Terkini") size 22 color "#ffffff" bold True
                     for note in adv_case_notes[-3:]:
-                        text "- [note]" size 18 color "#c9c9c9" xmaximum 340
+                        $ note_text = adv_localize(note)
+                        text "- [note_text]" size 18 color "#c9c9c9" xmaximum 340
                 else:
                     null height 8
-                    text "Belum ada nota kes." size 18 color "#8f8f8f"
+                    text _("Belum ada nota kes.") size 18 color "#8f8f8f"
 
 
 screen adv_case_notes():
@@ -448,16 +449,16 @@ screen adv_case_notes():
                         yalign 0.5
                         spacing 1
 
-                        text "Nota Kes":
+                        text _("Nota Kes"):
                             size 34
                             color "#24150d"
                             bold True
 
-                        text "Catatan siasatan dan petunjuk yang dijumpai." size 17 color "#5b402b"
+                        text _("Catatan siasatan dan petunjuk yang dijumpai.") size 17 color "#5b402b"
 
                     null width 0 xfill True
 
-                    textbutton "Tutup":
+                    textbutton _("Tutup"):
                         yalign 0.5
                         background "#2d1a10cc"
                         hover_background "#4a2c1acc"
@@ -479,6 +480,7 @@ screen adv_case_notes():
                         vbox:
                             spacing 10
                             for note in adv_case_notes:
+                                $ note_text = adv_localize(note)
                                 frame:
                                     xfill True
                                     background "#f4dfb3cc"
@@ -492,7 +494,7 @@ screen adv_case_notes():
                                             color "#6a4328"
                                             yalign 0.0
 
-                                        text note:
+                                        text note_text:
                                             size 23
                                             color "#2d1c12"
                                             xmaximum 820
@@ -501,7 +503,7 @@ screen adv_case_notes():
                         xfill True
                         background "#f4dfb3aa"
                         padding (18, 14)
-                        text "Belum ada nota lagi." size 24 color "#4c3826"
+                        text _("Belum ada nota lagi.") size 24 color "#4c3826"
 
 
 screen adv_case_summary():
@@ -520,7 +522,7 @@ screen adv_case_summary():
         vbox:
             spacing 18
 
-            text "Semakan Nota Sebelum Malam":
+            text _("Semakan Nota Sebelum Malam"):
                 size 38
                 color "#ffffff"
                 bold True
@@ -545,7 +547,7 @@ screen adv_case_summary():
                         color "#f0eadc"
                         xmaximum 940
 
-            textbutton "Teruskan":
+            textbutton _("Teruskan"):
                 xalign 1.0
                 background "#5b241bee"
                 hover_background "#7b3124ee"
@@ -582,7 +584,7 @@ screen adv_inspection(title, description, choices):
                     xfill True
                     action Return(value)
 
-            textbutton "Selesai":
+            textbutton _("Selesai"):
                 xfill True
                 action Return("done")
 
@@ -686,12 +688,12 @@ screen adv_flashlight_search(title, description, hotspots, required=3):
                 color "#d8c6a8"
                 xmaximum 640
 
-            text "Petunjuk ditemui: [len(found)]/[required]":
+            text _("Petunjuk ditemui: [len(found)]/[required]"):
                 size 22
                 color "#f2dfbd"
 
     if len(found) >= required:
-        textbutton "Selesai":
+        textbutton _("Selesai"):
             xpos 1540
             ypos 900
             xsize 260
@@ -723,7 +725,7 @@ screen adv_timed_choice(prompt, choices, timeout_value="timeout", seconds=12):
             spacing 18
 
             text prompt size 32 color "#ffffff" bold True xmaximum 930
-            text "Masa tinggal: [time_left] saat" size 22 color "#d8c6a8"
+            text _("Masa tinggal: [time_left] saat") size 22 color "#d8c6a8"
 
             for caption, value in choices:
                 textbutton caption:
@@ -776,19 +778,19 @@ screen adv_stillness(prompt, beats=4):
                 bold True
                 xmaximum 860
 
-            text "Bila rentak mula, tekan Space tepat masa duk sampai. Tunggu kalau belum yakin. Salah tekan atau klik mouse akan buat Aris tersentak.":
+            text _("Bila rentak mula, tekan Space tepat masa duk sampai. Tunggu kalau belum yakin. Salah tekan atau klik mouse akan buat Aris tersentak."):
                 size 25
                 color "#f2dfbd"
                 xmaximum 860
 
             if not started:
-                text "Bersedia. Rentak mula dalam [prep_left]...":
+                text _("Bersedia. Rentak mula dalam [prep_left]..."):
                     size 34
                     color "#f2dfbd"
                     bold True
                     xalign 0.5
 
-                text "Letak jari dekat Space. Jangan tekan dulu.":
+                text _("Letak jari dekat Space. Jangan tekan dulu."):
                     size 24
                     color "#b9b9b9"
                     xalign 0.5
@@ -818,7 +820,7 @@ screen adv_stillness(prompt, beats=4):
                     xalign 0.5
                     spacing 18
 
-                    text "Rentak kena: [hits]/[beats]":
+                    text _("Rentak kena: [hits]/[beats]"):
                         size 24
                         color "#b9b9b9"
 
@@ -828,11 +830,11 @@ screen adv_stillness(prompt, beats=4):
                             color "#f2dfbd"
                             bold True
                     elif beat_locked:
-                        text "diam...":
+                        text _("diam..."):
                             size 24
                             color "#8f8f8f"
                     else:
-                        text "jeda...":
+                        text _("jeda..."):
                             size 24
                             color "#8f8f8f"
 
@@ -1011,7 +1013,7 @@ screen adv_ending_report(title, subtitle):
                 xsize 950
                 ysize 2
 
-            text "Ringkasan siasatan":
+            text _("Ringkasan siasatan"):
                 size 28
                 color "#ffffff"
                 bold True
@@ -1022,7 +1024,7 @@ screen adv_ending_report(title, subtitle):
                     color "#f0eadc"
                     xmaximum 940
 
-            textbutton "Selesai":
+            textbutton _("Selesai"):
                 xalign 1.0
                 background "#5b241bee"
                 hover_background "#7b3124ee"
@@ -1836,6 +1838,12 @@ screen preferences():
                     textbutton _("Unseen Text") action Preference("skip", "toggle")
                     textbutton _("After Choices") action Preference("after choices", "toggle")
                     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
+
+                vbox:
+                    style_prefix "radio"
+                    label _("Language")
+                    textbutton _("English") action Language("english")
+                    textbutton _("Malay") action Language(None)
 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be
                 ## added here, to add additional creator-defined preferences.

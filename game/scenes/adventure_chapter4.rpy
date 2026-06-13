@@ -61,18 +61,18 @@ label adv_chapter4:
                 narrator "Nota mungkin lengkap, tapi niat untuk lari boleh buat Aris gagal mendekat bila simpulan perlu dibuka."
             $ adv_fear += 1
 
-    $ adv_ch4_choices = [("Suluh dengan lampu", "light")]
+    $ adv_ch4_choices = [(_("Suluh dengan lampu"), "light")]
     if adv_has_tasbih:
-        $ adv_ch4_choices.append(("Baca doa sambil pegang tasbih", "pray"))
+        $ adv_ch4_choices.append((_("Baca doa sambil pegang tasbih"), "pray"))
     if adv_has_salt:
-        $ adv_ch4_choices.append(("Tabur garam", "salt"))
-    $ adv_ch4_choices.append(("Angkat keris", "keris"))
+        $ adv_ch4_choices.append((_("Tabur garam"), "salt"))
+    $ adv_ch4_choices.append((_("Angkat keris"), "keris"))
     if adv_observed_pattern:
-        $ adv_ch4_choices.append(("Berdiri diam ikut jeda geraknya", "still"))
+        $ adv_ch4_choices.append((_("Berdiri diam ikut jeda geraknya"), "still"))
     else:
-        $ adv_ch4_choices.append(("Berdiri diam", "still"))
+        $ adv_ch4_choices.append((_("Berdiri diam"), "still"))
 
-    $ adv_night_attack = renpy.call_screen("adv_timed_choice", "Makhluk itu muncul di hujung kampung. Aris nak guna petunjuk mana dulu?", adv_ch4_choices, "freeze", 12)
+    $ adv_night_attack = renpy.call_screen("adv_timed_choice", _("Makhluk itu muncul di hujung kampung. Aris nak guna petunjuk mana dulu?"), adv_ch4_choices, "freeze", 12)
 
     if adv_night_attack == "light":
         play sound audio.sfx_flashlight_on volume 1.0
@@ -107,8 +107,8 @@ label adv_chapter4:
         $ adv_pocong_anger += 1
 
     elif adv_night_attack == "still":
-        play rhythm audio.mus_rhythm_game fadein 0.2 volume 1.35
-        $ adv_still_result = renpy.call_screen("adv_stillness", "Bunyi duk berhenti betul-betul depan Aris.", 4)
+        play rhythm audio.mus_rhythm_game fadein 0.2 volume adv_bg_rhythm_volume
+        $ adv_still_result = renpy.call_screen("adv_stillness", _("Bunyi duk berhenti betul-betul depan Aris."), 4)
         stop rhythm fadeout 1.0
         if adv_still_result == "still":
             if adv_observed_pattern:

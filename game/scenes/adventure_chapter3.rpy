@@ -5,7 +5,8 @@ label adv_chapter3:
     scene bg_village_path_day
     with fade
 
-    play ambient audio.amb_village_morning_present fadein 1.5 volume 0.25
+    $ renpy.music.set_volume(1.0, delay=0.0, channel="ambient")
+    play ambient audio.amb_village_morning_present fadein 1.5 volume adv_bg_ambient_volume
 
     show spr_mc neutral at center
     with dissolve
@@ -67,7 +68,7 @@ label adv_mak_ros_house:
     mak_ros "Tak nampak jelas. Tapi saya tahu satu benda."
     mak_ros "Dia bukan cari Nayan dari awal. Nayan cuma bergerak masa benda tu lalu."
 
-    $ adv_pick = renpy.call_screen("adv_inspection", "Rumah Mak Ros", "Rumah saksi yang menghadap jalan tempat Nayan mati.", [("Guna kamera telefon di tingkap", "camera"), ("Minta Mak Ros ulang bunyi yang dia dengar", "sound"), ("Periksa calar dekat pintu", "scratches")])
+    $ adv_pick = renpy.call_screen("adv_inspection", _("Rumah Mak Ros"), _("Rumah saksi yang menghadap jalan tempat Nayan mati."), [(_("Guna kamera telefon di tingkap"), "camera"), (_("Minta Mak Ros ulang bunyi yang dia dengar"), "sound"), (_("Periksa calar dekat pintu"), "scratches")])
 
     if adv_pick == "camera":
         narrator "Dalam kamera, bayang pucat lalu di jalan yang sama, berkali-kali."
@@ -125,8 +126,8 @@ label adv_burial_ground:
     play sound audio.sfx_flashlight_on volume 1.0
     narrator "Dia angkat lampu suluh dan biarkan cahayanya bergerak perlahan atas tanah."
 
-    $ adv_grave_hotspots = [("Tanah tak rata", "soil", 140, 700, 420, 190, "Bekas gali lama."), ("Benang putih", "thread", 940, 780, 330, 170, "Kain kafan tersangkut di bawah batu."), ("Batu nisan", "marker", 1520, 330, 300, 330, "Nama yang hampir hilang bawah lumut.")]
-    $ adv_found_grave = renpy.call_screen("adv_flashlight_search", "Kawasan Kubur", "Lampu suluh cuma cukup terang untuk satu bahagian pada satu masa.", adv_grave_hotspots, 2)
+    $ adv_grave_hotspots = [(_("Tanah tak rata"), "soil", 140, 700, 420, 190, _("Bekas gali lama.")), (_("Benang putih"), "thread", 940, 780, 330, 170, _("Kain kafan tersangkut di bawah batu.")), (_("Batu nisan"), "marker", 1520, 330, 300, 330, _("Nama yang hampir hilang bawah lumut."))]
+    $ adv_found_grave = renpy.call_screen("adv_flashlight_search", _("Kawasan Kubur"), _("Lampu suluh cuma cukup terang untuk satu bahagian pada satu masa."), adv_grave_hotspots, 2)
 
     if "soil" in adv_found_grave:
         narrator "Lampu suluh nampakkan bekas gali lama."
@@ -200,7 +201,7 @@ label adv_old_family_house:
     $ adv_add_note("Pocong itu Azlan, abang Melur")
     $ adv_add_note("Azlan dituduh membawa bala selepas menghentikan bomoh lama")
 
-    $ adv_pick = renpy.call_screen("adv_inspection", "Rumah Keluarga Lama", "Bilik ni penuh dengan duka lama: kotak berkunci, tasbih, dan surat yang dilipat terlalu banyak kali.", [("Baca surat lama", "letter"), ("Ambil tasbih", "tasbih"), ("Cari garam untuk bertahan", "salt")])
+    $ adv_pick = renpy.call_screen("adv_inspection", _("Rumah Keluarga Lama"), _("Bilik ni penuh dengan duka lama: kotak berkunci, tasbih, dan surat yang dilipat terlalu banyak kali."), [(_("Baca surat lama"), "letter"), (_("Ambil tasbih"), "tasbih"), (_("Cari garam untuk bertahan"), "salt")])
 
     if adv_pick == "letter":
         play sound audio.sfx_paper_unfold volume 1.4

@@ -17,12 +17,18 @@ define audio.amb_nayan_night = "audio/ambience/amb_nayan_night.ogg"
 define audio.amb_restaurant_crowd = "audio/ambience/amb_restaurant_crowd.ogg"
 define audio.amb_village_morning = "audio/ambience/amb_village_morning.wav"
 define audio.amb_village_morning_loud = "audio/ambience/amb_village_morning_loud.wav"
-define audio.amb_village_morning_present = "audio/ambience/amb_village_morning_present.wav"
+define audio.amb_village_morning_present = "audio/ambience/amb_village_morning_present_quiet.wav"
 define audio.mus_credits = "audio/music/mus_credits.mp3"
 define audio.mus_ending_positive = "audio/music/mus_ending_positive.mp3"
 define audio.mus_ending_negative = "audio/music/mus_ending_negative.mp3"
 define audio.mus_final_confrontation = "audio/music/mus_main_menu_try_to_survive.ogg"
 define audio.mus_rhythm_game = "audio/music/mus_rhythm_game_16.wav"
+
+# Background mix targets. Prologue and Chapter 1 use normal channel volume;
+# later chapters should use these instead of one-off loud values.
+define adv_bg_ambient_volume = 1.0
+define adv_bg_music_volume = 0.45
+define adv_bg_rhythm_volume = 0.75
 # define audio.amb_village_night = "audio/ambience/amb_village_night.ogg"
 # define audio.amb_village_day = "audio/ambience/amb_village_day.ogg"
 # define audio.amb_restaurant_evening = "audio/ambience/amb_restaurant_evening.ogg"

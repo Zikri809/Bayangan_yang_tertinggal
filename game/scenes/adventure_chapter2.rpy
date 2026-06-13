@@ -37,7 +37,7 @@ label adv_chapter2:
 
         "Berdiri diam dan perhatikan geraknya.":
             play rhythm audio.mus_rhythm_game fadein 0.2 volume 1.35
-            $ adv_still_result = renpy.call_screen("adv_stillness", "Pocong tu melompat makin dekat. Aris paksa badan dia jangan ikut panik.", 4)
+            $ adv_still_result = renpy.call_screen("adv_stillness", _("Pocong tu melompat makin dekat. Aris paksa badan dia jangan ikut panik."), 4)
             stop rhythm fadeout 1.0
             if adv_still_result == "still":
                 narrator "Aris tahan diri daripada bergerak."
@@ -66,7 +66,7 @@ label adv_chapter2:
             $ adv_aggressive_prepare = True
 
     play sound audio.sfx_pocong_cry volume 1.45
-    $ adv_first_attack = renpy.call_screen("adv_timed_choice", "Pocong tu macam menarik nafas. Satu kampung terus senyap.", [("Tutup telinga", "cover"), ("Guna kamera telefon", "camera"), ("Berdiri teguh dan perhati", "watch")], "freeze", 10)
+    $ adv_first_attack = renpy.call_screen("adv_timed_choice", _("Pocong tu macam menarik nafas. Satu kampung terus senyap."), [(_("Tutup telinga"), "cover"), (_("Guna kamera telefon"), "camera"), (_("Berdiri teguh dan perhati"), "watch")], "freeze", 10)
 
     if adv_first_attack == "cover":
         narrator "Aris sempat tutup telinga."

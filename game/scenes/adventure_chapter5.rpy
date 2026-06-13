@@ -10,7 +10,7 @@ label adv_chapter5:
     scene bg_adv_final_grave
     with fade
 
-    play music audio.mus_final_confrontation fadein 1.5 volume 0.65
+    play music audio.mus_final_confrontation fadein 1.5 volume adv_bg_music_volume
 
     show spr_mc focused at adv_right
     show spr_pocong present at adv_left
@@ -30,19 +30,19 @@ label adv_chapter5:
 
     $ adv_step_movement_choices = []
     if adv_observed_pattern:
-        $ adv_step_movement_choices.append(("Tahan diri daripada lari", "pattern"))
-    $ adv_step_movement_choices.append(("Suluh kain di bahagian kakinya", "light"))
-    $ adv_step_movement_choices.append(("Angkat keris supaya dia berundur", "keris"))
-    $ adv_step_movement_choices.append(("Lari ke belakang batu nisan", "run"))
+        $ adv_step_movement_choices.append((_("Tahan diri daripada lari"), "pattern"))
+    $ adv_step_movement_choices.append((_("Suluh kain di bahagian kakinya"), "light"))
+    $ adv_step_movement_choices.append((_("Angkat keris supaya dia berundur"), "keris"))
+    $ adv_step_movement_choices.append((_("Lari ke belakang batu nisan"), "run"))
 
-    $ adv_final_move = renpy.call_screen("adv_timed_choice", "Dia mula melompat ke arah Aris. Apa Aris buat?", adv_step_movement_choices, "freeze", 14)
+    $ adv_final_move = renpy.call_screen("adv_timed_choice", _("Dia mula melompat ke arah Aris. Apa Aris buat?"), adv_step_movement_choices, "freeze", 14)
 
     if adv_final_move == "pattern":
         stop music fadeout 0.7
-        play rhythm audio.mus_rhythm_game fadein 0.2 volume 1.35
-        $ adv_still_result = renpy.call_screen("adv_stillness", "Pocong tu datang lurus ke arah Aris. Kalau Aris bergerak, rentak dia pecah.", 4)
+        play rhythm audio.mus_rhythm_game fadein 0.2 volume adv_bg_rhythm_volume
+        $ adv_still_result = renpy.call_screen("adv_stillness", _("Pocong tu datang lurus ke arah Aris. Kalau Aris bergerak, rentak dia pecah."), 4)
         stop rhythm fadeout 1.0
-        play music audio.mus_final_confrontation fadein 1.0 volume 0.65
+        play music audio.mus_final_confrontation fadein 1.0 volume adv_bg_music_volume
         if adv_still_result == "still":
             narrator "Aris tahan diri daripada lari."
             narrator "Duk. Jeda. Duk. Jeda."
@@ -92,15 +92,15 @@ label adv_chapter5:
 
     $ adv_step_identity_choices = []
     if adv_known_identity():
-        $ adv_step_identity_choices.append(("Panggil nama Azlan", "identity"))
+        $ adv_step_identity_choices.append((_("Panggil nama Azlan"), "identity"))
     if adv_has_old_letter:
-        $ adv_step_identity_choices.append(("Baca surat Azlan", "letter"))
+        $ adv_step_identity_choices.append((_("Baca surat Azlan"), "letter"))
     if adv_has_tasbih:
-        $ adv_step_identity_choices.append(("Baca doa", "generic_pray"))
-    $ adv_step_identity_choices.append(("Paksa dia tunduk dengan keris", "force"))
-    $ adv_step_identity_choices.append(("Diam dan tunggu dia berhenti sendiri", "silent"))
+        $ adv_step_identity_choices.append((_("Baca doa"), "generic_pray"))
+    $ adv_step_identity_choices.append((_("Paksa dia tunduk dengan keris"), "force"))
+    $ adv_step_identity_choices.append((_("Diam dan tunggu dia berhenti sendiri"), "silent"))
 
-    $ adv_final_identity = renpy.call_screen("adv_timed_choice", "Dia berhenti dekat kubur, cukup dekat untuk mendengar suara Aris.", adv_step_identity_choices, "freeze", 14)
+    $ adv_final_identity = renpy.call_screen("adv_timed_choice", _("Dia berhenti dekat kubur, cukup dekat untuk mendengar suara Aris."), adv_step_identity_choices, "freeze", 14)
 
     if adv_final_identity == "identity":
         mc "Azlan."
@@ -149,17 +149,17 @@ label adv_chapter5:
 
     $ adv_step_release_choices = []
     if adv_ready_for_final_release():
-        $ adv_step_release_choices.append(("Buka simpulan perlahan-lahan", "release"))
+        $ adv_step_release_choices.append((_("Buka simpulan perlahan-lahan"), "release"))
     if adv_has_kafan_thread and adv_has_tasbih:
-        $ adv_step_release_choices.append(("Tarik simpulan itu terus", "partial_release"))
+        $ adv_step_release_choices.append((_("Tarik simpulan itu terus"), "partial_release"))
     if adv_known_burial_problem():
-        $ adv_step_release_choices.append(("Periksa simpulan di kaki dulu", "inspect_knot"))
+        $ adv_step_release_choices.append((_("Periksa simpulan di kaki dulu"), "inspect_knot"))
     if adv_has_salt:
-        $ adv_step_release_choices.append(("Tabur garam pada kain", "salt"))
-    $ adv_step_release_choices.append(("Potong kain dengan keris", "keris"))
-    $ adv_step_release_choices.append(("Berundur dari kubur", "leave"))
+        $ adv_step_release_choices.append((_("Tabur garam pada kain"), "salt"))
+    $ adv_step_release_choices.append((_("Potong kain dengan keris"), "keris"))
+    $ adv_step_release_choices.append((_("Berundur dari kubur"), "leave"))
 
-    $ adv_final_release = renpy.call_screen("adv_timed_choice", "Simpulan itu menegang. Pocong itu menggigil di depan Aris.", adv_step_release_choices, "freeze", 16)
+    $ adv_final_release = renpy.call_screen("adv_timed_choice", _("Simpulan itu menegang. Pocong itu menggigil di depan Aris."), adv_step_release_choices, "freeze", 16)
 
     if adv_final_release == "release":
         play sound audio.sfx_knot_pull volume 1.0
@@ -264,11 +264,11 @@ label adv_release_ending:
     scene bg_ending_released
     with fade
 
-    play music audio.mus_ending_positive fadein 1.0 volume 0.35 noloop
+    play music audio.mus_ending_positive fadein 1.0 volume adv_bg_music_volume noloop
     narrator "Melepaskan bukan sama dengan melupakan."
     narrator "Kadang-kadang, itulah cara paling jujur untuk menjaga orang yang masih hidup."
-    play music audio.mus_credits fadein 1.0 volume 0.5 noloop
-    $ adv_report_result = renpy.call_screen("adv_ending_report", "PENAMAT: DILEPASKAN", "Petunjuk yang Aris kumpul digunakan untuk kenal Azlan dan buka simpulan dengan niat yang betul.")
+    play music audio.mus_credits fadein 1.0 volume adv_bg_music_volume noloop
+    $ adv_report_result = renpy.call_screen("adv_ending_report", _("PENAMAT: DILEPASKAN"), _("Petunjuk yang Aris kumpul digunakan untuk kenal Azlan dan buka simpulan dengan niat yang betul."))
     call adv_positive_credits
     return
 
@@ -295,11 +295,11 @@ label adv_ignorance_ending:
     scene bg_ending_ignorance
     with fade
 
-    play music audio.mus_ending_positive fadein 1.0 volume 0.35 noloop
+    play music audio.mus_ending_positive fadein 1.0 volume adv_bg_music_volume noloop
     narrator "Tak semua yang menakutkan datang untuk membunuh."
     narrator "Bila takut dijadikan jawapan, kebenaran pun ikut tertanam."
-    play music audio.mus_credits fadein 1.0 volume 0.5 noloop
-    $ adv_report_result = renpy.call_screen("adv_ending_report", "PENAMAT: TIDAK FAHAM", "Aris selamat, tapi tak semua petunjuk digunakan dengan betul. Pocong tu dihentikan, bukan dilepaskan.")
+    play music audio.mus_credits fadein 1.0 volume adv_bg_music_volume noloop
+    $ adv_report_result = renpy.call_screen("adv_ending_report", _("PENAMAT: TIDAK FAHAM"), _("Aris selamat, tapi tak semua petunjuk digunakan dengan betul. Pocong tu dihentikan, bukan dilepaskan."))
     call adv_positive_credits
     return
 
@@ -334,10 +334,12 @@ label adv_abandon_ending:
     scene bg_ending_abandoned
     with fade
 
-    play music audio.mus_ending_negative fadein 1.0 volume 0.35 loop
+    play music audio.mus_ending_negative fadein 1.0 volume adv_bg_music_volume loop
     narrator "Benda yang ditinggalkan tak semestinya hilang."
     narrator "Kadang-kadang ia cuma tunggu orang lain tanggung akibatnya."
-    $ renpy.call_screen("adv_ending_report", "PENAMAT: DITINGGALKAN", "Aris pilih hidup, tapi siasatan tak diselesaikan. Batu Layar masih menyimpan simpulan itu.")
+    play music audio.mus_credits fadein 1.0 volume adv_bg_music_volume noloop
+    $ renpy.call_screen("adv_ending_report", _("PENAMAT: DITINGGALKAN"), _("Aris pilih hidup, tapi siasatan tak diselesaikan. Batu Layar masih menyimpan simpulan itu."))
+    call adv_positive_credits
     return
 
 
@@ -355,8 +357,10 @@ label adv_death_ending:
     scene bg_ending_buried
     with flash
 
-    play music audio.mus_ending_negative fadein 1.0 volume 0.35 loop
+    play music audio.mus_ending_negative fadein 1.0 volume adv_bg_music_volume loop
     narrator "Di tempat yang terlalu lama menyimpan luka, ragu yang sesaat pun boleh jadi terlalu mahal."
     narrator "Apa yang Aris tak berani faham akhirnya datang menuntut bayaran, senyap-senyap."
-    $ renpy.call_screen("adv_ending_report", "PENAMAT: TERKUBUR BERSAMA", "Takut dan petunjuk yang diabaikan buat Aris hilang ruang untuk memilih.")
+    play music audio.mus_credits fadein 1.0 volume adv_bg_music_volume noloop
+    $ renpy.call_screen("adv_ending_report", _("PENAMAT: TERKUBUR BERSAMA"), _("Takut dan petunjuk yang diabaikan buat Aris hilang ruang untuk memilih."))
+    call adv_positive_credits
     return
