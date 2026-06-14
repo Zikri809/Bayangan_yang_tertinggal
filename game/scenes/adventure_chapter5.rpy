@@ -124,6 +124,7 @@ label adv_chapter5:
         $ adv_understanding += 1
 
     elif adv_final_identity == "generic_pray":
+        play prayer audio.sfx_prayer_low volume 1.2
         narrator "Doa itu menahan takut dalam dada Aris, tapi doa itu tak memanggil dia dengan namanya."
         narrator "Pocong tu masih tak tahu sama ada Aris datang untuk faham, atau untuk hukum."
         $ adv_fear += 1

@@ -11,6 +11,7 @@ init python:
     renpy.music.register_channel("camera", "sfx", loop=False)
     renpy.music.register_channel("creature", "sfx", loop=False)
     renpy.music.register_channel("cutting", "sfx", loop=False)
+    renpy.music.register_channel("prayer", "sfx", loop=False)
 
 # Shared ambience and music:
 define audio.amb_nayan_night = "audio/ambience/amb_nayan_night.ogg"
@@ -73,7 +74,7 @@ define audio.sfx_paper_unfold = "audio/sfx/sfx_paper_unfold.wav"
 
 # adv_chapter4:
 define audio.sfx_keris_draw = "audio/sfx/sfx_keris_draw.wav"
-# define audio.sfx_prayer_low = "audio/sfx/sfx_prayer_low.ogg"
+define audio.sfx_prayer_low = "audio/sfx/sfx_prayer_low.ogg"
 # define audio.sfx_salt_throw = "audio/sfx/sfx_salt_throw.ogg"
 
 # adv_chapter5 and endings:

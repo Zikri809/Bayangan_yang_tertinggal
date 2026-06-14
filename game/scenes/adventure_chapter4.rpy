@@ -83,6 +83,7 @@ label adv_chapter4:
         $ adv_understanding += 1
 
     elif adv_night_attack == "pray" and adv_has_tasbih:
+        play prayer audio.sfx_prayer_low volume 1.2
         narrator "Doa tu menenangkan tangan Aris."
         narrator "Pocong tu menggigil, tapi tak menyerang."
         narrator "Untuk beberapa saat, bunyi duk di jalan kampung berhenti."
